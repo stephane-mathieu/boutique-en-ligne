@@ -38,7 +38,7 @@ class Article extends Model {
 
         return $article;
     }
-    public function findSubCategory(): array{
+    public function findSubCategory(){
 
         //select les infos de l'article choisis
         $query = $this->pdo->prepare("SELECT * FROM `sub_categories`");
