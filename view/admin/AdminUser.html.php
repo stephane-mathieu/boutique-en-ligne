@@ -109,7 +109,7 @@
                         <td> <?= $st['role']; ?> </td>
                         <td>
                             <?php echo  '<a href="adminprofil?id='.$st['id'] . '" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>';?>
-                             <?php echo '<a href="adminDelete?id='.$st['id'] . '" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>';?>
+                            <?php echo  '<a href="adminDelete?id='.$st['id'] . '" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>';?>
                         </td>
                     </tr>
                 <?php }; ?>
