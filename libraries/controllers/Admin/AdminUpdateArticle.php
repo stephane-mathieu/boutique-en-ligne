@@ -38,7 +38,6 @@ class AdminUpdateArticle extends Controllers{
                 $discount_available = $_POST['discount_available'];
                 $sub_category = $_POST['sub_category'];
                 $category1 = $_POST['category'];
-                var_dump($_POST);
                     // insert les donner dans la bdd
                     $addArticle= $this->model->UpdateArticle($title,$brand,$reference,$description,$material,$color,$packaging,$tips,$specificities,$dimensions,$stock,$price,$discount,$discount_available,$category1,$sub_category,$id_article);
                     Http::redirect("adminArticle");
