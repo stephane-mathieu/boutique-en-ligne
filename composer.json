@@ -1,0 +1,19 @@
+{
+    "name": "stephane/reservationsalles",
+
+    "authors": [{
+        "name": "stephane-mathieu",
+        "email": "mathieu.stephane@laplateforme.io"
+    }],
+    "autoload": {
+        "psr-4": {
+            "Models\\": "libraries/models/",
+            "Controllers\\": "libraries/controllers/",
+            "Controllers\\Admin\\": "libraries/controllers/Admin",
+            "Controllers\\User\\": "libraries/controllers/User"
+        }
+    },
+    "require": {
+        "altorouter/altorouter": "^2.0"
+    }
+}
