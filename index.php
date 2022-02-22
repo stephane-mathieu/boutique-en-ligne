@@ -8,7 +8,7 @@ use Controllers\AdminDashboard;
 require('vendor/autoload.php');
 
 $router = new AltoRouter();
-$router->setBasePath('/projectpool/boutique-en-ligne');
+$router->setBasePath('/boutique-en-ligne');
 //root user//
 $router->map('GET', '/home',function(){ $controller = new \Controllers\Index(); $controller->index();},'home');
 $router->map('GET/POST', '/connexion', function(){ $controller = new \Controllers\User\Connexion(); $controller->connexion();},'connexion');

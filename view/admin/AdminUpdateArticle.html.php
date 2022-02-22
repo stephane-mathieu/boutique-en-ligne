@@ -35,8 +35,9 @@
                 <div class="row mt-4">
                     <select class="form-select col-md-12 " aria-label="Default select example" name="category">
                         <option selected>category</option>
-                        <?php foreach ($category as $categorie) { ?>
-                        <option value="<?php echo $categorie['id']; ?> "><?php echo $categorie['title']; ?> </option>
+                        <?php foreach ($category as $categorie) {
+                            $id_categorie = (int) $categorie['id']  ?>
+                        <option value="<?php echo $id_categorie ?> "><?php echo $categorie['title']; ?> </option>
                     <?php } ?>
                     </select>
                 </div>
