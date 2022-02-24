@@ -12,7 +12,7 @@ require('vendor/autoload.php');
 // $tnt = new TNTSearch;
 
 $router = new AltoRouter();
-$router->setBasePath('/projectpool/boutique-en-ligne');
+$router->setBasePath('/boutique-en-ligne');
 /* Setup the URL routing. This is production ready. */
 
 
