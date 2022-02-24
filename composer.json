@@ -1,5 +1,5 @@
 {
-    "name": "stephane/reservationsalles",
+    "name": "stephane/boutique-en-ligne",
 
     "authors": [{
         "name": "stephane-mathieu",
@@ -16,4 +16,5 @@
     "require": {
         "altorouter/altorouter": "^2.0"
     }
+
 }

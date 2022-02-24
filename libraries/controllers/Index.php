@@ -12,7 +12,7 @@ class Index extends Controllers{
 
     public function index() {
 
-  
+        
         $pageTitle = "Accueil";
         Renderer::render('users/index',compact('pageTitle'));
     }
