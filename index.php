@@ -44,6 +44,13 @@ $router->map('GET/POST', '/adminInsert',function(){ $controller = new \Controlle
 
 $router->map('GET/POST', '/adminDelete',function(){ $controller = new \Controllers\Admin\AdminDeleteUser(); $controller->AdminDeleteUser();},'AdminDelete');
 
+$router->map('GET/POST', '/admincreatorsteph',function(){ $controller = new \Controllers\Admin\AdminCreator(); $controller->AdminCreator1();},'AdminCreatorsteph');
+
+$router->map('GET/POST', '/admincreatorthomas',function(){ $controller = new \Controllers\Admin\AdminCreator(); $controller->AdminCreator2();},'AdminCreatortoto');
+
+$router->map('GET/POST', '/admincreatorvalentin',function(){ $controller = new \Controllers\Admin\AdminCreator(); $controller->AdminCreator3();},'AdminCreatorval');
+
+
 
 /* Match the current request */
 $match = $router->match();
