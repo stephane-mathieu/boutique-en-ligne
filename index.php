@@ -7,6 +7,10 @@ use Controllers\Admin;
 use Controllers\AdminDashboard;
 require('vendor/autoload.php');
 
+// use TeamTNT\TNTSearch\TNTSearch;
+
+// $tnt = new TNTSearch;
+
 $router = new AltoRouter();
 $router->setBasePath('/boutique-en-ligne');
 //root user//
@@ -28,6 +32,7 @@ $router->map('GET/POST', '/adminArticle',function(){ $controller = new \Controll
 $router->map('GET/POST', '/adminUpdateArticle',function(){ $controller = new \Controllers\Admin\AdminUpdateArticle(); $controller->AdminUpdateArticle();},'AdminArticleUpdate');
 
 
+$router->map('GET/POST', '/adminInsertArticle',function(){ $controller = new \Controllers\Admin\AdminInsertArticle(); $controller->AdminInsertArticle();},'AdminInsertArticle');
 // $router->map('GET/POST', '/adminCommande',function(){ $controller = new \Controllers\AdminCommande(); $controller->AdminCommande();},'AdminCommande');
 
 $router->map('GET/POST', '/adminInsert',function(){ $controller = new \Controllers\Admin\AdminInsertUser(); $controller->AdminInsert();},'AdminInsert');
@@ -35,6 +40,7 @@ $router->map('GET/POST', '/adminInsert',function(){ $controller = new \Controlle
 $router->map('GET/POST', '/adminDelete',function(){ $controller = new \Controllers\Admin\AdminDeleteUser(); $controller->AdminDeleteUser();},'AdminDelete');
 
 
+/* Match the current request */
 $match = $router->match();
 if (is_array($match)){
     if(is_callable($match['target'])){

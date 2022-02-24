@@ -37,20 +37,7 @@ class AdminInsertUser extends Controllers{
                 $lastname = $_POST['lastname'];
                 $adress = $_POST['adress'];
                 $date = date('Y-m-d H:i');
-    
-                // if(empty($_POST['login'])){
-                //     $errors['login'] = "Your login is not valid";
-                // } else {
-                //     //recupere les informations de lutilisateur choisis pour verifier si il ya pas deja le meme login
-                //     $loginCheckResult= $this->model->findAllInfoUser($email);
-                //     if(count($loginCheckResult) != 0){
-                //     // $errors['login'] = "Login not available";
-                //     echo '<div class=" alert12  text-white ">';
-                //     echo "Your login is not valid";
-                //     echo '</div>';
-                //     }
-                // }
-    
+                
                 if(empty($_POST['password'])){
                     $errors['password'] = "You must enter a valid password";
                     echo $errors['password'];
