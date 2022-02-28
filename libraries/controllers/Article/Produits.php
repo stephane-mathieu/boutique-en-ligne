@@ -10,20 +10,26 @@ class Produits extends Controllers{
 
     protected $modelName = \Models\Article::class;
 
-
     public function Produits(){
 
         session_start();
+
+        $all_products = $this->model->DisplayAllProducts();
+
         
-            $pageTitle = "Produits";
-            Renderer::render2('articles/produits', compact('pageTitle'));
-        
+        $pageTitle = "Produits";
+        Renderer::render('articles/produits', compact('pageTitle', 'allproducts'));
+
 
     }
 
 
-
-
 }
+
+
+
+
+
+
 
 ?>
