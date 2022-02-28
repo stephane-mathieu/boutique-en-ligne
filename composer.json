@@ -10,7 +10,8 @@
             "Models\\": "libraries/models/",
             "Controllers\\": "libraries/controllers/",
             "Controllers\\Admin\\": "libraries/controllers/Admin",
-            "Controllers\\User\\": "libraries/controllers/User"
+            "Controllers\\User\\": "libraries/controllers/User",
+            "Controllers\\Article\\": "libraries/controllers/Article"
         }
     },
     "require": {

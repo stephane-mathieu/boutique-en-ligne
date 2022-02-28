@@ -14,6 +14,7 @@ class ComposerStaticInitb2f08c86fb7a714a8b64ef1b6f3dce46
         'C' => 
         array (
             'Controllers\\User\\' => 17,
+            'Controllers\\Article\\' => 20,
             'Controllers\\Admin\\' => 18,
             'Controllers\\' => 12,
         ),
@@ -28,6 +29,10 @@ class ComposerStaticInitb2f08c86fb7a714a8b64ef1b6f3dce46
         array (
             0 => __DIR__ . '/../..' . '/libraries/controllers/User',
         ),
+        'Controllers\\Article\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/libraries/controllers/Article',
+        ),
         'Controllers\\Admin\\' => 
         array (
             0 => __DIR__ . '/../..' . '/libraries/controllers/Admin',
@@ -40,7 +45,6 @@ class ComposerStaticInitb2f08c86fb7a714a8b64ef1b6f3dce46
 
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
