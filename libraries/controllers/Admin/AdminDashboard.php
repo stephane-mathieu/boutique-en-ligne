@@ -13,9 +13,9 @@ class AdminDashboard extends Controllers{
         
         session_start();
         if($_SESSION['role'] == "admin"){
-            // $user= $this->model->findAllUser();
+            $user= $this->model->findAllInfoUser($_SESSION['email']);
             $pageTitle = "Admin";
-            Renderer::render2('admin/Dashboard', compact('pageTitle'));
+            Renderer::render2('admin/Dashboard', compact('pageTitle','user'));
         }else{
             Http::redirect("home");
         }
