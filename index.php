@@ -25,6 +25,13 @@ $router->map('GET/POST', '/inscription',function(){ $controller = new \Controlle
 $router->map('GET/POST', '/profil',function(){ $controller = new \Controllers\User\Profil(); $controller->profil();},'profil');
 $router->map('GET/POST', '/deconnexion',function(){ $controller = new \Controllers\User\Deconnexion(); $controller->deconnexion();},'deconnexion');
 
+
+//root Article//
+$router->map('GET/POST', '/produits',function(){ $controller = new \Controllers\Article\Produits(); $controller->Produits();},'Produits');
+
+
+
+
 //rootAdmin//
 $router->map('GET/POST', '/adminuser',function(){$controller = new \Controllers\Admin\AdminUser();$controller->AdminUser();},'AdminUSer');
 

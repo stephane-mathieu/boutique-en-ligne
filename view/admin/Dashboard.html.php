@@ -22,8 +22,12 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="adminCommande" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Commande</span></a>
+                    </li>
+                    <li>
                         <a href="admincreatorsteph" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Creator</span></a>
+                        <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Creator</span></a>
                     </li>
                 </ul>
                 <hr>
@@ -50,8 +54,7 @@
                             <div class="card-block">
                                 <h4 class="m-b-20">Articles</h4>
                                 <p class="m-b-0">Nombre d’articles : <span class="f-right">351</span></p>
-                                <p class="m-b-0">Liste des articles : <span class="f-right">351</span></p>
-                                <p class="m-b-0">Nombre d’articles : <span class="f-right">351</span></p>
+                                <h6 class="m-b-20"><a href="adminArticle" class="nav-link px-0 text-white"> Liste des articles </a></h6>
                                 <p class="m-b-0">Rechercher un article : <span class="f-right">351</span></p>
                                 <p class="m-b-0">Modifier un article : <span class="f-right">351</span></p>
                             </div>
