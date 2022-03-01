@@ -108,7 +108,6 @@ class Article extends Model {
 
         $categories = $listing->fetchAll();
 
-        var_dump($categories) ;
         return $categories;
     }
 
@@ -122,7 +121,6 @@ class Article extends Model {
 
         $sub_categories = $listing->fetchAll();
 
-        var_dump($sub_categories) ;
         return $sub_categories;
     }
 }

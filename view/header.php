@@ -1,7 +1,7 @@
-<?php
+<!-- <?php
 
 $user = $_SESSION['role'];
-?>
+?> -->
 
 
 <!DOCTYPE html>
