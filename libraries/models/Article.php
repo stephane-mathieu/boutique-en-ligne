@@ -83,14 +83,19 @@ class Article extends Model {
 
     public function DisplayAllProducts() {
 
-        $query = "SELECT products.id, image1, title, brand, id_category, id_sub_category, introduction, price, discount, discount_available, stock FROM products";
+        $query = "SELECT products.id, image1, products.title, brand, products.id_category, products.id_sub_category, introduction, price, discount, discount_available, stock, category, sub_category FROM products
+        INNER JOIN categories ON categories.id = products.id_category 
+        INNER JOIN sub_categories ON sub_categories.id = products.id_sub_category";
         $array_products = $this->pdo->prepare($query);
-        $array_products->setFetchMode(PDO::FETCH_ASSOC);
+        $array_products->setFetchMode(\PDO::FETCH_ASSOC);
         $array_products->execute();
 
         $all_products = $array_products->fetchAll();
 
         var_dump($all_products);
+
+        return $all_products ;
+        
     }
 }
 

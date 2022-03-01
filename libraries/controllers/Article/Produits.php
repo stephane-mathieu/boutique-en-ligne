@@ -16,9 +16,8 @@ class Produits extends Controllers{
 
         $all_products = $this->model->DisplayAllProducts();
 
-        
         $pageTitle = "Produits";
-        Renderer::render('articles/produits', compact('pageTitle', 'allproducts'));
+        Renderer::render('articles/produits', compact('pageTitle', 'all_products'));
 
 
     }
