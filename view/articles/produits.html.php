@@ -18,31 +18,25 @@
 
             <div class="categories">
 
-                <h5>Catégories</h5>
+                <?php
 
-                <h6>Briquets</h6>
+                    foreach ( $all_categories as $category) {
 
-                <ul>
-                    <li>Briquets cigares</li>
-                    <li>Briquets électriques</li>
-                    <li>Briquets essence</li>
-                </ul>
+                        echo "<h6>".$category['category']."</h6>
 
-                <h6>Briquets jetables</h6>
+                        <ul> ";
 
-                <ul>
-                    <li>Briquets BIC</li>
-                    <li>Briquets Clipper</li>
-                </ul>
+                            foreach ($all_sub_categories as $sub_category) {
 
-                <h6>Zippo</h6>
+                                if ($sub_category['id_category'] == $category['id']) {
 
-                <ul>
-                    <li>Briquets Zippo</li>
-                    <li>Étui Zippo</li>
-                    <li>Accessoires Zippo</li>
-                </ul>
+                                    echo "<li>".$sub_category['sub_category']."</li>" ;
+                                }
+                            }
+                        echo "</ul>";
+                    }
 
+                ?>
 
             </div>
 
@@ -69,7 +63,7 @@
 
                     </div> ";
                 }
-                ?>
+                ?> 
 
             </div>
 

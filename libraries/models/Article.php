@@ -81,6 +81,8 @@ class Article extends Model {
 
     }
 
+
+    // Retourne un tableau avec tous les produits et leurs infos pour la page produits
     public function DisplayAllProducts() {
 
         $query = "SELECT products.id, image1, products.title, brand, products.id_category, products.id_sub_category, introduction, price, discount, discount_available, stock, category, sub_category FROM products
@@ -92,10 +94,36 @@ class Article extends Model {
 
         $all_products = $array_products->fetchAll();
 
-        var_dump($all_products);
-
         return $all_products ;
         
+    }
+
+    // Retourne un tableau avec toutes les catégories pour la page produits permettant de trier les produits par catégories
+    public function ListingCategories(){
+
+        $query = "SELECT * FROM categories ";
+        $listing = $this->pdo->prepare($query);
+        $listing->setFetchMode(\PDO::FETCH_ASSOC);
+        $listing->execute();
+
+        $categories = $listing->fetchAll();
+
+        var_dump($categories) ;
+        return $categories;
+    }
+
+    // Retourne un tableau avec toutes les sous catégories pour la page produits permettant de trier les produits par sous catégories
+    public function ListingSubCategories(){
+
+        $query = "SELECT * FROM sub_categories ";
+        $listing = $this->pdo->prepare($query);
+        $listing->setFetchMode(\PDO::FETCH_ASSOC);
+        $listing->execute();
+
+        $sub_categories = $listing->fetchAll();
+
+        var_dump($sub_categories) ;
+        return $sub_categories;
     }
 }
 

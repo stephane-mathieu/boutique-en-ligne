@@ -15,9 +15,11 @@ class Produits extends Controllers{
         session_start();
 
         $all_products = $this->model->DisplayAllProducts();
+        $all_categories = $this->model->ListingCategories();
+        $all_sub_categories = $this->model->ListingSubCategories();
 
         $pageTitle = "Produits";
-        Renderer::render('articles/produits', compact('pageTitle', 'all_products'));
+        Renderer::render('articles/produits', compact('pageTitle', 'all_products', 'all_categories', 'all_sub_categories'));
 
 
     }
