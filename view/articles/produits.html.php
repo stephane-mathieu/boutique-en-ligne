@@ -50,6 +50,7 @@
 
                     <?php foreach ($all_products as $product) { 
                         echo "
+
                         <div class='product'>
 
                             <div class='box_img'><img class='p_image' src='".$product['image1']."'></div>
