@@ -61,7 +61,7 @@
                 <?php foreach ($Article as $st) {  ?>
                     <tr>
                         <td> <?= $st['id']; ;?> </td>
-                        <td> <img src="./<?php echo $st['image1']; ?>"></td>
+                        <td> <img src="<?php echo $st['image1']; ?>" width="50px" height="50px"></td>
                         <td> <?= $st['title']; ?> </td>
                         <td> <?= $st['description']; ?> </td>
                         <td> <?= $st['price']; ?> </td>

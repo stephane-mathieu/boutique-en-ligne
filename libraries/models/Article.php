@@ -2,6 +2,8 @@
 
 namespace Models;
 
+use PDO;
+
 
 class Article extends Model {
 
@@ -122,6 +124,36 @@ class Article extends Model {
         $sub_categories = $listing->fetchAll();
 
         return $sub_categories;
+    }
+
+
+    public function DisplayAllProductsByCat($nom_categorie) {
+
+        $query = ("SELECT products.id, image1, products.title, brand, products.id_category, products.id_sub_category, introduction, price, discount, discount_available, stock, category, id_sub_category FROM products
+        INNER JOIN categories ON categories.id = products.id_category
+        WHERE categories.category = '$nom_categorie'");
+        $array_products = $this->pdo->prepare($query);
+        $array_products->setFetchMode(\PDO::FETCH_ASSOC);
+        $array_products->execute();
+
+        $all_products = $array_products->fetchAll();
+
+        return $all_products ;
+        
+    }
+    public function DisplayAllProductsBySubCat($nom_sub_categorie) {
+
+        $query = ("SELECT products.id, products.image1, products.title, products.brand, products.id_category, products.id_sub_category, products.introduction, products.price, products.discount, products.discount_available, products.stock, products.id_category, products.id_sub_category FROM products 
+        INNER JOIN sub_categories ON sub_categories.id = products.id_sub_category
+        WHERE sub_categories.sub_category = '$nom_sub_categorie'");
+        $array_products = $this->pdo->prepare($query);
+        $array_products->setFetchMode(\PDO::FETCH_ASSOC);
+        $array_products->execute();
+
+        $all_products = $array_products->fetchAll();
+
+        return $all_products ;
+        
     }
 }
 
