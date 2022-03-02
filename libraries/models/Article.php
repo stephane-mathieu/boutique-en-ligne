@@ -155,6 +155,19 @@ class Article extends Model {
         return $all_products ;
         
     }
+
+    
+    //select les infos de l'article choisis
+    public function DisplayArticlePage(): array{
+
+        $query = "SELECT * FROM `products` WHERE `id` = '".@$_GET['val']."'";
+        $array_product = $this->pdo->prepare($query);
+        $array_product->setFetchMode(\PDO::FETCH_ASSOC);
+        $array_product->execute();
+        $product = $array_product->fetchall();
+
+        return $product;
+    }
 }
 
 ?>
