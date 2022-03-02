@@ -48,7 +48,7 @@
 
                         <div class='product'>
 
-                            <div class='box_img'><img class='p_image' src='".$product['image1']."'></div>
+                        <div class='box_img'><a href='produit?id=". $product['id'] ."><img class='p_image' src='".$product['image1']."'></a></div>
 
                             <div class='box_texte'>
                                 <div><h6>".$product['title']." / ".$product['brand']."</h6></div>
