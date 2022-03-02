@@ -31,8 +31,6 @@ class Article extends Model {
         return $article;
     }
 
-
-    //select les infos de l'article choisis
     public function findCategory(): array{
 
         $query = $this->pdo->prepare("SELECT * FROM `categories`");

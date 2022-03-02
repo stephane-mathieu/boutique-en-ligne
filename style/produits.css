@@ -1,19 +1,18 @@
 main {
-    width:90%;
-    text-align:center;
+    width: 90%;
+    text-align: center;
     margin: 0 auto;
-    margin-top:3%;
-    
+    margin-top: 3%;
 }
 
 section {
-    text-align:left;
+    text-align: left;
 }
 
 h4 {
-    font-size:18px;
-    font-weight:bold;
-    margin-bottom:10%;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10%;
 }
 
 h5 {
@@ -21,100 +20,92 @@ h5 {
     font-size: 16px;
 }
 
-
 .categories {
     width: 15%;
-    position:fixed;
-    background-color:#E5E5E5;
-    border-radius:2%;
-    padding:1%;
-    font-size:14px;
-    margin-bottom:2%;
-    margin-top:3%;
-   
-    
+    position: fixed;
+    background-color: #E5E5E5;
+    border-radius: 2%;
+    padding: 1%;
+    font-size: 14px;
+    margin-bottom: 2%;
+    margin-top: 3%;
 }
 
-
 .products_list {
-    display:flex;
-    flex-wrap:wrap;
-    width:90%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
     position: relative;
-    left:20%;
+    left: 20%;
 }
 
 .product {
-    display:flex;
-    flex-direction:column;
-    width:22%;
-    margin:3%;
-    background-color:#fbfbfb88;
+    display: flex;
+    flex-direction: column;
+    width: 22%;
+    margin: 3%;
+    background-color: #fbfbfb88;
 }
 
 .box_img {
-    width:100%;
-    background-color:white;
-    text-align:center;
-    margin-bottom:10%;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    margin-bottom: 10%;
 }
 
 .box_texte {
-    background-color:#FBFBFB;
+    background-color: #FBFBFB;
     padding: 3%;
-    border-radius:2%;
+    border-radius: 2%;
 }
 
 .p_image {
-    width:100%;
-    height:auto;
-    width:70%;
+    width: 100%;
+    height: auto;
+    width: 70%;
 }
 
 h6 {
-    font-size:14px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 .p_category {
-    font-size:13px;
+    font-size: 13px;
     font-weight: bold;
-    margin-bottom:1%;
+    margin-bottom: 1%;
 }
 
 .p_intro {
-    font-size:11px;
-    margin-bottom:5%;
+    font-size: 11px;
+    margin-bottom: 5%;
 }
 
-input[type=number]{
-    width:100%;
-    font-size:12px;
+input[type=number] {
+    width: 100%;
+    font-size: 12px;
 }
 
 .price_cart {
-    display:flex;
-    text-align:center;
-    flex-direction:row;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
     justify-content: space-around;
 }
 
 .icone {
-    width:100%;
-    height:auto;
-    width:30%;
+    width: 100%;
+    height: auto;
+    width: 30%;
 }
 
 .price {
-    font-size:14px;
-    font-weight:bold;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 a {
-    text-decoration:none;
+    text-decoration: none;
     color: black;
 }
-
-
-
-

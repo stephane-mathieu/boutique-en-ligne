@@ -15,7 +15,7 @@
 
             <section>
 
-                <div class="categories">
+                <div class="categories position-absolute">
 
                     <h4>Catégories</h4>
 
@@ -49,7 +49,8 @@
                         <div class='product'>
 
                             <div class='box_img'>
-                                <a href='produit?id=". $product['id'] ."'><img class='p_image' src='".$product['image1']."'></a>
+                                <a href='produit?id=". $product['id'] ."'>
+                                <img class='p_image' src='".$product['image1']."'></a>
                             </div>
 
                             <div class='box_texte'>

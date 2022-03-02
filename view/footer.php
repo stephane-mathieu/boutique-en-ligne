@@ -1,47 +1,60 @@
-  <!-- Footer -->
-<footer class="page-footer font-small cyan darken-3 fixed-button">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Footer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style/footer.css">
+</head>
 
-<!-- Footer Elements -->
+<footer class="container-fluid bg-grey py-5">
 <div class="container">
-
-  <!-- Grid row-->
-  <div class="row">
-
-    <!-- Grid column -->
-    <div class="col-md-12 ">
-      <div class="mb-5 flex-center">
-
-        <!-- Facebook -->
-        <a class="fb-ic" href="http://www.facebook.com/">
-          <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-        </a>
-        <!-- Twitter -->
-        <a class="tw-ic" href="http://www.twitter.com">
-          <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-        </a>
-        <!-- Github +-->
-        <a class="gplus-ic"  href="https://github.com/stephane-mathieu/reservation-salles">
-        <i class="fab fa-github fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-        </a>
-        <!--Linkedin -->
-        <a  class="li-ic" href="http://www.linkedin.com">
-          <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-        </a>
-        <!--Instagram-->
-        <a class="ins-ic" href="http://www.instagram.com">
-          <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-        </a>
-        <!--Pinterest-->
-        <a class="pin-ic"  href="http://www.pinterest.com">
-          <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
-        </a>
+   <div class="row">
+      <div class="col-md-6">
+         <div class="row">
+            <div class="col-md-6 ">
+               <div class="logo-part">
+                  <img src="/boutique-en-ligne/view/assets/logo.png" alt="logo" class="w-50 logo-footer">
+                  <p>8 Rue d'Hozier, 13002 Marseille</p>
+               </div>
+            </div>
+            <div class="col-md-6 px-4">
+               <h6> Contactez-nous</h6>
+               <p>+33 4 42 00 00 00</p><br>
+               <p>contact@ilighter.com</p></a>
+            </div>
+         </div>
       </div>
-    </div>
-    <!-- Grid column -->
-  </div>
+      <div class="col-md-6">
+         <div class="row">
+            <div class="col-md-6 px-4">
+               <h6> Navigation</h6>
+               <div class="row ">
+                  <div class="col-md-6">
+                     <ul>
+                        <li> <a href="#"> Accueil</a> </li>
+                        <li> <a href="#"> A propos</a> </li>
+                        <li> <a href="#"> Contact</a> </li>
+                     </ul>
+                  </div>
+                  <div class="col-md-6 px-4">
+                     <ul>
+                        <li> <a href="#"> Briquets</a> </li>
+                        <li> <a href="#"> Briquets jetables</a> </li>
+                        <li> <a href="#"> Zippo</a> </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6 ">
+               <h6>Réseaux sociaux</h6>
+               <div class="social">
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
-
-</footer>
-<!-- Footer -->
 </div>
-</footer>

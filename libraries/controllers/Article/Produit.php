@@ -13,10 +13,16 @@ class Produit extends Controllers{
     public function Produit(){
 
         session_start();
-
-        $pageTitle = "Produit";
-        Renderer::render('articles/produit', compact('pageTitle'));
-
+        if(isset($_GET['id'])){
+            $id_article = htmlspecialchars($_GET['id']);
+            $article = $this->model->findinfoArticle($id_article);
+    
+            $pageTitle = "Produit";
+            Renderer::render('articles/produit', compact('pageTitle','article'));
+    
+        }else
+        Http::redirect("produits");
+      
 
     }
 

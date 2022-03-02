@@ -7,9 +7,7 @@ use Controllers\Admin;
 use Controllers\AdminDashboard;
 require('vendor/autoload.php');
 
-// use TeamTNT\TNTSearch\TNTSearch;
 
-// $tnt = new TNTSearch;
 
 $router = new AltoRouter();
 $router->setBasePath('/boutique-en-ligne');
@@ -19,6 +17,8 @@ $router->map('GET/POST', '/connexion', function(){ $controller = new \Controller
 $router->map('GET/POST', '/inscription',function(){ $controller = new \Controllers\User\Inscription(); $controller->inscription();},'inscription');
 $router->map('GET/POST', '/profil',function(){ $controller = new \Controllers\User\Profil(); $controller->profil();},'profil');
 $router->map('GET/POST', '/deconnexion',function(){ $controller = new \Controllers\User\Deconnexion(); $controller->deconnexion();},'deconnexion');
+
+
 
 
 //root Article//
