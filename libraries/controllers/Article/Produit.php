@@ -6,7 +6,7 @@ use Models\Http;
 use Models\Renderer;
 use Controllers\Controllers;
 
-class Produits extends Controllers{
+class Produit extends Controllers{
 
     protected $modelName = \Models\Article::class;
 

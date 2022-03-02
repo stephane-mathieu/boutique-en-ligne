@@ -23,6 +23,7 @@ $router->map('GET/POST', '/deconnexion',function(){ $controller = new \Controlle
 
 //root Article//
 $router->map('GET/POST', '/produits',function(){ $controller = new \Controllers\Article\Produits(); $controller->Produits();},'Produits');
+$router->map('GET/POST', '/produit',function(){ $controller = new \Controllers\Article\Produit(); $controller->Produit();},'Produit');
 
 
 
