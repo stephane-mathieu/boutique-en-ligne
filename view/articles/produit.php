@@ -9,7 +9,7 @@
 
         <meta charset="utf-8">
         <title>Produits</title>
-        <link rel="stylesheet" href="style/produits.css">
+        <link rel="stylesheet" href="style/produit.css">
 
     </head>
 
@@ -20,6 +20,16 @@
             <h1>Tous nos produits</h1>
 
             <section>
+
+                <div class="flex-container-1">
+
+                </div>
+
+                <div class="flex-container-1">
+                    
+                </div>
+
+               
 
                
 
