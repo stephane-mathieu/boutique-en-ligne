@@ -11,8 +11,7 @@ class Index extends Controllers{
     protected $modelName = \Models\User::class;
 
     public function index() {
-
-        
+        session_start();
         $pageTitle = "Accueil";
         Renderer::render('users/index',compact('pageTitle'));
     }

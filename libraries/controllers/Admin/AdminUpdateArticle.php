@@ -22,22 +22,22 @@ class AdminUpdateArticle extends Controllers{
             $sub_categories = $this->model->findSubCategory();
 
             if(isset($_POST['submit'])){
-                $title = $_POST['title'];
-                $brand = $_POST['brand'];
-                $reference = $_POST['reference'];
-                $description = $_POST['description'];
-                $material = $_POST['material'];
-                $color = $_POST['colors'];
-                $packaging = $_POST['packaging'];
-                $tips = $_POST['tips'];
-                $specificities = $_POST['specificities'];
-                $dimensions = $_POST['dimensions'];
-                $stock = $_POST['stock'];
-                $price = $_POST['price'];
-                $discount = $_POST['discount'];
-                $discount_available = $_POST['discount_available'];
-                $sub_category = $_POST['sub_category'];
-                $category1 = $_POST['category'];
+                $title = htmlspecialchars($_POST['title']);
+                $brand = htmlspecialchars($_POST['brand']);
+                $reference = htmlspecialchars($_POST['reference']);
+                $description = htmlspecialchars($_POST['description']);
+                $material = htmlspecialchars($_POST['material']);
+                $color = htmlspecialchars($_POST['colors']);
+                $packaging = htmlspecialchars($_POST['packaging']);
+                $tips = htmlspecialchars($_POST['tips']);
+                $specificities = htmlspecialchars($_POST['specificities']);
+                $dimensions = htmlspecialchars($_POST['dimensions']);
+                $stock = htmlspecialchars($_POST['stock']);
+                $price = htmlspecialchars($_POST['price']);
+                $discount = htmlspecialchars($_POST['discount']);
+                $discount_available = htmlspecialchars($_POST['discount_available']);
+                $sub_category = htmlspecialchars($_POST['sub_category']);
+                $category1 = htmlspecialchars($_POST['category']);
                     // insert les donner dans la bdd
                     $addArticle= $this->model->UpdateArticle($title,$brand,$reference,$description,$material,$color,$packaging,$tips,$specificities,$dimensions,$stock,$price,$discount,$discount_available,$category1,$sub_category,$id_article);
                     Http::redirect("adminArticle");

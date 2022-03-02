@@ -30,12 +30,12 @@ class AdminInsertUser extends Controllers{
                 // Erreurs possibles
                 $errors = array();
                 // $login = $_POST['login'];
-                $password = $_POST['password'];
-                $email = $_POST['email'];
-                $NumberPhone = $_POST['number'];
-                $firstname = $_POST['firstname'];
-                $lastname = $_POST['lastname'];
-                $adress = $_POST['adress'];
+                $password =  htmlspecialchars($_POST['password']);
+                $email = htmlspecialchars($_POST['email']);
+                $NumberPhone = htmlspecialchars($_POST['number']);
+                $firstname = htmlspecialchars($_POST['firstname']);
+                $lastname = htmlspecialchars($_POST['lastname']);
+                $adress = htmlspecialchars($_POST['adress']);
                 $date = date('Y-m-d H:i');
                 
                 if(empty($_POST['password'])){
