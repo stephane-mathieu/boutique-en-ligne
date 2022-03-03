@@ -46,16 +46,12 @@
 
                     </div>
                     <div class="carousel-item">
-                        <!-- <img class="d-block w-100" src="https://dummyimage.com/855x365/a30ca3/fff" alt="Second slide"> -->
                         <?php  echo "<img class='img-fluid' src='".$article[0]['image2']."'>";?>
-
                     </div>
                     <div class="carousel-item">
-                        <!-- <img class="d-block w-100" src="https://dummyimage.com/855x365/1443ff/fff" alt="Third slide"> -->
                         <?php  echo "<img class='img-fluid' src='".$article[0]['image3']."'>";?>
                     </div>
                     <div class="carousel-item">
-                        <!-- <img class="d-block w-100" src="https://dummyimage.com/855x365/1443ff/fff" alt="Third slide"> -->
                         <?php  echo "<img class='img-fluid' src='".$article[0]['image4']."'>";?>
                     </div>
                 </div>

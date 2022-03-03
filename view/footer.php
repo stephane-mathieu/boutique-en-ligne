@@ -32,16 +32,16 @@
                <div class="row ">
                   <div class="col-md-6">
                      <ul>
-                        <li> <a href="#"> Accueil</a> </li>
+                        <li> <a href="home"> Accueil</a> </li>
                         <li> <a href="#"> A propos</a> </li>
                         <li> <a href="#"> Contact</a> </li>
                      </ul>
                   </div>
                   <div class="col-md-6 px-4">
                      <ul>
-                        <li> <a href="#"> Briquets</a> </li>
-                        <li> <a href="#"> Briquets jetables</a> </li>
-                        <li> <a href="#"> Zippo</a> </li>
+                        <li> <a href="produits?category=Briquets"> Briquets</a> </li>
+                        <li> <a href="produits?category=Briquets%20jetables"> Briquets jetables</a> </li>
+                        <li> <a href="produits?category=Zippo"> Zippo</a> </li>
                      </ul>
                   </div>
                </div>
