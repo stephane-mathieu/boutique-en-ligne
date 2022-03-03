@@ -1,102 +1,54 @@
-<!DOCTYPE html>
-<html lang="fr">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
-    <!-- Site meta -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Panier</title>
-    <!-- CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+<title>Votre panier</title>
 </head>
 <body>
 
-<div class="container mb-4">
-    <div class="row">
-        <div class="col-12">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col"> </th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Available</th>
-                            <th scope="col" class="text-center">Quantity</th>
-                            <th scope="col" class="text-right">Price</th>
-                            <th> </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                            <td>Product Name Dada</td>
-                            <td>In stock</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">124,90 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                            <td>Product Name Toto</td>
-                            <td>In stock</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">33,90 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                            <td>Product Name Titi</td>
-                            <td>In stock</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">70,00 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>Sub-Total</td>
-                            <td class="text-right">255,90 €</td>
-                        </tr>
-                        <!-- <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>Shipping</td>
-                            <td class="text-right">6,90 €</td>
-                        </tr> -->
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><strong>Total</strong></td>
-                            <td class="text-right"><strong>346,90 €</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col mb-2">
-            <div class="row">
-                <div class="col-sm-12  col-md-6">
-                    <button class="btn btn-block btn-light">Continue Shopping</button>
-                </div>
-                <div class="col-sm-12 col-md-6 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- JS -->
-<script src="//code.jquery.com/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" type="text/javascript"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
+<form method="post" action="panier.php">
+<table style="width: 400px">
+    <tr>
+        <td colspan="4">Votre panier</td>
+    </tr>
+    <tr>
+        <td>Libellé</td>
+        <td>Quantité</td>
+        <td>Prix Unitaire</td>
+        <td>Action</td>
+    </tr>
 
+
+    <?php
+    if ($CreateCart())
+    {
+       $nbArticles=count($_SESSION['cart']['titleArticle']);
+       if ($nbArticles <= 0)
+       echo "<tr><td>Votre panier est vide </ td></tr>";
+       else
+       {
+          for ($i=0 ;$i < $nbArticles ; $i++)
+          {
+             echo "<tr>";
+             echo "<td>".htmlspecialchars($_SESSION['cart']['titleArticle'][$i])."</ td>";
+             echo "<td><input type=\"text\" size=\"4\" name=\"q[]\" value=\"".htmlspecialchars($_SESSION['cart']['qteArticle'][$i])."\"/></td>";
+             echo "<td>".htmlspecialchars($_SESSION['cart']['prixProduit'][$i])."</td>";
+             echo "<td><a href=\"".htmlspecialchars("panier.php?action=suppression&l=".rawurlencode($_SESSION['cart']['titleArticle'][$i]))."\">XX</a></td>";
+             echo "</tr>";
+          }
+
+          echo "<tr><td colspan=\"2\"> </td>";
+          echo "<td colspan=\"2\">";
+          echo "Total : ". $TotalPrice;
+          echo "</td></tr>";
+
+          echo "<tr><td colspan=\"4\">";
+          echo "<input type=\"submit\" value=\"Rafraichir\"/>";
+          echo "<input type=\"hidden\" name=\"action\" value=\"refresh\"/>";
+
+          echo "</td></tr>";
+       }
+    }
+    ?>
+</table>
+</form>
 </body>
 </html>
