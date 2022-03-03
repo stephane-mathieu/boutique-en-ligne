@@ -80,7 +80,7 @@
                     <p class="intro"><?php echo $article[0]['introduction'] ?>... <a href="#description"> > </a></p>
                     <p class="price"><?php echo $article[0]['price'] ?> €</p>
                     <!-- <p class="price_discounted">149.90 $</p> -->
-                    <form method="get" action="cart.html">
+                    <form method="post">
                         <div class="form-group">
                             <label>Quantité :</label>
                             <div class="input-group mb-3">
@@ -89,7 +89,7 @@
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
-                                <input type="text" class="form-control"  id="quantity" name="quantity" min="1" max="100" value="1">
+                                <input type="text" class="form-control"  id="quantity" name="quantity" min="1" max="<?php echo $article[0]['stock']?>" value="1">
                                 <div class="input-group-append">
                                     <button type="button" class="quantity-right-plus btn btn-orange btn-number" data-type="plus" data-field="">
                                         <i class="fa fa-plus"></i>
