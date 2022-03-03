@@ -15,7 +15,7 @@ class Panier extends Controllers{
       session_start();
 
       $pageTitle = "Panier";
-      Renderer::render('articles/panier', compact('pageTitle','TotalPrice','CreateCart'));
+      Renderer::render('articles/panier', compact('pageTitle'));
       
 
     }
