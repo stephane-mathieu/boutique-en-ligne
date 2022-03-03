@@ -1,3 +1,4 @@
+
 .bloc_left_price {
     color: #c01508;
     text-align: center;
@@ -6,7 +7,7 @@
 }
 
 .category_block li:hover {
-    background-color: #007bff;
+    background-color: orange;
 }
 
 .category_block li:hover a {
@@ -18,7 +19,7 @@
 }
 
 .add_to_cart_block .price {
-    color: #c01508;
+    color:black;
     text-align: center;
     font-weight: bold;
     font-size: 200%;
@@ -69,3 +70,50 @@
 .carousel .carousel-indicators li {
     background-color: red;
 }
+
+.btn-orange {
+    background-color: rgb(255, 166, 0);
+}
+
+.btn-black {
+    background-color: black;
+}
+
+.title {
+    font-size:1.2em;
+    font-weight:800;
+}
+
+.intro {
+    font-size: 1em;
+    font-weight:600;
+}
+
+a {
+    text-decoration:none;
+    color: black;
+}
+
+.bg-orange{
+    background-color:rgb(255, 166, 0);
+    
+}
+
+.text-black {
+    font-weight:600;
+}
+
+
+.fa-minus {
+    color: black;
+}
+
+.white-text {
+    color:white;
+}
+
+.white-text:hover {
+    color:rgb(255, 166, 0);
+}
+
+

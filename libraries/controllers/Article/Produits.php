@@ -13,13 +13,16 @@ class Produits extends Controllers{
     public function Produits(){
 
         session_start();
+
         $all_products = $this->model->DisplayAllProducts();
         $all_categories = $this->model->ListingCategories();
         $all_sub_categories = $this->model->ListingSubCategories();
+
         if(isset($_GET['category'])){
             $nom_categorie = htmlspecialchars($_GET['category']);
             $all_products = $this->model->DisplayAllProductsByCat($nom_categorie);
         }
+        
         if(isset($_GET['sub_category'])){
             $nom_sub_categorie = htmlspecialchars($_GET['sub_category']);
             $all_products = $this->model-> DisplayAllProductsBySubCat($nom_sub_categorie);

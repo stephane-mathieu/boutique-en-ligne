@@ -76,36 +76,37 @@
         <div class="col-12 col-lg-6 add_to_cart_block">
             <div class="card bg-light mb-3">
                 <div class="card-body">
-                    <p class="price"><?php echo $article[0]['price'] ?> $</p>
+                    <p class="title"><?php echo $article[0]['title'] ?></p>
+                    <p class="intro"><?php echo $article[0]['introduction'] ?>... <a href="#description"> > </a></p>
+                    <p class="price"><?php echo $article[0]['price'] ?> €</p>
                     <!-- <p class="price_discounted">149.90 $</p> -->
                     <form method="get" action="cart.html">
                         <div class="form-group">
-                            <label>Quantity :</label>
+                            <label>Quantité :</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                    <button type="button" class="quantity-left-minus btn btn-orange btn-number"  data-type="minus" data-field="">
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
                                 <input type="text" class="form-control"  id="quantity" name="quantity" min="1" max="100" value="1">
                                 <div class="input-group-append">
-                                    <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                    <button type="button" class="quantity-right-plus btn btn-orange btn-number" data-type="plus" data-field="">
                                         <i class="fa fa-plus"></i>
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        <a href="cart.html" class="btn btn-success btn-lg btn-block text-uppercase">
-                            <i class="fa fa-shopping-cart"></i> Add To Cart
+                        <a href="cart.html" class="btn btn-black btn-lg btn-block text-uppercase white-text">
+                            <i class="fa fa-shopping-cart white-text orange-hover"></i> AJOUTER AU PANIER
                         </a>
+
+                        <a href="produits.html" class="btn btn-black btn-lg btn-block text-uppercase white-text">
+                            CONTINUER VOS ACHATS
+                        </a>
+
                     </form>
-                    <div class="product_rassurance">
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><i class="fa fa-truck fa-2x"></i><br/>Fast delivery</li>
-                            <li class="list-inline-item"><i class="fa fa-credit-card fa-2x"></i><br/>Secure payment</li>
-                            <li class="list-inline-item"><i class="fa fa-phone fa-2x"></i><br/>+33 1 22 54 65 60</li>
-                        </ul>
-                    </div>
+
                     <div class="reviews_product p-3 mb-2 ">
                         3 reviews
                         <i class="fa fa-star"></i>
@@ -123,9 +124,9 @@
 
     <div class="row">
         <!-- Description -->
-        <div class="col-12">
+        <div id="description" class="col-12">
             <div class="card border-light mb-3">
-                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-align-justify"></i> Description</div>
+                <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify " ></i> Description</div>
                 <div class="card-body">
                     <p class="card-text">
                         <?php echo $article[0]['description']; ?>
@@ -134,10 +135,46 @@
             </div>
         </div>
 
+        <!-- Material -->
+        <div class="col-12">
+            <div class="card border-light mb-3">
+                <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify " ></i> Matières & Couleurs & Dimensions</div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Matières : <?php echo $article[0]['material']; ?>
+                    </p>
+
+                    <p class="card-text">
+                        Couleurs : <?php echo $article[0]['colors']; ?>
+                    </p>
+
+                    <p class="card-text">
+                        Dimensions : <?php echo $article[0]['dimensions']; ?>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div id="description" class="col-12">
+            <div class="card border-light mb-3">
+                <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify " ></i> Description</div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <?php echo $article[0]['description']; ?>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        
+
         <!-- Reviews -->
         <div class="col-12" id="reviews">
             <div class="card border-light mb-3">
-                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-comment"></i> Reviews</div>
+                <div class="card-header bg-black text-white text-uppercase"><i class="fa fa-comment"></i> Reviews</div>
                 <div class="card-body">
                     <div class="review">
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
@@ -221,3 +258,4 @@
 </script>
 </body>
 </html>
+
