@@ -11,7 +11,7 @@
             "Controllers\\": "libraries/controllers/",
             "Controllers\\Admin\\": "libraries/controllers/Admin",
             "Controllers\\User\\": "libraries/controllers/User",
-            "Controllers\\Article\\": "libraries/controllers/Article"
+            "Controllers\\Panier\\": "libraries/controllers/Panier"
         }
     },
     "require": {

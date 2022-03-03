@@ -136,10 +136,6 @@ class Cart extends Model {
         unset($_SESSION['cart']);
     }
 
-    
-
-
-
 
 
 }

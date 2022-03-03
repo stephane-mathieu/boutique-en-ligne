@@ -14,7 +14,7 @@ class ComposerStaticInitb2f08c86fb7a714a8b64ef1b6f3dce46
         'C' => 
         array (
             'Controllers\\User\\' => 17,
-            'Controllers\\Article\\' => 20,
+            'Controllers\\Panier\\' => 19,
             'Controllers\\Admin\\' => 18,
             'Controllers\\' => 12,
         ),
@@ -29,9 +29,9 @@ class ComposerStaticInitb2f08c86fb7a714a8b64ef1b6f3dce46
         array (
             0 => __DIR__ . '/../..' . '/libraries/controllers/User',
         ),
-        'Controllers\\Article\\' => 
+        'Controllers\\Panier\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/libraries/controllers/Article',
+            0 => __DIR__ . '/../..' . '/libraries/controllers/Panier',
         ),
         'Controllers\\Admin\\' => 
         array (
