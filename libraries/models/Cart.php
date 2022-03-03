@@ -26,7 +26,7 @@ class Cart extends Model {
     public function AddArticle($titleArticle,$qteArticle,$priceArticle){
 
         //Si le panier existe
-        if ( CreateCart() && !isLocked() ) {
+        if ( CreateCart() && !IsLocked() ) {
 
             //Si le produit existe déjà on ajoute seulement la quantité
             $positionArticle = array_search($titleArticle,  $_SESSION['cart']['titleArticle']);
@@ -51,7 +51,7 @@ class Cart extends Model {
     public function DeleteArticle($titleArticle){
         
         //Si le panier existe
-        if (creationCart() && !islockerille()) {
+        if (CreateCart() && !IsLocked()) {
 
             //Nous allons passer par un panier temporaire
             $tmp=array();
@@ -83,17 +83,17 @@ class Cart extends Model {
     public function UpdateQteArticle($titleArticle,$qteArticle){
 
         //Si le panier existe
-        if (creationPanier() && !isVerrouille()) {
+        if (CreateCart() && !IsLocked()) {
 
             //Si la quantité est positive on modifie sinon on supprime l'article
-            if ($qteProduit > 0) {
+            if ($qteArticle > 0) {
 
                 //Recherche du produit dans le panier
-                $positionProduit = array_search($libelleProduit,  $_SESSION['panier']['libelleProduit']);
+                $positionArticle = array_search($libelleArticle,  $_SESSION['cart']['titleArticle']);
 
-                if ($positionProduit !== false) {
+                if ($positionArticle !== false) {
 
-                    $_SESSION['panier']['qteProduit'][$positionProduit] = $qteProduit ;
+                    $_SESSION['cart']['qteArticle'][$positionArticle] = $qteArticle ;
                 }
             }
 
@@ -117,7 +117,7 @@ class Cart extends Model {
         return $total;
     }
     
-    public function isLocked(){
+    public function IsLocked(){
 
         if (isset($_SESSION['cart']) && $_SESSION['cart']['locker']) {
             return true;
