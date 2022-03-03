@@ -46,16 +46,12 @@
 
                     </div>
                     <div class="carousel-item">
-                        <!-- <img class="d-block w-100" src="https://dummyimage.com/855x365/a30ca3/fff" alt="Second slide"> -->
                         <?php  echo "<img class='img-fluid' src='".$article[0]['image2']."'>";?>
-
                     </div>
                     <div class="carousel-item">
-                        <!-- <img class="d-block w-100" src="https://dummyimage.com/855x365/1443ff/fff" alt="Third slide"> -->
                         <?php  echo "<img class='img-fluid' src='".$article[0]['image3']."'>";?>
                     </div>
                     <div class="carousel-item">
-                        <!-- <img class="d-block w-100" src="https://dummyimage.com/855x365/1443ff/fff" alt="Third slide"> -->
                         <?php  echo "<img class='img-fluid' src='".$article[0]['image4']."'>";?>
                     </div>
                 </div>
@@ -80,7 +76,7 @@
                     <p class="intro"><?php echo $article[0]['introduction'] ?>... <a href="#description"> > </a></p>
                     <p class="price"><?php echo $article[0]['price'] ?> €</p>
                     <!-- <p class="price_discounted">149.90 $</p> -->
-                    <form method="get" action="cart.html">
+                    <form method="get" action="#">
                         <div class="form-group">
                             <label>Quantité :</label>
                             <div class="input-group mb-3">
