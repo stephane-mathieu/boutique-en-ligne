@@ -78,7 +78,7 @@
                         <p class="intro"><?php echo $article[0]['introduction'] ?>... <a href="#description"> > </a></p>
                         <p class="price"><?php echo $article[0]['price'] ?> €</p>
                         <!-- <p class="price_discounted">149.90 $</p> -->
-                        <form method="post" action="panier.html.php">
+                        <form method="post">
                             <div class="form-group">
                                 <label>Quantité :</label>
                                 <div class="input-group mb-3">
@@ -96,11 +96,11 @@
                                 </div>
                             </div>
 
-                            <button type="button" name="addtocart" class="btn btn-black btn-lg btn-block text-uppercase white-text">
+                            <?php echo "<a href='panier?id=".$article[0]['id']."' name='addtocart' class='btn btn-black btn-lg btn-block text-uppercase white-text'>"; ?>
                                 <i class="fa fa-shopping-cart white-text orange-hover"></i> AJOUTER AU PANIER
-                            </button>
+                            </a>
 
-                            <a href="produits.html" class="btn btn-black btn-lg btn-block text-uppercase white-text">
+                            <a href="produits" class="btn btn-black btn-lg btn-block text-uppercase white-text">
                                 CONTINUER VOS ACHATS
                             </a>
 

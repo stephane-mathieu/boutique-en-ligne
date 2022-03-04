@@ -17,13 +17,9 @@ class Produit extends Controllers{
         if(isset($_GET['id'])){
             $id_article = htmlspecialchars($_GET['id']);
             $article = $this->model->findinfoArticle($id_article);
-
-            if(isset($_POST['addtocart'])) {
-                $CreateCart = $this->model->CreateCart();
-            }   
     
             $pageTitle = "Produit";
-            Renderer::render('articles/produit', compact('pageTitle','article', 'CreateCart'));
+            Renderer::render('articles/produit', compact('pageTitle','article'));
     
         }else
         Http::redirect("produits");

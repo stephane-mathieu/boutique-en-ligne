@@ -8,12 +8,13 @@ use Controllers\Controllers;
 
 class Index extends Controllers{
 
-    protected $modelName = \Models\User::class;
+    protected $modelName = \Models\Article::class;
 
     public function index() {
         session_start();
+        $all_products = $this->model->DisplayAllProducts();
         $pageTitle = "Accueil";
-        Renderer::render('users/index',compact('pageTitle'));
+        Renderer::render('users/index',compact('pageTitle','all_products'));
     }
 
 }

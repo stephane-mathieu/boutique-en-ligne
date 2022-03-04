@@ -1,3 +1,12 @@
+<?php
+
+
+// session_destroy();
+
+$panier = $_SESSION['panier'];
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,6 +26,7 @@
         <div class="col-12">
             <div class="table-responsive">
                 <table class="table table-striped">
+                <form method="post">
                     <thead>
                         <tr>
                             <th scope="col"> </th>
@@ -28,38 +38,24 @@
                         </tr>
                     </thead>
                     <tbody>
+                <?php
+                foreach($panier as $key1)
+                {
+                    $art = $model->findinfoArticle($key1);
+                   foreach ($art as $st) {  ?>
                         <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                            <td>Product Name Dada</td>
+                            <td><img src="<?php echo $st['image1']; ?>" width="50px" height="50px"></td>
+                            <td> <?= $st['title']; ?> </td>
                             <td>In stock</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">124,90 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                            <td><input class="form-control" name="stock" type="text" value="1" /></td>
+                            <td class="text-right"> <?= $st['price'] ." €"; ?> </td>
+                            <td>
+                                <?php echo "<a href='deletepanier?id=".$st['id']."' name='addtocart' class='btn btn-black btn-lg btn-block text-uppercase white-text'> Delete"; ?>
+                            </td>
                         </tr>
-                        <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                            <td>Product Name Toto</td>
-                            <td>In stock</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">33,90 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
-                            <td>Product Name Titi</td>
-                            <td>In stock</td>
-                            <td><input class="form-control" type="text" value="1" /></td>
-                            <td class="text-right">70,00 €</td>
-                            <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>Sub-Total</td>
-                            <td class="text-right">255,90 €</td>
-                        </tr>
+                        <?php }; ?>
+                    <?php }; ?>
+                     
                         <!-- <tr>
                             <td></td>
                             <td></td>
@@ -77,16 +73,22 @@
                             <td class="text-right"><strong>346,90 €</strong></td>
                         </tr>
                     </tbody>
+                </form>
                 </table>
             </div>
         </div>
         <div class="col mb-2">
             <div class="row">
                 <div class="col-sm-12  col-md-6">
-                    <button class="btn btn-block btn-light">Continue Shopping</button>
+                    <!-- <button class="btn btn-block btn-light">Continue Shopping</button> -->
+                    <?php echo "<a href='produits' name='produits' class='btn btn-black btn-lg btn-block text-uppercase white-text'>"; ?>
+                                <i class="fa fa-shopping-cart white-text orange-hover"></i> CONTINUER VOS ACHATS
+                    </a>
                 </div>
                 <div class="col-sm-12 col-md-6 text-right">
-                    <button class="btn btn-lg btn-block btn-success text-uppercase">Checkout</button>
+                <?php echo "<a href='payement' name='produits' class='btn btn-black btn-lg btn-block text-uppercase white-text'>"; ?>
+                                <i class="fa fa-shopping-cart white-text orange-hover"></i> PAYER
+                    </a>
                 </div>
             </div>
         </div>
