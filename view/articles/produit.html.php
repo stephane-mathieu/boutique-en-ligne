@@ -96,7 +96,7 @@
                                 </div>
                             </div>
 
-                            <?php echo "<a href='panier?id=".$article[0]['id']."' name='addtocart' class='btn btn-black btn-lg btn-block text-uppercase white-text'>"; ?>
+                            <?php echo "<a href='addtocart?id=".$article[0]['id']."' name='addtocart' class='btn btn-black btn-lg btn-block text-uppercase white-text'>"; ?>
                                 <i class="fa fa-shopping-cart white-text orange-hover"></i> AJOUTER AU PANIER
                             </a>
 

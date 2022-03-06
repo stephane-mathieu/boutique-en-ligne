@@ -8,29 +8,42 @@ use Controllers\Controllers;
 
 class Panier extends Controllers{
 
-   protected $modelName = \Models\Article::class;
+  protected $modelName = \Models\Cart::class;
 
-   public function Panier(){
+  public function Panier(){
 
-    $model = new \Models\Article();
-      session_start();
-     
-      $_SESSION['idA'] = $_GET['id'];
-      $id = $_SESSION['idA'] ;  //id du produit, pourrait être un nombre
-        // La ligne suivante remet le tableau à zéro, on ne l'utilise que si il n'existe pas
-        if(!isset($_SESSION['panier']))
-            $_SESSION['panier'] = array();
-        
-        // ajout d'un élément
-        $_SESSION['panier'][$id] = $id;
+    $model = new \Models\Cart();
+    
+    session_start();
 
+    $products = $this->model->ProductsInCart();
 
+    $total = $this->model->TotalPrice();
+    $panier = '';
+    $delete_cart = '';
 
-      $pageTitle = "Panier";
-      Renderer::render('articles/panier', compact('pageTitle','model'));
-      
+    if (isset($_GET['del'])) {
+      $panier = $this->model->DeleteProduct($_GET['del']);
+    }
+
+    if (isset($_GET['DelCart'])) {
+      $delete_cart = $this->model->DeleteCart();
 
     }
+
+    if (isset($_POST['cart'])) {
+      $recalculate = $this->model->Recalculate();
+    }
+
+    $products_number = $this->model->CountProducts();
+
+    
+
+    $pageTitle = "Panier";
+    Renderer::render('articles/panier', compact('pageTitle','model','products', 'panier', 'total', 'products_number', 'delete_cart', 'recalculate'));
+      
+
+  }
 
 
 }

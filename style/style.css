@@ -82,3 +82,9 @@
 .content-container {
     padding-left: 220px;
 }
+
+.product_img {
+    width:100%;
+    height:auto;
+    width:100px;
+}

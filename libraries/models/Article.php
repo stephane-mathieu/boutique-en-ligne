@@ -162,9 +162,9 @@ class Article extends Model {
         $array_product = $this->pdo->prepare($query);
         $array_product->setFetchMode(\PDO::FETCH_ASSOC);
         $array_product->execute();
-        $product = $array_product->fetch();
+        $product = $array_product->fetchAll();
 
-        var_dump($product);
+        
         return $product;
     }
 }
