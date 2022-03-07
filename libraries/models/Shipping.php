@@ -17,10 +17,10 @@
                 'address' =>$address,
                 'zipcode' =>$zipcode,
                 'city' =>$city,
-                'country' =>$country,
+                'country' =>$country
             ];
 
-            $query = "INSERT INTO shipping (firstname, lastname, address, zipcode, city, country) VALUES (:firstname, :lastname, :address, :zipcode, :city, :country";
+            $query = "INSERT INTO shippings (firstname, lastname, address, zipcode, city, country) VALUES (:firstname, :lastname, :address, :zipcode, :city, :country)";
             $register = $this->pdo->prepare($query);
             $register->execute($data);
         }

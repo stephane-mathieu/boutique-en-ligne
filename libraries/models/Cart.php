@@ -41,25 +41,31 @@
 
         public function ProductsInCart() {
 
-            $ids = array_keys($_SESSION['cart']);
-            $separator = ",";
+            if(isset($_SESSION['cart'])) {
+
+                $ids = array_keys($_SESSION['cart']);
+                $separator = ",";
 
 
-            if (empty($ids)) {
-                $products = array();
-                
+                if (empty($ids)) {
+                    $products = array();
+                    
+                }
+
+                else {
+                    $query = "SELECT id, title, price, image1, stock FROM products WHERE id IN (".implode($separator, $ids).")";
+                    $products_cart = $this->pdo->prepare($query);
+                    $products_cart->setFetchMode(\PDO::FETCH_OBJ);
+                    $products_cart->execute();
+
+                    $products = $products_cart->fetchAll();
+                }
+
+                return $products;
+
             }
 
-            else {
-                $query = "SELECT id, title, price, image1, stock FROM products WHERE id IN (".implode($separator, $ids).")";
-                $products_cart = $this->pdo->prepare($query);
-                $products_cart->setFetchMode(\PDO::FETCH_OBJ);
-                $products_cart->execute();
-
-                $products = $products_cart->fetchAll();
-            }
-
-            return $products;
+            
         }
 
 
@@ -78,25 +84,29 @@
 
             $total = 0;
 
-            $ids = array_keys($_SESSION['cart']);
-            $separator = ",";
+            if(isset($_SESSION['cart'])) {
 
-            if (empty($ids)) {
-                $products = array();
-            }
+                $ids = array_keys($_SESSION['cart']);
+                $separator = ",";
 
-            else {
-                $query = "SELECT id, price FROM products WHERE id IN (".implode($separator, $ids).")";
-                $products_cart = $this->pdo->prepare($query);
-                $products_cart->setFetchMode(\PDO::FETCH_OBJ);
-                $products_cart->execute();
+                if (empty($ids)) {
+                    $products = array();
+                }
 
-                $products = $products_cart->fetchAll();
-            }
+                else {
+                    $query = "SELECT id, price FROM products WHERE id IN (".implode($separator, $ids).")";
+                    $products_cart = $this->pdo->prepare($query);
+                    $products_cart->setFetchMode(\PDO::FETCH_OBJ);
+                    $products_cart->execute();
+
+                    $products = $products_cart->fetchAll();
+                }
 
 
-            foreach($products as $product) { 
-                $total += $product->price * $_SESSION['cart'][$product->id];
+                foreach($products as $product) { 
+                    $total += $product->price * $_SESSION['cart'][$product->id];
+                }
+
             }
 
             return $total;
@@ -111,7 +121,13 @@
         }
 
         public function CountProducts() {
-            return array_sum($_SESSION['cart']);
+
+            if(isset($_SESSION['cart'])) {
+
+                return array_sum($_SESSION['cart']);
+
+            }
+            
         }
  
     }

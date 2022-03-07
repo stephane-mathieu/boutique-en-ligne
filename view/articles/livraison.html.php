@@ -1,17 +1,5 @@
 <body>
-    <main class="main_form">
-    <!-- Parcoure les potentielles erreurs -->
-    <?php if(!empty($errors)): ?>
-            <div class="errors">
-                <p>You have not completed the form correctly.</p>
-                </ul>
-                    <?php foreach($errors as $error): ?>
-                        <li><?php echo $error; ?></li>
 
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-    <?php endif; ?>
 
 <section class="inscription">
   <div class="container py-5 h-100">
@@ -43,7 +31,7 @@
                     <div class="form_error"><?php if (isset($err_lastname)) { echo $err_lastname ;} ?></div>
                   </div>
                   <div class="form-outline mb-4">
-                    <input type="email" id="form2Example17"  name="address" value="<?php if(isset($address)) { echo $address ;}?>"  class="form-control form-control-lg" />
+                    <input type="text" id="form2Example17"  name="address" value="<?php if(isset($address)) { echo $address ;}?>" class="form-control form-control-lg" />
                     <label class="form-label" for="form2Example17">Adresse</label>
                     <div class="form_error"><?php if (isset($err_address)) { echo $err_address ;} ?></div>
                   </div>
@@ -78,5 +66,4 @@
   </div>
 </section>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
