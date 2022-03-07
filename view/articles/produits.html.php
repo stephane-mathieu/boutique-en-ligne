@@ -61,7 +61,6 @@
                                 <div class='price_cart'>
 
                                     <div class='price'>".$product['price']."€</div>
-                                    <div><input type='number' value='1' min='1' max='".$product['stock']."'></div>
                                     <div><a href='addtocart?id=".$product['id']."'><img class='icone' src='https://i.ibb.co/BsppLF6/image.png' alt='add_to_cart_icon'></a></div>
                                 </div>
 
