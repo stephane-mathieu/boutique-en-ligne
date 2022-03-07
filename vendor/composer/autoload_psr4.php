@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Stripe\\' => array($vendorDir . '/stripe/stripe-php/lib'),
     'Models\\' => array($baseDir . '/libraries/models'),
     'Controllers\\User\\' => array($baseDir . '/libraries/controllers/User'),
     'Controllers\\Panier\\' => array($baseDir . '/libraries/controllers/Panier'),
