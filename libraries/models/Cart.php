@@ -102,9 +102,10 @@
         }
 
         public function Recalculate() {
-            $_SESSION['cart'] = $_POST['cart']['quantity'];
+            foreach($_SESSION['cart'] as $product_id => $quantity) {
+                $_SESSION['cart'][$product_id] = $_POST['cart']['quantity'][$product_id];
 
-            return $_SESSION['cart'] ;
+            }
 
         }
 

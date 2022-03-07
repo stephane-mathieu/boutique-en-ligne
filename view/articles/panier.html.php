@@ -59,9 +59,18 @@
                                     " ; }
                                 ?> 
 
+                                <tr>
                                     <td class='text-right'><input type='submit' class='bi-bi-calculator' name='recalculate' value='Mettre à jour'></button></td>
+                                </tr>
 
                                     </form>
+
+                                <tr>
+                                    <td class='text-center'><a href="panier?DelCart"><button class="bi-bi-calculator">Supprimer le panier</button></a></td>
+                                </tr>
+
+
+
 
 
                                 <tr>
@@ -101,7 +110,7 @@
         <div class="col mb-2">
 
             <div class="col-sm-12 col-md-6 text-right">
-                <a href="panier?DelCart"><button class="btn btn-lg btn-block btn-danger text-uppercase">Supprimer le panier</button></a>
+                
             </div>
             
 
