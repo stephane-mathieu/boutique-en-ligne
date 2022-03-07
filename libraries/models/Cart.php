@@ -43,8 +43,6 @@
 
             if(isset($_SESSION['cart'])) {
 
-                var_dump($_SESSION['cart']);
-
                 $ids = array_keys($_SESSION['cart']);
                 $separator = ",";
 

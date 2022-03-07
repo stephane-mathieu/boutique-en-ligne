@@ -9,17 +9,19 @@ use Controllers\Controllers;
 class Cartvalidation extends Controllers{
 
     protected $modelName = \Models\Order::class;
+    protected $modelName2 = \Models\Cart::class;
 
     public function CartValidation() {
 
         session_start();
 
-        $model = new \Models\Order();
+        $model = new \Models\Cart();
 
-        $cart_to_order = $this->model->CartToOrder();
+        $cart = $this->model->ProductsInCart() ;
 
+        var_dump($cart);
         $pageTitle = "Validation_panier";
-        Renderer::render('articles/cartvalidation', compact('pageTitle','model'));
+        Renderer::render('articles/cartvalidation', compact('pageTitle','model','model2','cart'));
 
     }
 }
