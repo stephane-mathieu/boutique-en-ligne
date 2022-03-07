@@ -85,7 +85,7 @@
             }
 
             else {
-                $query = "SELECT id, price FROM products WHERE id IN (".implode($ids,$separator).")";
+                $query = "SELECT id, price FROM products WHERE id IN (".implode($separator, $ids).")";
                 $products_cart = $this->pdo->prepare($query);
                 $products_cart->setFetchMode(\PDO::FETCH_OBJ);
                 $products_cart->execute();
