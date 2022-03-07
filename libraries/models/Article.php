@@ -167,6 +167,22 @@ class Article extends Model {
         
         return $product;
     }
+
+    public function DisplayAllProductsBySeach($nom){
+        $query = ("SELECT products.id, image1, products.title, brand, products.id_category, products.id_sub_category, introduction, price, discount, discount_available, stock, category, id_sub_category FROM products
+        INNER JOIN categories ON categories.id = products.id_category
+        WHERE categories.category = '$nom'
+        UNION
+        SELECT products.id, products.image1, products.title, products.brand, products.id_category, products.id_sub_category, products.introduction, products.price, products.discount, products.discount_available, products.stock, products.id_category, products.id_sub_category FROM products 
+        INNER JOIN sub_categories ON sub_categories.id = products.id_sub_category
+        WHERE sub_categories.sub_category = '$nom'");
+        $array_products = $this->pdo->prepare($query);
+        $array_products->setFetchMode(\PDO::FETCH_ASSOC);
+        $array_products->execute();
+
+    }
 }
+
+
 
 ?>

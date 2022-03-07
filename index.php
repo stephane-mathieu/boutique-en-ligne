@@ -5,6 +5,7 @@ use Models\Http;
 use Controllers\User;
 use Controllers\Admin;
 use Controllers\AdminDashboard;
+use Controllers\Panier\Addtocart;
 require('vendor/autoload.php');
 
 
@@ -27,6 +28,10 @@ $router->map('GET/POST', '/produit',function(){ $controller = new \Controllers\A
 $router->map('GET/POST', '/addtocart',function(){ $controller = new \Controllers\Panier\Addtocart(); $controller->AddToCart();},'Addtocart');
 $router->map('GET/POST', '/panier',function(){ $controller = new \Controllers\Panier\Panier(); $controller->Panier();},'Panier');
 $router->map('GET/POST', '/deletepanier',function(){ $controller = new \Controllers\Panier\Deletepanier(); $controller->DeletePanier();},'DeletePanier');
+
+
+$router->map('GET/POST', '/recherche',function(){ $controller = new \Controllers\Article\Recherche(); $controller->Produits();},'Recherche');
+
 $router->map('GET/POST', '/payement',function(){ $controller = new \Controllers\Article\Payement(); $controller->Payement();},'Payement');
 
 
