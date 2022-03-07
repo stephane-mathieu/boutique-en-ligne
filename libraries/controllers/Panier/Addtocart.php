@@ -30,7 +30,6 @@ class AddToCart extends Controllers{
 
         $pageTitle = "Ajouter_au_panier";
 
-        Header('Location: produits');
 
         Renderer::render('articles/addtocart', compact('pageTitle','model','product'));
       

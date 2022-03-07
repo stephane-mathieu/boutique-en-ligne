@@ -43,31 +43,34 @@
 
             if(isset($_SESSION['cart'])) {
 
+                var_dump($_SESSION['cart']);
+
                 $ids = array_keys($_SESSION['cart']);
                 $separator = ",";
 
-
                 if (empty($ids)) {
                     $products = array();
-                    
                 }
 
                 else {
-                    $query = "SELECT id, title, price, image1, stock FROM products WHERE id IN ('".implode($separator, $ids)."')";
+                    $query = "SELECT id, title, price, image1, stock FROM products WHERE id IN (".implode($separator, $ids).")";
                     $products_cart = $this->pdo->prepare($query);
                     $products_cart->setFetchMode(\PDO::FETCH_OBJ);
                     $products_cart->execute();
 
                     $products = $products_cart->fetchAll();
+
+                    var_dump($query);
+                    var_dump($products);
                 }
 
                 return $products;
+
+               
                 
             }
 
             
-
-
             
         }
 
