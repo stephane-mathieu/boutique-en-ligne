@@ -36,7 +36,7 @@ class Panier extends Controllers{
 
     }
 
-    if (isset($_POST['cart'])) {
+    if (isset($_POST['cart']['quantity'])) {
       $recalculate = $this->model->Recalculate();
     }
 

@@ -20,6 +20,7 @@
             if (isset($_POST['submit'])) {
 
                 $valid = true;
+                $shipping = '';
 
                 $firstname = htmlspecialchars(trim(ucwords(strtolower($_POST['firstname']))));
                 $lastname = htmlspecialchars(trim(ucwords(strtolower($_POST['lastname']))));

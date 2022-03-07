@@ -54,16 +54,16 @@
                                             </td>
                                             <td><input class='form-control' type='number' name='cart[quantity][".$product->id."]' value=".$_SESSION['cart'][$product->id]." /></td>
                                             <td class='text-right'>".$product->price * $_SESSION['cart'][$product->id] ."€</td>
-                                    </form>
+                                    
                                         
                                         <td class='text-right'><a href='panier?del=".$product->id."'><button class='btn btn-sm btn-danger'><i class='fa fa-trash'></i></button></a> </td>
                                         </tr> 
                                     " ; }
                                 ?> 
 
-                                <form method="post">
+                             
                                     <tr>
-                                    <td class='text-right'><input type='submit' class='bi-bi-calculator' name='recalculate' value='Mettre à jour'></button></td>
+                                    <td class='text-right'><input type='submit' class='bi-bi-calculator' value='Mettre à jour'></td>
                                     </tr>
                                 </form>
 
@@ -121,7 +121,7 @@
                     <a href='produits'><button class="btn btn-block btn-light">Continuer vos achats</button></a>
                 </div>
                 <div class="col-sm-12 col-md-6 text-right">
-                    <a href='livraison'><button class="btn btn-lg btn-block btn-success text-uppercase">Valider le panier</button></a>
+                    <a href='cartvalidation'><button class="btn btn-lg btn-block btn-success text-uppercase">Valider le panier</button></a>
                 </div>
             </div>
         </div>

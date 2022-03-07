@@ -53,7 +53,7 @@
                 }
 
                 else {
-                    $query = "SELECT id, title, price, image1, stock FROM products WHERE id IN (".implode($separator, $ids).")";
+                    $query = "SELECT id, title, price, image1, stock FROM products WHERE id IN ('".implode($separator, $ids)."')";
                     $products_cart = $this->pdo->prepare($query);
                     $products_cart->setFetchMode(\PDO::FETCH_OBJ);
                     $products_cart->execute();
@@ -62,8 +62,11 @@
                 }
 
                 return $products;
-
+                
             }
+
+            
+
 
             
         }
@@ -94,7 +97,7 @@
                 }
 
                 else {
-                    $query = "SELECT id, price FROM products WHERE id IN (".implode($separator, $ids).")";
+                    $query = "SELECT id, price FROM products WHERE id IN ('".implode($separator, $ids)."')";
                     $products_cart = $this->pdo->prepare($query);
                     $products_cart->setFetchMode(\PDO::FETCH_OBJ);
                     $products_cart->execute();
@@ -113,10 +116,12 @@
         }
 
         public function Recalculate() {
-            foreach($_SESSION['cart'] as $product_id => $quantity) {
-                $_SESSION['cart'][$product_id] = $_POST['cart']['quantity'][$product_id];
 
+            foreach($_SESSION['cart'] as $product_id => $quantity ) {
+
+             $_SESSION['cart'][$product_id] = $_POST['cart']['quantity'][$product_id];
             }
+
 
         }
 
