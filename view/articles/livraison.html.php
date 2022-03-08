@@ -36,7 +36,7 @@
                     <div class="form_error"><?php if (isset($err_address)) { echo $err_address ;} ?></div>
                   </div>
                   <div class="form-outline mb-4">
-                    <input type="number" id="form2Example17"  name="zipcode" value="<?php if(isset($zipcode)) { echo $zipcode ;}?>"  class="form-control form-control-lg" />
+                    <input type="text" id="form2Example17"  name="zipcode" value="<?php if(isset($zipcode)) { echo $zipcode ;}?>"  class="form-control form-control-lg" />
                     <label class="form-label" for="form2Example17">Code Postal </label>
                     <div class="form_error"><?php if (isset($err_zipcode)) { echo $err_zipcode ;} ?></div>
                   </div>

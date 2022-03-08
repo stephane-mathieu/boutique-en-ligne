@@ -17,6 +17,8 @@ class Produit extends Controllers{
         if(isset($_GET['id'])){
             $id_article = htmlspecialchars($_GET['id']);
             $article = $this->model->findinfoArticle($id_article);
+
+            var_dump($article);
     
             $pageTitle = "Produit";
             Renderer::render('articles/produit', compact('pageTitle','article'));

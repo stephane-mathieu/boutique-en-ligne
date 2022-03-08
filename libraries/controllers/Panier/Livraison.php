@@ -17,10 +17,17 @@
 
             $model = new \Models\Shipping();
 
+            $valid = true;
+            $shipping = '';
+            $err_firstname ='';
+            $err_lastname='';
+            $err_address='';
+            $err_city='';
+            $err_country='';
+
             if (isset($_POST['submit'])) {
 
-                $valid = true;
-                $shipping = '';
+
 
                 $firstname = htmlspecialchars(trim(ucwords(strtolower($_POST['firstname']))));
                 $lastname = htmlspecialchars(trim(ucwords(strtolower($_POST['lastname']))));
@@ -100,7 +107,7 @@
             }
 
             $pageTitle = "Livraison";
-            Renderer::render('articles/livraison', compact('pageTitle','model', 'shipping'));
+            Renderer::render('articles/livraison', compact('pageTitle','model', 'shipping', 'err_firstname', 'err_lastname', 'err_address', 'err_city', 'err_country'));
         
         }
     }

@@ -59,11 +59,11 @@
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
+                                <span class="sr-only">Précédent</span>
                             </a>
                             <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
+                                <span class="sr-only">Suivant</span>
                             </a>
                         </div>
                     </div>
@@ -139,13 +139,24 @@
                 <div class="card border-light mb-3">
                     <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify "></i> Matières & Couleurs & Dimensions</div>
                     <div class="card-body">
-                        <p class="card-text">
-                            Matières : <?php echo $article[0]['material']; ?>
-                        </p>
+
+                        <?php if(isset($article[0]['material'])) { echo ?>
+
+                            <p class="card-text">
+                                Matières : <?php echo $article[0]['material']; ?>
+                            </p>
+
+                        <?php } ?>
+
+                        <?php if(isset($article[0]['colors'])) { echo ?>
 
                         <p class="card-text">
                             Couleurs : <?php echo $article[0]['colors']; ?>
                         </p>
+
+                        <?php } ?>
+
+
 
                         <p class="card-text">
                             Dimensions : <?php echo $article[0]['dimensions']; ?>
@@ -155,13 +166,13 @@
                 </div>
             </div>
 
-            <!-- Description -->
+
             <div id="description" class="col-12">
                 <div class="card border-light mb-3">
                     <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify "></i> Description</div>
                     <div class="card-body">
                         <p class="card-text">
-                            <?php echo $article[0]['description']; ?>
+                            <?php echo $article[0]['specificities']; ?>
                         </p>
                     </div>
                 </div>
