@@ -24,8 +24,8 @@ $user = $_SESSION['role'];
             <div class="container"><a class="navbar-brand" href="home"><img src="/boutique-en-ligne/view/assets/logo.PNG" alt="logo"></a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class=" searchbar collapse navbar-collapse ms-5" id="navcol-1">
-                    <form action="produits" method="GET" class="form-inline mr-auto" target="_self">
-                        <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="produits" id="search-field"></div>
+                    <form action="recherche" method="GET" class="form-inline mr-auto" target="_self">
+                        <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input class="form-control search-field" type="search" name="type" id="search-field"></div>
                     </form>
                     <?php if (!isset($user)) { ?>
                         <a class="btn btn-light action-button" role="button" href="connexion">Connexion</a></span>
@@ -44,7 +44,7 @@ $user = $_SESSION['role'];
         </nav>
         <div class="secondnav">
             <nav class="secondnavitems">
-                <a id="secondnavli" href="produits.php">Nouveautés</a>
+                <a id="secondnavli" href="newarticle">Nouveautés</a>
                 <a id="secondnavli" href="produits.php">Les mieux notés</a>
                 <a id="secondnavli" href="produits">Nos produits</a>
             </nav>

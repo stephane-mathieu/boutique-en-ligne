@@ -2,7 +2,6 @@
 
 namespace Controllers\Panier;
 
-use Cart;
 use AltoRouter;
 use Models\Http;
 use Models\Renderer;

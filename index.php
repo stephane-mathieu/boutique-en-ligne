@@ -25,6 +25,9 @@ $router->map('GET/POST', '/deconnexion',function(){ $controller = new \Controlle
 //root Article//
 $router->map('GET/POST', '/produits',function(){ $controller = new \Controllers\Article\Produits(); $controller->Produits();},'Produits');
 $router->map('GET/POST', '/produit',function(){ $controller = new \Controllers\Article\Produit(); $controller->Produit();},'Produit');
+
+$router->map('GET/POST', '/newarticle',function(){ $controller = new \Controllers\Article\NewArticle(); $controller->NewArticle();},'NewArticle');
+
 $router->map('GET/POST', '/addtocart',function(){ $controller = new \Controllers\Panier\Addtocart(); $controller->AddToCart();},'Addtocart');
 $router->map('GET/POST', '/panier',function(){ $controller = new \Controllers\Panier\Panier(); $controller->Panier();},'Panier');
 $router->map('GET/POST', '/livraison',function(){ $controller = new \Controllers\Panier\Livraison(); $controller->Livraison();},'Livraison');

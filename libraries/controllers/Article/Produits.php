@@ -18,19 +18,19 @@ class Produits extends Controllers{
         $all_categories = $this->model->ListingCategories();
         $all_sub_categories = $this->model->ListingSubCategories();
 
-        if(isset($_GET['produits'])){
-            $recherche = htmlspecialchars($_GET['produits']);
+        if(isset($_GET['type'])){
+            $recherche = htmlspecialchars($_GET['type']);
             var_dump($recherche);
             $all_products = $this->model->DisplayAllProductsBySeach("$recherche");
         }
 
-        if(isset($_GET['category'])){
-            $nom_categorie = htmlspecialchars($_GET['category']);
+        if(isset($_GET['type'])){
+            $nom_categorie = htmlspecialchars($_GET['type']);
             $all_products = $this->model->DisplayAllProductsByCat($nom_categorie);
         }
         
-        if(isset($_GET['sub_category'])){
-            $nom_sub_categorie = htmlspecialchars($_GET['sub_category']);
+        if(isset($_GET['type'])){
+            $nom_sub_categorie = htmlspecialchars($_GET['type']);
             $all_products = $this->model-> DisplayAllProductsBySubCat($nom_sub_categorie);
         }
 

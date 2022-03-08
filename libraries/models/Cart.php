@@ -74,7 +74,7 @@
 
 
         public function DeleteProduct ($product_id) {
-            var_dump($_SESSION['cart'][$product_id]);
+            // var_dump($_SESSION['cart'][$product_id]);
             unset($_SESSION['cart'][$product_id]);
         }
 

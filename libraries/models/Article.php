@@ -7,7 +7,7 @@ use PDO;
 
 class Article extends Model {
 
-    //retourne les infos de lutilisateur choisis
+
     public function findAllArticle(): array{
 
         //select tous les article
@@ -15,7 +15,6 @@ class Article extends Model {
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
         $user=$query->fetchall();
-
         return $user;
     }
 
@@ -179,7 +178,29 @@ class Article extends Model {
         $array_products = $this->pdo->prepare($query);
         $array_products->setFetchMode(\PDO::FETCH_ASSOC);
         $array_products->execute();
+        $product = $array_products->fetchAll();
+        return ($product);
 
+    }
+
+    public function findAllArticleBy3(): array{
+
+        //select tous les article
+        $query = $this->pdo->prepare("SELECT * FROM `products` LIMIT 3");
+        $query->setFetchMode(\PDO::FETCH_ASSOC);
+        $query->execute();
+        $article=$query->fetchall();
+        return $article;
+    }
+
+    public function findAllArticleBy3rev(): array{
+
+        //select tous les article
+        $query = $this->pdo->prepare("SELECT * FROM products ORDER BY id DESC LIMIT 3");
+        $query->setFetchMode(\PDO::FETCH_ASSOC);
+        $query->execute();
+        $article=$query->fetchall();
+        return $article;
     }
 }
 

@@ -15,6 +15,7 @@ class Panier extends Controllers{
     $model = new \Models\Cart();
     
     session_start();
+  
 
     $products = $this->model->ProductsInCart();
 
@@ -24,6 +25,7 @@ class Panier extends Controllers{
     $recalculate ='';
     $delete='';
 
+    var_dump($_SESSION['cart']);
     if (isset($_GET['del'])) {
       $delete = $this->model->DeleteProduct($_GET['del']);
       Header('Location: panier');
@@ -32,7 +34,7 @@ class Panier extends Controllers{
 
     if (isset($_GET['DelCart'])) {
       $delete_cart = $this->model->DeleteCart();
-      Header('Location: panier');
+      Http::redirect("panier");
 
     }
 
