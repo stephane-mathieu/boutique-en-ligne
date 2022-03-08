@@ -13,6 +13,7 @@ class Cartvalidation extends Controllers{
     public function CartValidation() {
 
         session_start();
+        
         $id_user = $_SESSION['userId'];
         $date = date('Y-m-d');
         $model = new \Models\Cart();
@@ -21,7 +22,7 @@ class Cartvalidation extends Controllers{
 
 
 
-        $cart2 = $this->model->CreateOrder($total,$date,$id_user);
+        $cart2 = $this->model->CreateOrder($total,$date,$id_user,$productcart,$_SESSION['cart']);
         var_dump($cart2);
 
 
