@@ -38,6 +38,7 @@ $router->map('GET/POST', '/recherche',function(){ $controller = new \Controllers
 
 $router->map('GET/POST', '/payement',function(){ $controller = new \Controllers\Article\Payement(); $controller->Payement();},'Payement');
 
+$router->map('GET/POST', '/indexpayement',function(){ $controller = new \Controllers\Article\Indexpayement(); $controller->IndexPayement();},'IndexPayement');
 
 
 //rootAdmin//
