@@ -58,6 +58,8 @@
 
                     $products = $products_cart->fetchAll();
 
+                
+                    var_dump($products);
                 }
 
                 return $products;
@@ -107,9 +109,13 @@
                     $total += $product->price * $_SESSION['cart'][$product->id];
                 }
 
+                return $total;
+
+                
+
             }
 
-            return $total;
+            
         }
 
         public function Recalculate() {
