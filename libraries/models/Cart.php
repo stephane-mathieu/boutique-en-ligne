@@ -58,14 +58,10 @@
 
                     $products = $products_cart->fetchAll();
 
-                    var_dump($query);
-                    var_dump($products);
                 }
 
                 return $products;
 
-               
-                
             }
 
             
