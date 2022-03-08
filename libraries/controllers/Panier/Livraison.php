@@ -24,7 +24,7 @@
             $err_address='';
             $err_city='';
             $err_country='';
-            $id_order = $_GET['order'];
+            $id_order = (int) $_GET['order'];
 
             if (isset($_POST['submit'])) {
 
