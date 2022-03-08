@@ -22,11 +22,16 @@ class Cartvalidation extends Controllers{
 
 
 
-        $cart2 = $this->model->CreateOrder($total,$date,$id_user,$productcart,$_SESSION['cart']);
-        var_dump($cart2);
+        $id_order = $this->model->CreateOrder($total,$date,$id_user,$productcart,$_SESSION['cart']);
+
+        
+
+       
 
 
         $pageTitle = "Validation_panier";
+
+        Header('Location: livraison?order="'.$id_order.'"');
         Renderer::render('articles/cartvalidation', compact('pageTitle'));
 
     }

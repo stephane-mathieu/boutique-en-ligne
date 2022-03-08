@@ -4,7 +4,7 @@
 
     class Order extends Model {
         
-
+        // retourne un tableau avec tous les éléments du panier à intégrer dans la commande
         public function ProductsInCart() {
 
             if(isset($_SESSION['cart'])) {
@@ -34,46 +34,89 @@
 
 
 
-
+        // Transforme le panier en commande
         public function CreateOrder($total,$date,$id_user,$productcart,$sessioncart) {
 
+            $payment_state ='En attente';
+            $state = 'En attente de paiement';
+
+            // Création de la commande
             $data = [
                 'incl_taxe_price' => $total,
                 'date' => $date,
                 'id_user' =>$id_user,
+                'payment_state'=>$payment_state,
+                'state'=>$state,
             ];
-            $query = "INSERT INTO `orders`( `incl_taxe_price`, `date`, `id_user`) VALUES (:incl_taxe_price, :date, :id_user)";
+
+            
+            $query = "INSERT INTO orders ( incl_taxe_price, date, id_user, payment_state, state) VALUES (:incl_taxe_price, :date, :id_user, :payment_state, :state)";
             $products_cart = $this->pdo->prepare($query);
             $products_cart->execute($data);
 
-
+            //Récupération de l'id de la commande venant d'être créée
             $query2 = "SELECT id FROM orders ORDER BY id DESC LIMIT 1";
-            $id_order = $this->pdo->prepare($query2);
-            $id_order->setFetchMode(\PDO::FETCH_ASSOC);
-            $id_order->execute();
+            $id = $this->pdo->prepare($query2);
+            $id->setFetchMode(\PDO::FETCH_ASSOC);
+            $id->execute();
 
-            $id_order1 = $id_order->fetchAll();
+            $id_order = $id->fetch();
+
+            $id_order = $id_order['id'];
 
 
+            //inseration dans la table intermédiaire du produit et de l'id de commande liée
             foreach ($productcart as $product){
                 $data2 = [
                     'product_id'=>$product->id,
-                    'id_order' =>$id_order1,
+                    'id_order' =>$id_order,
                 ];
 
-                $query3 = "INSERT INTO products_order (id_product, id_order) VALUES (:product_id, :id_order)";
+                $query3 = "INSERT INTO products_orders (id_product, id_order) VALUES (:product_id, :id_order)";
                 $insert = $this->pdo->prepare($query3);
                 $insert->execute($data2);
             }
-            foreach ($sessioncart as $quantity)
-            {
-                // $query4 = "INSERT INTO product_order (quantite) VALUE (:quantite) WHERE id_order = :id_order";
-                // $insert2 = $this->pdo->prepare($query4);
-                // $insert2->execute(['quantite'=>$quantity]);
-                var_dump($quantity);
+
+            //récupération des id des produits en variable de session en parcourant le tableau de session avec l'id produit en index et la quantité associée
+
+            $ids_product = array_keys($sessioncart);
+
+
+            //parcours le tableau des id en transformant l'id du produit en variable
+            
+            foreach ($ids_product as $id_product) {
+
+                $id_product = (int) $id_product;
+
+                //parcours le tableau des sessions avec l'id produit et la quantité associée et insertion dans la table intermédiaire de la quantité associée au produit et à la commande
+
+                for ($i = $id_product; isset($sessioncart[$i])  ; $i++) {
+
+                    if ( $i ==  $id_product ) {
+
+                        $quantity = (int) $sessioncart[$i];
+
+                        $data = [
+                            'quantity'=>$quantity,
+                            'id_order'=>$id_order,
+                            'id_product'=>$id_product,
+                        ];
+
+                        $query4 = "UPDATE products_orders SET quantity = :quantity WHERE id_order = :id_order AND id_product = :id_product ";
+                        $insert2 = $this->pdo->prepare($query4);
+                        $insert2->execute($data);
+        
+
+                    }
+
+                   
+                }
+
+                
             }
 
-            return $id_order1;
+            return $id_order; // retourne l'id order pour le controller qui va rediriger vers la page de livraison concernant la commande enregistrée;
+            
 
         }
     }
