@@ -58,8 +58,6 @@
 
                     $products = $products_cart->fetchAll();
 
-                
-                    var_dump($products);
                 }
 
                 return $products;
@@ -72,7 +70,6 @@
 
 
         public function DeleteProduct ($product_id) {
-            // var_dump($_SESSION['cart'][$product_id]);
             unset($_SESSION['cart'][$product_id]);
         }
 
@@ -86,36 +83,33 @@
 
             $total = 0;
 
-            if(isset($_SESSION['cart'])) {
+            $ids = array_keys($_SESSION['cart']);
+            $separator = ",";
 
-                $ids = array_keys($_SESSION['cart']);
-                $separator = ",";
-
-                if (empty($ids)) {
-                    $products = array();
-                }
-
-                else {
-                    $query = "SELECT id, price FROM products WHERE id IN ('".implode($separator, $ids)."')";
-                    $products_cart = $this->pdo->prepare($query);
-                    $products_cart->setFetchMode(\PDO::FETCH_OBJ);
-                    $products_cart->execute();
-
-                    $products = $products_cart->fetchAll();
-                }
-
-
-                foreach($products as $product) { 
-                    $total += $product->price * $_SESSION['cart'][$product->id];
-                }
-
-                return $total;
-
-                
-
+            if (empty($ids)) {
+                $products = array();
             }
 
-            
+            else {
+                $query = "SELECT id, price FROM products WHERE id IN (".implode($separator, $ids).")";
+                $products_cart = $this->pdo->prepare($query);
+                $products_cart->setFetchMode(\PDO::FETCH_OBJ);
+                $products_cart->execute();
+
+                $products = $products_cart->fetchAll();
+
+                var_dump($products);
+                var_dump($query);
+            }
+
+            foreach($products as $product) { 
+                $total += $product->price * $_SESSION['cart'][$product->id];
+
+               
+            }
+
+            return $total;
+
         }
 
         public function Recalculate() {

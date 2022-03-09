@@ -60,6 +60,8 @@
             $id->setFetchMode(\PDO::FETCH_ASSOC);
             $id->execute();
 
+          
+
             $id_order = $id->fetch();
 
             $id_order = $id_order['id'];
@@ -77,14 +79,11 @@
                 $insert->execute($data2);
             }
 
-            var_dump($sessioncart);
-
             //récupération des id des produits en variable de session en parcourant le tableau de session avec l'id produit en index et la quantité associée
 
             $ids_product = array_keys($sessioncart);
 
-            var_dump($ids_product);
-
+   
             
 
             //parcours le tableau des id en transformant l'id du produit en variable
@@ -123,6 +122,26 @@
             return $id_order; // retourne l'id order pour le controller qui va rediriger vers la page de livraison concernant la commande enregistrée;
             
 
+        }
+
+        public function DisplayOrder($id_order) {
+            $query = "SELECT orders.id, excl_taxe_price, vat, incl_taxe_price, date, state, payment_state, id_user,  products_orders.id_product, products_orders.quantity, shippings.firstname, shippings.lastname, shippings.address, shippings.zipcode, shippings.city, shippings.country, products.title, products.price
+            FROM orders
+            INNER JOIN shippings ON shippings.id_order = orders.id
+            INNER JOIN products_orders ON products_orders.id_order = orders.id
+            INNER JOIN products ON products.id = products_orders.id_product
+            WHERE orders.id = :id_order
+            AND products_orders.id_order = :id_order";
+
+            $display = $this->pdo->prepare($query);
+            $display->setFetchMode(\PDO::FETCH_OBJ);
+            $display->execute(['id_order'=>$id_order]);
+
+            $order = $display->fetchAll();
+
+            var_dump($order);
+
+            return $order;
         }
     }
 

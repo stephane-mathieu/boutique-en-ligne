@@ -25,7 +25,6 @@ class Panier extends Controllers{
     $recalculate ='';
     $delete='';
 
-    var_dump($_SESSION['cart']);
     if (isset($_GET['del'])) {
       $delete = $this->model->DeleteProduct($_GET['del']);
       Header('Location: panier');
