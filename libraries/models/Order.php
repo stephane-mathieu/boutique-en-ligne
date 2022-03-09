@@ -77,10 +77,15 @@
                 $insert->execute($data2);
             }
 
+            var_dump($sessioncart);
+
             //récupération des id des produits en variable de session en parcourant le tableau de session avec l'id produit en index et la quantité associée
 
             $ids_product = array_keys($sessioncart);
 
+            var_dump($ids_product);
+
+            
 
             //parcours le tableau des id en transformant l'id du produit en variable
             

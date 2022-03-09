@@ -40,6 +40,8 @@ $router->map('GET/POST', '/payement',function(){ $controller = new \Controllers\
 
 $router->map('GET/POST', '/indexpayement',function(){ $controller = new \Controllers\Article\Indexpayement(); $controller->IndexPayement();},'IndexPayement');
 
+$router->map('GET/POST', '/ordervalidation',function(){ $controller = new \Controllers\Panier\Ordervalidation(); $controller->OrderValidation();},'Ordervalidation');
+
 
 //rootAdmin//
 $router->map('GET/POST', '/adminuser',function(){$controller = new \Controllers\Admin\AdminUser();$controller->AdminUser();},'AdminUSer');

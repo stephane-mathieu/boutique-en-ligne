@@ -24,7 +24,14 @@
             $err_address='';
             $err_city='';
             $err_country='';
-            $id_order = (int) $_GET['order'];
+            $id_order = $_GET['order'];
+            var_dump($id_order);
+
+            $id_order = intval($id_order);
+
+            var_dump($id_order);
+            
+            
 
             if (isset($_POST['submit'])) {
 
@@ -92,7 +99,7 @@
                 if($valid) {
                 
                     $shipping = $this->model->Shipping($firstname, $lastname, $address, $zipcode, $city, $country, $id_order);
-                    // Header('Location: recap?order="'.$id_order.'"');
+                    Header('Location: ordervalidation?order='.$id_order.'');
 
                 }
 
