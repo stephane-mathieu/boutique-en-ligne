@@ -18,15 +18,14 @@ class Cartvalidation extends Controllers{
         $date = date('Y-m-d');
         $model = new \Models\Cart();
         $productcart = $model->ProductsInCart();
-        $total = $model->TotalPrice();
+        $excl_taxe_price = number_format($model->TotalPrice(), $decimals=2);
+        $tva = 20;
+        $vat = number_format($excl_taxe_price * ($tva/100), $decimals = 2);
+        $incl_taxe_price = number_format($excl_taxe_price + $vat, $decimals=2) ;
+        $payment_state ='En attente';
+        $state = 'En attente de paiement';
 
-
-
-        $id_order = $this->model->CreateOrder($total,$date,$id_user,$productcart,$_SESSION['cart']);
-
-    
-       
-
+        $id_order = $this->model->CreateOrder($_SESSION['cart'], $id_user, $date, $productcart, $excl_taxe_price, $vat, $incl_taxe_price, $payment_state, $state);
 
         $pageTitle = "Validation_panier";
 

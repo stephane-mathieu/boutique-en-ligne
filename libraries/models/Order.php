@@ -35,22 +35,21 @@
 
 
         // Transforme le panier en commande
-        public function CreateOrder($total,$date,$id_user,$productcart,$sessioncart) {
-
-            $payment_state ='En attente';
-            $state = 'En attente de paiement';
+        public function CreateOrder($sessioncart, $id_user, $date, $productcart, $excl_taxe_price, $vat, $incl_taxe_price, $payment_state, $state) {
 
             // Création de la commande
             $data = [
-                'incl_taxe_price' => $total,
-                'date' => $date,
-                'id_user' =>$id_user,
+                'id_user'=>$id_user,
+                'date'=>$date,
+                'excl_taxe_price'=>$excl_taxe_price,
+                'vat'=>$vat,
+                'incl_taxe_price'=>$incl_taxe_price,
                 'payment_state'=>$payment_state,
                 'state'=>$state,
             ];
 
             
-            $query = "INSERT INTO orders ( incl_taxe_price, date, id_user, payment_state, state) VALUES (:incl_taxe_price, :date, :id_user, :payment_state, :state)";
+            $query = "INSERT INTO orders (id_user, date, excl_taxe_price, vat, incl_taxe_price, payment_state, state) VALUES (:id_user, :date, :excl_taxe_price, :vat, :incl_taxe_price, :payment_state, :state)";
             $products_cart = $this->pdo->prepare($query);
             $products_cart->execute($data);
 
