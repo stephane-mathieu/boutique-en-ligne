@@ -13,8 +13,8 @@ class Connexion extends Controllers{
 
         if(!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password'])){
 
-            @$email = $_POST['email'];
-            @$password = $_POST['password'];
+            @$email = htmlspecialchars($_POST['email']);
+            @$password = htmlspecialchars($_POST['password']);
             @$errors = array();
 
             $user= $this->model->findAllInfoUser($email);

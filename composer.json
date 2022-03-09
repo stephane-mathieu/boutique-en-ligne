@@ -1,5 +1,5 @@
 {
-    "name": "stephane/reservationsalles",
+    "name": "stephane/boutique-en-ligne",
 
     "authors": [{
         "name": "stephane-mathieu",
@@ -10,10 +10,13 @@
             "Models\\": "libraries/models/",
             "Controllers\\": "libraries/controllers/",
             "Controllers\\Admin\\": "libraries/controllers/Admin",
-            "Controllers\\User\\": "libraries/controllers/User"
+            "Controllers\\User\\": "libraries/controllers/User",
+            "Controllers\\Panier\\": "libraries/controllers/Panier"
         }
     },
     "require": {
-        "altorouter/altorouter": "^2.0"
+        "altorouter/altorouter": "^2.0",
+        "stripe/stripe-php": "^7.116"
     }
+
 }

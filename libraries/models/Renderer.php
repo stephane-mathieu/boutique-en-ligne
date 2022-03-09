@@ -12,7 +12,7 @@ class Renderer {
     }
 
 
-     public  static function render2(string $path, array $variable = []){
+    public  static function render2(string $path, array $variable = []){
         extract($variable); // Importe les variables dans la table des symboles
         ob_start();
         require_once('view/' . $path . '.html.php');

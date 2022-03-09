@@ -20,13 +20,13 @@ class AdminProfil extends Controllers{
             $user = $this->model->findInfoUser($id_user);
 
             if(isset($_POST['submit'])){
-                $password = $_POST['password'];
-                $email = $_POST['email'];
-                $NumberPhone = $_POST['number'];
-                $firstname = $_POST['firstname'];
-                $lastname = $_POST['lastname'];
-                $adress = $_POST['adress'];
-                $id = $_POST['id_user'];
+                $password = htmlspecialchars($_POST['password']);
+                $email = htmlspecialchars($_POST['email']);
+                $NumberPhone = htmlspecialchars($_POST['number']);
+                $firstname = htmlspecialchars($_POST['firstname']);
+                $lastname = htmlspecialchars($_POST['lastname']);
+                $adress = htmlspecialchars($_POST['adress']);
+                $id = htmlspecialchars($_POST['id_user']);
                 if ($_POST["droits"] == 'utilisateur') {
                     $droits = "utilisateur";
                 }

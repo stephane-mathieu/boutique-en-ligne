@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInitb2f08c86fb7a714a8b64ef1b6f3dce46
 {
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Stripe\\' => 7,
+        ),
         'M' => 
         array (
             'Models\\' => 7,
@@ -14,12 +18,17 @@ class ComposerStaticInitb2f08c86fb7a714a8b64ef1b6f3dce46
         'C' => 
         array (
             'Controllers\\User\\' => 17,
+            'Controllers\\Panier\\' => 19,
             'Controllers\\Admin\\' => 18,
             'Controllers\\' => 12,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Stripe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
+        ),
         'Models\\' => 
         array (
             0 => __DIR__ . '/../..' . '/libraries/models',
@@ -27,6 +36,10 @@ class ComposerStaticInitb2f08c86fb7a714a8b64ef1b6f3dce46
         'Controllers\\User\\' => 
         array (
             0 => __DIR__ . '/../..' . '/libraries/controllers/User',
+        ),
+        'Controllers\\Panier\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/libraries/controllers/Panier',
         ),
         'Controllers\\Admin\\' => 
         array (
@@ -40,7 +53,6 @@ class ComposerStaticInitb2f08c86fb7a714a8b64ef1b6f3dce46
 
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

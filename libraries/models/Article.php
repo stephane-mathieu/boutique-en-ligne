@@ -2,10 +2,12 @@
 
 namespace Models;
 
+use PDO;
+
 
 class Article extends Model {
 
-    //retourne les infos de lutilisateur choisis
+
     public function findAllArticle(): array{
 
         //select tous les article
@@ -13,13 +15,13 @@ class Article extends Model {
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
         $user=$query->fetchall();
-
         return $user;
     }
 
+    //select les infos de l'article choisis
     public function findinfoArticle($id): array{
 
-        //select les infos de l'article choisis
+        
         $query = $this->pdo->prepare("SELECT * FROM `products` WHERE `id` = '$id'");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
@@ -30,7 +32,6 @@ class Article extends Model {
 
     public function findCategory(): array{
 
-        //select les infos de l'article choisis
         $query = $this->pdo->prepare("SELECT * FROM `categories`");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
@@ -38,9 +39,11 @@ class Article extends Model {
 
         return $article;
     }
-    public function findSubCategory(): array{
 
-        //select les infos de l'article choisis
+    //select les infos de l'article choisis
+    public function findSubCategory(){
+
+        
         $query = $this->pdo->prepare("SELECT * FROM `sub_categories`");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
@@ -48,6 +51,8 @@ class Article extends Model {
 
         return $article;
     }
+
+    //modifie les infos d'un article
     public function UpdateArticle($title,$brand,$reference,$description,$material,$color,$packaging,$tips,$specificities,$dimensions,$stock,$price,$discount,$discount_available,$category,$sub_category,$id){
         $data = [
             'title1' =>$title,
@@ -68,11 +73,137 @@ class Article extends Model {
             'id_sub_category1' =>$sub_category,
             'id1' =>$id,
         ];
-            $query = "UPDATE  products SET title=:title1, brand=:brand1, reference=:reference1, description=:description1, material=:material1, colors=:colors1, tips=:tips1,packaging=:packaging1,specificities=:specificities1,dimensions=:dimensions1,stock=:stock1,price=:price1,discount=:discount1,discount_available=:discount_available1,id_category=:id_category1,id_sub_category=:id_sub_category1 WHERE `id` = :id1";
-            $article = $this->pdo->prepare($query);
-            $article->execute($data);
 
-        }
+        $query = "UPDATE  products SET title=:title1, brand=:brand1, reference=:reference1, description=:description1, material=:material1, colors=:colors1, tips=:tips1,packaging=:packaging1,specificities=:specificities1,dimensions=:dimensions1,stock=:stock1,price=:price1,discount=:discount1,discount_available=:discount_available1,id_category=:id_category1,id_sub_category=:id_sub_category1 WHERE `id` = :id1";
+        $article = $this->pdo->prepare($query);
+        $article->execute($data);
+
+    }
+
+
+    // Retourne un tableau avec tous les produits et leurs infos pour la page produits
+    public function DisplayAllProducts() {
+
+        $query = "SELECT products.id, image1, products.title, brand, products.id_category, products.id_sub_category, introduction, price, discount, discount_available, stock, category, sub_category FROM products
+        INNER JOIN categories ON categories.id = products.id_category 
+        INNER JOIN sub_categories ON sub_categories.id = products.id_sub_category";
+        $array_products = $this->pdo->prepare($query);
+        $array_products->setFetchMode(\PDO::FETCH_ASSOC);
+        $array_products->execute();
+
+        $all_products = $array_products->fetchAll();
+
+        return $all_products ;
+        
+    }
+
+    // Retourne un tableau avec toutes les catégories pour la page produits permettant de trier les produits par catégories
+    public function ListingCategories(){
+
+        $query = "SELECT * FROM categories ";
+        $listing = $this->pdo->prepare($query);
+        $listing->setFetchMode(\PDO::FETCH_ASSOC);
+        $listing->execute();
+
+        $categories = $listing->fetchAll();
+
+        return $categories;
+    }
+
+    // Retourne un tableau avec toutes les sous catégories pour la page produits permettant de trier les produits par sous catégories
+    public function ListingSubCategories(){
+
+        $query = "SELECT * FROM sub_categories ";
+        $listing = $this->pdo->prepare($query);
+        $listing->setFetchMode(\PDO::FETCH_ASSOC);
+        $listing->execute();
+
+        $sub_categories = $listing->fetchAll();
+
+        return $sub_categories;
+    }
+
+
+    public function DisplayAllProductsByCat($nom_categorie) {
+
+        $query = ("SELECT products.id, image1, products.title, brand, products.id_category, products.id_sub_category, introduction, price, discount, discount_available, stock, category, id_sub_category FROM products
+        INNER JOIN categories ON categories.id = products.id_category
+        WHERE categories.category = '$nom_categorie'");
+        $array_products = $this->pdo->prepare($query);
+        $array_products->setFetchMode(\PDO::FETCH_ASSOC);
+        $array_products->execute();
+
+        $all_products = $array_products->fetchAll();
+
+        return $all_products ;
+        
+    }
+    public function DisplayAllProductsBySubCat($nom_sub_categorie) {
+
+        $query = ("SELECT products.id, products.image1, products.title, products.brand, products.id_category, products.id_sub_category, products.introduction, products.price, products.discount, products.discount_available, products.stock, products.id_category, products.id_sub_category FROM products 
+        INNER JOIN sub_categories ON sub_categories.id = products.id_sub_category
+        WHERE sub_categories.sub_category = '$nom_sub_categorie'");
+        $array_products = $this->pdo->prepare($query);
+        $array_products->setFetchMode(\PDO::FETCH_ASSOC);
+        $array_products->execute();
+
+        $all_products = $array_products->fetchAll();
+
+        return $all_products ;
+        
+    }
+
+    
+    //select les infos de l'article choisis
+    public function DisplayProductInfos(): array{
+
+        $query = "SELECT * FROM `products` WHERE `id` = '".@$_GET['id']."'";
+        $array_product = $this->pdo->prepare($query);
+        $array_product->setFetchMode(\PDO::FETCH_ASSOC);
+        $array_product->execute();
+        $product = $array_product->fetchAll();
+
+        
+        return $product;
+    }
+
+    public function DisplayAllProductsBySeach($nom){
+        $query = ("SELECT products.id, image1, products.title, brand, products.id_category, products.id_sub_category, introduction, price, discount, discount_available, stock, category, id_sub_category FROM products
+        INNER JOIN categories ON categories.id = products.id_category
+        WHERE categories.category = '$nom'
+        UNION
+        SELECT products.id, products.image1, products.title, products.brand, products.id_category, products.id_sub_category, products.introduction, products.price, products.discount, products.discount_available, products.stock, products.id_category, products.id_sub_category FROM products 
+        INNER JOIN sub_categories ON sub_categories.id = products.id_sub_category
+        WHERE sub_categories.sub_category = '$nom'");
+        $array_products = $this->pdo->prepare($query);
+        $array_products->setFetchMode(\PDO::FETCH_ASSOC);
+        $array_products->execute();
+        $product = $array_products->fetchAll();
+        return ($product);
+
+    }
+
+    public function findAllArticleBy3(): array{
+
+        //select tous les article
+        $query = $this->pdo->prepare("SELECT * FROM `products` LIMIT 3");
+        $query->setFetchMode(\PDO::FETCH_ASSOC);
+        $query->execute();
+        $article=$query->fetchall();
+        return $article;
+    }
+
+    public function findAllArticleBy3rev(): array{
+
+        //select tous les article
+        $query = $this->pdo->prepare("SELECT * FROM products ORDER BY id DESC LIMIT 3");
+        $query->setFetchMode(\PDO::FETCH_ASSOC);
+        $query->execute();
+        $article=$query->fetchall();
+        return $article;
+    }
 }
+
+
 
 ?>

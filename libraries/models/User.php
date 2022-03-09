@@ -57,14 +57,14 @@ class User extends Model {
     $data = [
         'firstname' =>$firstname,
         'lastname' =>$lastname,
-        'emaile' =>$email,
+        'email' =>$email,
         'NumberPhone' =>$NumberPhone,
         'password' =>$password,
         'address' =>$adress,
         'date' =>$date,
         'role' =>$role,
     ];
-        $query = "INSERT INTO `users`(`email`, `firstname`, `lastname`, `password`, `address`, `number`, `date`, `role`) VALUES (:emaile, :firstname, :lastname, :password, :address, :NumberPhone, :date ,:role)";
+        $query = "INSERT INTO `users`(`email`, `firstname`, `lastname`, `password`, `address`, `number`, `date`, `role`) VALUES (:email, :firstname, :lastname, :password, :address, :NumberPhone, :date ,:role)";
         $password = $this->pdo->prepare($query);
         $password->execute($data);
 
