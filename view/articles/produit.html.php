@@ -177,7 +177,7 @@
 
             <div id="description" class="col-12">
                 <div class="card border-light mb-3">
-                    <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify "></i> Description</div>
+                    <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify "></i> specificities</div>
                     <div class="card-body">
                         <p class="card-text">
                             <?php echo $article[0]['specificities']; ?>
