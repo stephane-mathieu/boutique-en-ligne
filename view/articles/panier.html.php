@@ -90,8 +90,8 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td>Sous total</td>
-                                    <td class="text-right"><?php echo number_format($total_price, $decimals=2) ?>€ HT</td>
+                                    <td>Sous total HT</td>
+                                    <td class="text-right"><?php echo number_format($total_price, $decimals=2) ?>€</td>
                                 </tr>
 
                                 <tr>
@@ -99,8 +99,8 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td>Livraison</td>
-                                    <td class="text-right"><?php echo number_format($port, $decimals=2 )?>€ HT</td>
+                                    <td>Livraison HT</td>
+                                    <td class="text-right"><?php echo number_format($port, $decimals=2 )?>€</td>
                                 </tr>
 
                                 <tr>
