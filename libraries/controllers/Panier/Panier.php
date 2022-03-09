@@ -48,7 +48,7 @@ class Panier extends Controllers{
 
     $tva = $total_HT * 0.2 ;
 
-    $total = $total_HT * $tva;
+    $total = $total_HT + $tva;
 
     
 
