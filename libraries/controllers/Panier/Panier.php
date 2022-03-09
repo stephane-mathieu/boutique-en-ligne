@@ -44,12 +44,16 @@ class Panier extends Controllers{
 
     $port = 7.90 ;
 
-    $total = $total_price + $port;
+    $total_HT = $total_price + $port;
+
+    $tva = $total_HT * 0.2 ;
+
+    $total = $total_HT * $tva;
 
     
 
     $pageTitle = "Panier";
-    Renderer::render('articles/panier', compact('pageTitle','model','products', 'panier', 'total_price', 'products_number', 'delete_cart', 'recalculate', 'delete', 'total', 'port'));
+    Renderer::render('articles/panier', compact('pageTitle','model','products', 'panier', 'total_price', 'products_number', 'delete_cart', 'recalculate', 'delete', 'total_HT', 'port', 'tva', 'total'));
       
 
   }

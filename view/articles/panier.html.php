@@ -108,9 +108,29 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td><strong>Total</strong></td>
-                                    <td class="text-right"><strong><?php echo number_format($total, $decimals=2) ?>€ HT</strong></td>
+                                    <td><strong>Total HT</strong></td>
+                                    <td class="text-right"><strong><?php echo number_format($total_HT, $decimals=2) ?>€</strong></td>
                                 </tr>
+
+                                
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><strong>TVA 20%</strong></td>
+                                    <td class="text-right"><strong><?php echo number_format($tva, $decimals=2) ?>€</strong></td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><strong>Total TTC</strong></td>
+                                    <td class="text-right"><strong><?php echo number_format($total, $decimals=2) ?>€</strong></td>
+                                </tr>
+
 
                             </tbody>
                         </table>
