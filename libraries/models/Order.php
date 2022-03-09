@@ -37,6 +37,7 @@
         // Transforme le panier en commande
         public function CreateOrder($sessioncart, $id_user, $date, $productcart, $excl_taxe_price, $vat, $incl_taxe_price, $payment_state, $state) {
 
+            
             // Création de la commande
             $data = [
                 'id_user'=>$id_user,
@@ -123,6 +124,7 @@
 
         }
 
+        //retourne un tableau avec toutes les infos d'une commande à afficher
         public function DisplayOrder($id_order) {
             $query = "SELECT orders.id, excl_taxe_price, vat, incl_taxe_price, date, state, payment_state, id_user,  products_orders.id_product, products_orders.quantity, shippings.firstname, shippings.lastname, shippings.address, shippings.zipcode, shippings.city, shippings.country, products.title, products.price
             FROM orders
@@ -138,10 +140,39 @@
 
             $order = $display->fetchAll();
 
-            var_dump($order);
-
             return $order;
         }
+
+        //supprime une commande
+        public function DeleteOrder($id_order) {
+
+            $query = "DELETE FROM products_orders WHERE id_order = :id_order";
+            $delete = $this->pdo->prepare($query);
+            $delete->execute(['id_order'=>$id_order]);
+
+            $query2 = "DELETE FROM orders WHERE id = :id_order";
+            $delete2 = $this->pdo->prepare($query2);
+            $delete2->execute(['id_order'=>$id_order]);
+
+        }
+
+        //marque une commande comme étant confirmée dans la bdd
+        public function OrderValidation($id_order, $state) {
+
+            $data = [
+                'state'=>$state,
+                'id_order'=>$id_order,
+            ];
+
+            $query = "UPDATE orders SET state = :state WHERE id = :id_order ";
+            $validation = $this->pdo->prepare($query);
+            $validation->execute($data);
+
+        }
+
+
+
+
     }
 
 ?>

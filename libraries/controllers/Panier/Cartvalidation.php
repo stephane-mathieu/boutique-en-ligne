@@ -18,8 +18,11 @@ class Cartvalidation extends Controllers{
             header('Location: connexion?val=checkcart');
         }
 
-        else {        $id_user = $_SESSION['userId'];
+        else {
+                    
+            $id_user = $_SESSION['userId'];
             $date = date('Y-m-d');
+
             $model = new \Models\Cart();
             $productcart = $model->ProductsInCart();
             $excl_taxe_price = number_format($model->TotalPrice(), $decimals=2);
@@ -28,6 +31,7 @@ class Cartvalidation extends Controllers{
             $incl_taxe_price = number_format($excl_taxe_price + $vat, $decimals=2) ;
             $payment_state ='En attente';
             $state = 'En attente de paiement';
+            
     
             $id_order = $this->model->CreateOrder($_SESSION['cart'], $id_user, $date, $productcart, $excl_taxe_price, $vat, $incl_taxe_price, $payment_state, $state);
     

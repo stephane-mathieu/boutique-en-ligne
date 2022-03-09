@@ -17,6 +17,8 @@
 
             $model = new \Models\Shipping();
 
+            $ship =
+
             $valid = true;
             $shipping = '';
             $err_firstname ='';
@@ -25,13 +27,8 @@
             $err_city='';
             $err_country='';
             $id_order = $_GET['order'];
-            var_dump($id_order);
 
-            $id_order = intval($id_order);
-
-            var_dump($id_order);
-            
-            
+            $id_order = intval($id_order); 
 
             if (isset($_POST['submit'])) {
 
