@@ -18,27 +18,8 @@ window.onload = () => {
     let clientSecret = cardButton.dataset.secret;
 
 
-    let style = {
-        base: {
-            color: '#303238',
-            fontSize: '16px',
-            fontFamily: '"Open Sans", sans-serif',
-            fontSmoothing: 'antialiased',
-            '::placeholder': {
-                color: '#CFD7DF',
-            },
-        },
-        invalid: {
-            color: '#e5424d',
-            ':focus': {
-                color: '#303238',
-            },
-        },
-    };
-
-
     // Crée les éléments de carte et les stocke dans la variable card
-    let card = elements.create("card", { style: style });
+    let card = elements.create("card");
 
     card.mount("#card-elements");
 
@@ -57,6 +38,8 @@ window.onload = () => {
     });
 
     cardButton.addEventListener("click", () => {
+        // On envoie la promesse contenant le code de l'intention, l'objet "card" contenant les informations de carte et le nom du client
+
         stripe.handleCardPayment(
             clientSecret, card, {
                 payment_method_data: {
@@ -66,9 +49,15 @@ window.onload = () => {
                 }
             }
         ).then((result) => {
+            // Quand on reçoit une réponse
+
             if (result.error) {
+                // Si on a une erreur, on l'affiche
+
                 document.getElementById("errors").innerText = result.error.message
             } else {
+                // Sinon on redirige l'utilisateur
+
                 document.location.href = redirect
             }
         })

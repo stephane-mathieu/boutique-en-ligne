@@ -17,11 +17,13 @@ class Produit extends Controllers{
         if(isset($_GET['id'])){
             $id_article = htmlspecialchars($_GET['id']);
             $article = $this->model->findinfoArticle($id_article);
-
-            var_dump($article);
+            $comment = $this->model->DisplayComment($_GET['id']);
+            $count = $this->model->Count($_GET['id']);
+            $moyenne = $this->model->MoyenneReview($_GET['id']);
+            // var_dump($moyenne);
     
             $pageTitle = "Produit";
-            Renderer::render('articles/produit', compact('pageTitle','article'));
+            Renderer::render('articles/produit', compact('pageTitle','article','comment','count','moyenne'));
     
         }else
         Http::redirect("produits");

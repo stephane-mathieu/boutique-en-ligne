@@ -28,6 +28,9 @@ $router->map('GET/POST', '/produit',function(){ $controller = new \Controllers\A
 
 $router->map('GET/POST', '/newarticle',function(){ $controller = new \Controllers\Article\NewArticle(); $controller->NewArticle();},'NewArticle');
 
+$router->map('GET/POST', '/addcommentaire',function(){ $controller = new \Controllers\Article\Commentaire(); $controller->Commentaire();},'Commentaire');
+
+
 $router->map('GET/POST', '/addtocart',function(){ $controller = new \Controllers\Panier\Addtocart(); $controller->AddToCart();},'Addtocart');
 $router->map('GET/POST', '/panier',function(){ $controller = new \Controllers\Panier\Panier(); $controller->Panier();},'Panier');
 $router->map('GET/POST', '/livraison',function(){ $controller = new \Controllers\Panier\Livraison(); $controller->Livraison();},'Livraison');

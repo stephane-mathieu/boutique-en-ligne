@@ -202,6 +202,37 @@ class Article extends Model {
         $article=$query->fetchall();
         return $article;
     }
+
+    public function DisplayComment ($id_product){
+
+        $query = "SELECT users.firstname, comments.title, comments.text, comments.date,comments.note,comments.id  FROM `users` INNER JOIN comments ON id_user = users.id 
+        INNER JOIN products ON id_product = products.id  WHERE products.id  = '$id_product';";
+        $listing = $this->pdo->prepare($query);
+        $listing->setFetchMode(\PDO::FETCH_ASSOC);
+        $listing->execute();
+
+        $array = $listing->fetchAll();
+        return $array;
+    }
+
+
+    public function Count($id) {
+        $query = "SELECT COUNT(*) FROM comments where id_product = '$id'";
+        $listing = $this->pdo->prepare($query);
+        $listing->execute();
+        $number = $listing->fetchAll();
+       
+        return $number;
+    }
+
+    public function MoyenneReview($id) {
+        $query = "SELECT AVG(note) FROM comments where id_product = '$id'";
+        $listing = $this->pdo->prepare($query);
+        $listing->execute();
+        $number = $listing->fetchAll();
+       
+        return $number;
+    }
 }
 
 

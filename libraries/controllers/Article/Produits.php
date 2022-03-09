@@ -34,7 +34,7 @@ class Produits extends Controllers{
             $all_products = $this->model-> DisplayAllProductsBySubCat($nom_sub_categorie);
         }
 
-
+        
 
         $pageTitle = "Produits";
         Renderer::render('articles/produits', compact('pageTitle', 'all_products', 'all_categories', 'all_sub_categories'));
