@@ -41,7 +41,7 @@
 
         public function ProductsInCart() {
 
-            if(isset($_SESSION['cart'])) {
+            if(isset($_SESSION['cart']) && !isset($_GET['del'])) { // vérifie l'absence de suppression pour éviter l'affichage d'erreur PHP qui ne retrouve plus l'index de l'article supprimé
 
                 $ids = array_keys($_SESSION['cart']);
                 $separator = ",";
@@ -70,7 +70,11 @@
 
 
         public function DeleteProduct ($product_id) {
+
+
             unset($_SESSION['cart'][$product_id]);
+            header('Refresh: 0; url=panier');
+           
         }
 
         public function DeleteCart () {
@@ -97,9 +101,6 @@
                 $products_cart->execute();
 
                 $products = $products_cart->fetchAll();
-
-                var_dump($products);
-                var_dump($query);
             }
 
             foreach($products as $product) { 
