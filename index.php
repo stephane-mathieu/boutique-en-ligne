@@ -41,6 +41,9 @@ $router->map('GET/POST', '/recherche',function(){ $controller = new \Controllers
 
 $router->map('GET/POST', '/payement',function(){ $controller = new \Controllers\Article\Payement(); $controller->Payement();},'Payement');
 
+$router->map('GET/POST', '/RecapPayement',function(){ $controller = new \Controllers\Article\RecapPayement(); $controller->RecapPayement();},'RecapPayement');
+
+
 $router->map('GET/POST', '/indexpayement',function(){ $controller = new \Controllers\Article\Indexpayement(); $controller->IndexPayement();},'IndexPayement');
 
 $router->map('GET/POST', '/ordervalidation',function(){ $controller = new \Controllers\Panier\Ordervalidation(); $controller->OrderValidation();},'Ordervalidation');
@@ -53,6 +56,9 @@ $router->map('GET/POST', '/adminprofil',function(){ $controller = new \Controlle
 
 $router->map('GET/POST', '/admincommentaire',function(){ $controller = new \Controllers\Admin\AdminCommentaire(); $controller->Commentaire();},'AdminCommentaire');
 
+$router->map('GET/POST', '/adminCommande',function(){ $controller = new \Controllers\Admin\AdminCommande(); $controller->AdminCommande();},'AdminCommande');
+
+$router->map('GET/POST', '/adminViewCommande',function () {$controller = new \Controllers\Admin\AdminViewCommande(); $controller->AdminViewCommande();},'AdminViewCommande');
 
 $router->map('GET/POST', '/admin',function(){ $controller = new \Controllers\Admin\AdminDashboard(); $controller->Admin();},'Admin');
 
@@ -67,6 +73,9 @@ $router->map('GET/POST', '/adminInsertArticle',function(){ $controller = new \Co
 $router->map('GET/POST', '/adminInsert',function(){ $controller = new \Controllers\Admin\AdminInsertUser(); $controller->AdminInsert();},'AdminInsert');
 
 $router->map('GET/POST', '/adminDelete',function(){ $controller = new \Controllers\Admin\AdminDeleteUser(); $controller->AdminDeleteUser();},'AdminDelete');
+
+$router->map('GET/POST', '/adminDeleteCommande',function(){ $controller = new \Controllers\Admin\AdminDeleteCommande(); $controller->AdminDeleteCommande();},'AdminDeleteCommande');
+
 
 $router->map('GET/POST', '/admincreatorsteph',function(){ $controller = new \Controllers\Admin\AdminCreator(); $controller->AdminCreator1();},'AdminCreatorsteph');
 

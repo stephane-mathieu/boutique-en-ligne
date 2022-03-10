@@ -5,9 +5,6 @@ window.onload = () => {
     // Initialise les éléments du formulaire
     let elements = stripe.elements();
 
-    // Définit la redirection en cas de succès du paiement
-    let redirect = "indexpayement";
-
     // Récupère l'élément qui contiendra le nom du titulaire de la carte
     let cardholderName = document.getElementById('cardholder-name')
 
@@ -57,8 +54,7 @@ window.onload = () => {
                 document.getElementById("errors").innerText = result.error.message
             } else {
                 // Sinon on redirige l'utilisateur
-
-                document.location.href = redirect
+                document.location.href = "indexpayement";
             }
         })
     })

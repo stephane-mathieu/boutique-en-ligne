@@ -15,10 +15,11 @@ class AdminCommande extends Controllers{
 
         session_start();
         if($_SESSION['role'] == "admin"){
-            $Order = $this->model->DisplayOrder();
+            $Order = $this->model->DisplayAllOrder();
+            
         
             $pageTitle = "adminArticle";
-            Renderer::render2('admin/AdminCommandeArticle', compact('pageTitle','Order'));
+            Renderer::render2('admin/AdminCommande', compact('pageTitle','Order'));
         }else{
             Http::redirect("home");
         }

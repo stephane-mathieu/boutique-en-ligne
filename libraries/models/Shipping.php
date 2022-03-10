@@ -62,6 +62,20 @@
             $delete = $this->pdo->prepare($query);
             $delete->execute(['id_order'=>$id_order]);
         }
+
+        public function ShippingDates ($id_order, $min_date, $max_date) {
+
+            $data = [
+                'id_order'=>$id_order,
+                'min_date'=>$min_date,
+                'max_date'=>$max_date,
+            ] ;
+
+            $query = "UPDATE shippings SET min_date = :min_date, max_date = :max_date WHERE id_order = :id_order";
+            $shipping_dates = $this->pdo->prepare($query);
+            $shipping_dates->execute($data);
+
+        }
     }
 
 
