@@ -13,7 +13,7 @@ class Indexpayement extends Controllers{
     public function IndexPayement(){
 
         session_start();
-
+        Http::redirect("RecapPayement");
             $pageTitle = "IndexPayement";
             Renderer::render('articles/Indexpayement', compact('pageTitle'));
     

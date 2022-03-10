@@ -35,7 +35,7 @@ class Payement extends Controllers{
                 ]);
 
             }else{
-                Http::redirect("indexpayement");
+                Http::redirect("indexpayment");
             }
             $pageTitle = "Payement";
             Renderer::render('articles/payement', compact('pageTitle','intent','price'));

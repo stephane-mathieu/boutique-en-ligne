@@ -6,7 +6,7 @@ window.onload = () => {
     let elements = stripe.elements();
 
     // Définit la redirection en cas de succès du paiement
-    let redirect = "indexpayement";
+    let redirect = "produit";
 
     // Récupère l'élément qui contiendra le nom du titulaire de la carte
     let cardholderName = document.getElementById('cardholder-name')
