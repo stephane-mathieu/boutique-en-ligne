@@ -13,7 +13,7 @@
 
     </head>
     <body>
-
+    <?php  echo " Le prix est de ".$price ."€";?>
     <form method="post">
     <div id="errors"></div>
     <input id="cardholder-name" type="text" placeholder="Titulaire de la carte">

@@ -233,6 +233,18 @@ class Article extends Model {
        
         return $number;
     }
+
+    public function findComment (){
+
+        $query = "SELECT users.firstname, comments.text, comments.date,comments.note,comments.id,products.title FROM `users` INNER JOIN comments ON id_user = users.id INNER JOIN products ON id_product = products.id";
+        $listing = $this->pdo->prepare($query);
+        $listing->setFetchMode(\PDO::FETCH_ASSOC);
+        $listing->execute();
+
+        $array = $listing->fetchAll();
+        return $array;
+    }
+
 }
 
 

@@ -24,6 +24,7 @@ class AddToCart extends Controllers{
         }
 
         $cart = $this->model->AddProduct($product[0]->id);
+        // Http::redirect("panier");
         die('Le produit a bien été ajouté à votre panier <a href="produits">retourner sur le catalogue</a>');
 
 

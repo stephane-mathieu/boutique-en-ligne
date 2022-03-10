@@ -33,9 +33,11 @@
                 
             }
 
+            var_dump($id_order);
             if(isset($_POST['confirm_order'])) {
                 $state = "Confirmée";
                 $confirm = $this->model->OrderValidation($id_order, $state);
+                Http::redirect("payement?id=$id_order");
                 
             }
 

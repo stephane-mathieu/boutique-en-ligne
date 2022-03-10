@@ -20,18 +20,18 @@ class Produits extends Controllers{
 
         if(isset($_GET['type'])){
             $recherche = htmlspecialchars($_GET['type']);
-            var_dump($recherche);
             $all_products = $this->model->DisplayAllProductsBySeach("$recherche");
+            
         }
-
-        if(isset($_GET['type'])){
-            $nom_categorie = htmlspecialchars($_GET['type']);
+        if(isset($_GET['category'])){
+            $nom_categorie = htmlspecialchars($_GET['category']);
             $all_products = $this->model->DisplayAllProductsByCat($nom_categorie);
+            
         }
-        
-        if(isset($_GET['type'])){
-            $nom_sub_categorie = htmlspecialchars($_GET['type']);
+        if(isset($_GET['sub_category'])){
+            $nom_sub_categorie = htmlspecialchars($_GET['sub_category']);
             $all_products = $this->model-> DisplayAllProductsBySubCat($nom_sub_categorie);
+            
         }
 
         

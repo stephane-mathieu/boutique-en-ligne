@@ -38,7 +38,8 @@ $user = $_SESSION['role'];
                     <?php if ($user == 'admin') { ?>
                         <a class="btn btn-light action-button" role="button" href="admin">Admin</a></span>
                     <?php } ?>
-                    <img class="panier" src="/boutique-en-ligne/view/assets/panier.PNG" alt="panier">
+                    <div><a href="panier"><img src="/boutique-en-ligne/view/assets/logo.PNG" alt="panier"></a>
+
                 </div><br>
             </div>
         </nav>

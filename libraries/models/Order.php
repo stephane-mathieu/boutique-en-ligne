@@ -171,6 +171,31 @@
         }
 
 
+        public function SelectOrder($id){
+            // SELECT * FROM `orders` WHERE ID = 112
+            $query = "SELECT * FROM `orders` WHERE ID = '$id'";
+            $order_cart = $this->pdo->prepare($query);
+            $order_cart->setFetchMode(\PDO::FETCH_ASSOC);
+            $order_cart->execute();
+
+            $order = $order_cart->fetchAll();
+
+            return $order;
+        }
+
+
+        public function DisplayAllOrder(){
+            $query = "SELECT * FROM `orders`";
+            $order_cart = $this->pdo->prepare($query);
+            $order_cart->setFetchMode(\PDO::FETCH_ASSOC);
+            $order_cart->execute();
+
+            $order = $order_cart->fetchAll();
+
+            return $order;
+        }
+
+
 
 
     }
