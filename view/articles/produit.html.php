@@ -129,6 +129,7 @@
 
         <div class="row">
             <!-- Description -->
+            <?php if(empty($article[0]['description'])){} else { ?>
             <div id="description" class="col-12">
                 <div class="card border-light mb-3">
                     <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify "></i> Description</div>
@@ -139,6 +140,7 @@
                     </div>
                 </div>
             </div>
+            <?php } ?>
 
             <!-- Material -->
             <div class="col-12">
@@ -146,8 +148,7 @@
                     <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify "></i> Matières & Couleurs & Dimensions</div>
                     <div class="card-body">
 
-                        <?php if(isset($article[0]['material'])) { 
-                            // echo ?>
+                        <?php if(empty($article[0]['material'])){} else {  ?>
 
                             <p class="card-text">
                                 Matières : <?php echo $article[0]['material']; ?>
@@ -155,8 +156,7 @@
 
                         <?php } ?>
 
-                        <?php if(isset($article[0]['colors'])) { 
-                            // echo ?>
+                        <?php if(empty($article[0]['colors'])){} else { ?>
 
                         <p class="card-text">
                             Couleurs : <?php echo $article[0]['colors']; ?>
@@ -174,10 +174,12 @@
                 </div>
             </div>
 
+            <!-- SPECIFICITES -->
 
+            <?php if(empty($article[0]['specificities'])) {} else {?>
             <div id="description" class="col-12">
                 <div class="card border-light mb-3">
-                    <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify "></i> specificities</div>
+                    <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify "></i> Spécificités</div>
                     <div class="card-body">
                         <p class="card-text">
                             <?php echo $article[0]['specificities']; ?>
@@ -185,6 +187,7 @@
                     </div>
                 </div>
             </div>
+            <?php } ?>
 
             <!-- Reviews -->
             <div class="col-12" id="reviews">
