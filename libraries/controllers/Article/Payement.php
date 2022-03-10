@@ -22,6 +22,7 @@ class Payement extends Controllers{
         $price = $order[0]['incl_taxe_price'];
 
             if(isset($_GET['id'])){
+                $_SESSION['order'] = $_GET['id'];
                 // Nous appelons l'autoloader pour avoir accès à Stripe
                 $prix = (float)$order[0]['incl_taxe_price'];
 

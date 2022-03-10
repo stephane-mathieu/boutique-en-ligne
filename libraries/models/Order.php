@@ -197,11 +197,15 @@
             return $order;
         }
 
+        public function ConfirmPayment ($id_order){
+            $query = "UPDATE orders SET payment_state = :payment_state WHERE ";
+            $confirm_payment = $this->pdo->prepare($query);
+            $confirm_payment->execute($query);
+        }
+
         
 
 
 
 
     }
-
-?>
