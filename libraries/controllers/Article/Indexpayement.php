@@ -14,12 +14,12 @@ class Indexpayement extends Controllers{
 
         session_start();
       
-        $id = $_SESSION['order'];
         
-        Http::redirect("RecapPayement?id=$id");
-            $pageTitle = "IndexPayement";
-            Renderer::render('articles/Indexpayement', compact('pageTitle'));
-    
+        
+        Http::redirect("RecapPayement?id=".$_SESSION['order']."");
+        $pageTitle = "IndexPayement";
+        Renderer::render('articles/Indexpayement', compact('pageTitle'));
+
       
 
     }
