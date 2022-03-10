@@ -58,6 +58,7 @@ $router->map('GET/POST', '/admincommentaire',function(){ $controller = new \Cont
 
 $router->map('GET/POST', '/adminCommande',function(){ $controller = new \Controllers\Admin\AdminCommande(); $controller->AdminCommande();},'AdminCommande');
 
+$router->map('GET/POST', '/adminViewCommande',function () {$controller = new \Controllers\Admin\AdminViewCommande(); $controller->AdminViewCommande();},'AdminViewCommande');
 
 $router->map('GET/POST', '/admin',function(){ $controller = new \Controllers\Admin\AdminDashboard(); $controller->Admin();},'Admin');
 
@@ -72,6 +73,9 @@ $router->map('GET/POST', '/adminInsertArticle',function(){ $controller = new \Co
 $router->map('GET/POST', '/adminInsert',function(){ $controller = new \Controllers\Admin\AdminInsertUser(); $controller->AdminInsert();},'AdminInsert');
 
 $router->map('GET/POST', '/adminDelete',function(){ $controller = new \Controllers\Admin\AdminDeleteUser(); $controller->AdminDeleteUser();},'AdminDelete');
+
+$router->map('GET/POST', '/adminDeleteCommande',function(){ $controller = new \Controllers\Admin\AdminDeleteCommande(); $controller->AdminDeleteCommande();},'AdminDeleteCommande');
+
 
 $router->map('GET/POST', '/admincreatorsteph',function(){ $controller = new \Controllers\Admin\AdminCreator(); $controller->AdminCreator1();},'AdminCreatorsteph');
 

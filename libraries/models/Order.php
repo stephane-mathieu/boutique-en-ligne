@@ -174,7 +174,6 @@
 
 
         public function SelectOrder($id){
-            // SELECT * FROM `orders` WHERE ID = 112
             $query = "SELECT * FROM `orders` WHERE ID = '$id'";
             $order_cart = $this->pdo->prepare($query);
             $order_cart->setFetchMode(\PDO::FETCH_ASSOC);
@@ -208,7 +207,6 @@
             $confirm_payment->execute($data);
         }
 
-        
 
 
 

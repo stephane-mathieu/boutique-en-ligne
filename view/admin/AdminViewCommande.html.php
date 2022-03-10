@@ -52,26 +52,19 @@
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Prix TTC</th>
-                        <th>Date</th>
-                        <th>State</th>
-                        <th>id_user</th>
+                        <th>Photo</th>
+                        <th>Titre</th>
+                        <th>Prix</th>
+                        <th>stock</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($Order as $st) {  ?>
+                <?php foreach ($Article as $st) {  ?>
                     <tr>
-                        <td> <?= $st['id']; ;?> </td>
-                        <td> <?= $st['incl_taxe_price'] ."€"; ?> </td>
-                        <td> <?= $st['date']; ?> </td>
-                        <td> <?= $st['state']; ?> </td>
-                        <td> <?= $st['id_user']; ?> </td>
-                        <td>
-                            <?php echo  '<a href="adminViewCommande?id='.$st['id'] . '" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>';?>
-                            <?php echo '<a href="adminDeleteCommande?id='.$st['id'] . '" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>';?>
-                        </td>
+                        <td> <img src="<?php echo $st['image1']; ?>" width="50px" height="50px"></td>
+                        <td> <?= $st['title']; ?> </td>
+                        <td> <?= $st['price']; ?> </td>
                     </tr>
                 <?php }; ?>
                 </tbody>
