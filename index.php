@@ -56,6 +56,8 @@ $router->map('GET/POST', '/adminprofil',function(){ $controller = new \Controlle
 
 $router->map('GET/POST', '/admincommentaire',function(){ $controller = new \Controllers\Admin\AdminCommentaire(); $controller->Commentaire();},'AdminCommentaire');
 
+$router->map('GET/POST', '/adminCommande',function(){ $controller = new \Controllers\Admin\AdminCommande(); $controller->AdminCommande();},'AdminCommande');
+
 
 $router->map('GET/POST', '/admin',function(){ $controller = new \Controllers\Admin\AdminDashboard(); $controller->Admin();},'Admin');
 

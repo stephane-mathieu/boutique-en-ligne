@@ -39,7 +39,7 @@ class RecapPayement extends Controllers
 
         $model = new \Models\Shipping();
 
-        $shipping_dates = $model->ShippingDates($id_order, $min_date, $max_date)
+        $shipping_dates = $model->ShippingDates($id_order, $min_date, $max_date);
 
         unset($_SESSION['order']);
 
