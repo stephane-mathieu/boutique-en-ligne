@@ -30,7 +30,7 @@ class Cartvalidation extends Controllers{
             $vat = number_format($excl_taxe_price * ($tva/100), $decimals = 2);
             $incl_taxe_price = number_format($excl_taxe_price + $vat, $decimals=2) ;
             $payment_state ='En attente';
-            $state = 'En attente de paiement';
+            $state = 'En attente de confirmation';
             
     
             $id_order = $this->model->CreateOrder($_SESSION['cart'], $id_user, $date, $productcart, $excl_taxe_price, $vat, $incl_taxe_price, $payment_state, $state);

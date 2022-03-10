@@ -13,6 +13,8 @@
 
         public function OrderValidation() { 
 
+            session_start();
+
             $id_order = (int) $_GET['order'];
 
             $order = $this->model->DisplayOrder($id_order);
@@ -33,15 +35,17 @@
                 
             }
 
-            var_dump($id_order);
+           
             if(isset($_POST['confirm_order'])) {
                 $state = "Confirmée";
                 $confirm = $this->model->OrderValidation($id_order, $state);
+                
+                $model = new \Models\Cart();
+                $delete = $model->DeleteCart();
                 Http::redirect("payement?id=$id_order");
+
                 
             }
-
-
 
 
             $pageTitle = "Validation de la commande";
