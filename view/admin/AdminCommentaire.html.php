@@ -53,23 +53,23 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Photo</th>
-                        <th>Titre</th>
-                        <th>Description</th>
-                        <th>Prix</th>
-                        <th>stock</th>
+                        <th>Text</th>
+                        <th>Note</th>
+                        <th>Date</th>
+                        <th>first Name</th>
+                        <th>Product</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($Article as $st) {  ?>
+                <?php foreach ($Commentaire as $st) {  ?>
                     <tr>
                         <td> <?= $st['id']; ;?> </td>
-                        <td> <img src="<?php echo $st['image1']; ?>" width="50px" height="50px"></td>
+                        <td> <?php echo $st['text']; ?></td>
+                        <td> <?= $st['note']; ?> </td>
+                        <td> <?= $st['date']; ?> </td>
+                        <td> <?= $st['firstname']; ?> </td>
                         <td> <?= $st['title']; ?> </td>
-                        <td> <?= $st['description']; ?> </td>
-                        <td> <?= $st['price']; ?> </td>
-                        <td> <?= $st['stock']; ?> </td>
                         <td>
                             <?php echo  '<a href="adminUpdateArticle?id='.$st['id'] . '" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>';?>
                             <?php echo '<a href="adminDelete?id='.$st['id'] . '" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>';?>

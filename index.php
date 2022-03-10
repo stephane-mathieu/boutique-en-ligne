@@ -28,6 +28,9 @@ $router->map('GET/POST', '/produit',function(){ $controller = new \Controllers\A
 
 $router->map('GET/POST', '/newarticle',function(){ $controller = new \Controllers\Article\NewArticle(); $controller->NewArticle();},'NewArticle');
 
+$router->map('GET/POST', '/addcommentaire',function(){ $controller = new \Controllers\Article\Commentaire(); $controller->Commentaire();},'Commentaire');
+
+
 $router->map('GET/POST', '/addtocart',function(){ $controller = new \Controllers\Panier\Addtocart(); $controller->AddToCart();},'Addtocart');
 $router->map('GET/POST', '/panier',function(){ $controller = new \Controllers\Panier\Panier(); $controller->Panier();},'Panier');
 $router->map('GET/POST', '/livraison',function(){ $controller = new \Controllers\Panier\Livraison(); $controller->Livraison();},'Livraison');
@@ -38,12 +41,18 @@ $router->map('GET/POST', '/recherche',function(){ $controller = new \Controllers
 
 $router->map('GET/POST', '/payement',function(){ $controller = new \Controllers\Article\Payement(); $controller->Payement();},'Payement');
 
+$router->map('GET/POST', '/indexpayement',function(){ $controller = new \Controllers\Article\Indexpayement(); $controller->IndexPayement();},'IndexPayement');
+
+$router->map('GET/POST', '/ordervalidation',function(){ $controller = new \Controllers\Panier\Ordervalidation(); $controller->OrderValidation();},'Ordervalidation');
 
 
 //rootAdmin//
 $router->map('GET/POST', '/adminuser',function(){$controller = new \Controllers\Admin\AdminUser();$controller->AdminUser();},'AdminUSer');
 
 $router->map('GET/POST', '/adminprofil',function(){ $controller = new \Controllers\Admin\AdminProfil(); $controller->AdminProfil();},'AdminProfil');
+
+$router->map('GET/POST', '/admincommentaire',function(){ $controller = new \Controllers\Admin\AdminCommentaire(); $controller->Commentaire();},'AdminCommentaire');
+
 
 $router->map('GET/POST', '/admin',function(){ $controller = new \Controllers\Admin\AdminDashboard(); $controller->Admin();},'Admin');
 

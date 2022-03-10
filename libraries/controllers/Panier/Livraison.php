@@ -17,6 +17,8 @@
 
             $model = new \Models\Shipping();
 
+            $ship =
+
             $valid = true;
             $shipping = '';
             $err_firstname ='';
@@ -24,6 +26,9 @@
             $err_address='';
             $err_city='';
             $err_country='';
+            $id_order = $_GET['order'];
+
+            $id_order = intval($id_order); 
 
             if (isset($_POST['submit'])) {
 
@@ -39,7 +44,6 @@
                 if (empty($firstname)) {
                     $valid = false;
                     $err_firstname = "Renseignez le prénom du destinataire.";
-                    echo "Renseignez le prénom du destinataire.";
                     $firstname = '';
                 }
 
@@ -47,67 +51,60 @@
                     $valid = false;
                     $err_firstname ="Le prénom du destinataire ne doit pas contenir de chiffres ou de caractères spéciaux";
                     $firstname ="";
-                    echo "Le prénom du destinataire ne doit pas contenir de chiffres ou de caractères spéciaux";
                 }
         
                 if (empty($lastname)) {
                     $valid = false;
                     $err_lastname = "Renseignez le nom du destinataire";
-                    echo "enseignez le nom du destinataire";
                 }
         
                 elseif (!preg_match("#^[a-zA-Z]+$#", $lastname)) {
                     $valid = false;
                     $err_lastname = "Le nom du destinataire ne doit pas contenir de chiffres ou de caractères spéciaux";
                     $lastname ="";
-                    echo "Le nom du destinataire ne doit pas contenir de chiffres ou de caractères spéciaux";
                 }
 
                 if(empty($address)) {
                     $valid = false;
                     $err_address = "Renseignez votre adresse";
                     $address ='';
-                    echo "Renseignez votre adresse";
                 }
 
                 if(empty($city)) {
                     $valid = false;
                     $err_city = "Renseignez votre ville";
                     $city ='';
-                    echo "Renseignez votre ville";
                 }
 
                 if(empty($country)) {
                     $valid = false;
                     $err_country = "Renseignez le pays";
                     $country ='';
-                    echo "Renseignez votre pays";
                 }
 
                 if (empty($zipcode)) {
                     $valid = false;
                     $err_zipcode = "Renseignez le code postal.";
-                    echo "Renseignez le code postal.";
                 }
 
                 elseif (!preg_match ("~^[0-9]{5}$~",$zipcode)) {
                     $valid = false;
                     $zipcode ='';
                     $err_zipcode = "Le code postal n'est pas au bon format";
-                    echo "Le code postal n'est pas au bon format";
                 }
 
                 if($valid) {
                 
-                    $shipping = $this->model->Shipping($firstname, $lastname, $address, $zipcode, $city, $country);
-                    header('Location: recap');
+                    $shipping = $this->model->Shipping($firstname, $lastname, $address, $zipcode, $city, $country, $id_order);
+                    Header('Location: ordervalidation?order='.$id_order.'');
 
                 }
 
             }
+            
 
             $pageTitle = "Livraison";
-            Renderer::render('articles/livraison', compact('pageTitle','model', 'shipping', 'err_firstname', 'err_lastname', 'err_address', 'err_city', 'err_country'));
+            Renderer::render('articles/livraison', compact('pageTitle','model', 'shipping', 'err_firstname', 'err_zipcode', 'err_lastname', 'err_address', 'err_city', 'err_country','firstname', 'lastname','zipcode','address','city','country'));
         
         }
     }

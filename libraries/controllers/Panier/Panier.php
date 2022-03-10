@@ -19,16 +19,14 @@ class Panier extends Controllers{
 
     $products = $this->model->ProductsInCart();
 
-    $total = $this->model->TotalPrice();
+    $total_price = $this->model->TotalPrice();
     $panier = '';
     $delete_cart = '';
     $recalculate ='';
     $delete='';
 
-    var_dump($_SESSION['cart']);
     if (isset($_GET['del'])) {
       $delete = $this->model->DeleteProduct($_GET['del']);
-      Header('Location: panier');
      
     }
 
@@ -44,10 +42,18 @@ class Panier extends Controllers{
 
     $products_number = $this->model->CountProducts();
 
+    $port = 7.90 ;
+
+    $total_HT = $total_price + $port;
+
+    $tva = $total_HT * 0.2 ;
+
+    $total = $total_HT + $tva;
+
     
 
     $pageTitle = "Panier";
-    Renderer::render('articles/panier', compact('pageTitle','model','products', 'panier', 'total', 'products_number', 'delete_cart', 'recalculate', 'delete'));
+    Renderer::render('articles/panier', compact('pageTitle','model','products', 'panier', 'total_price', 'products_number', 'delete_cart', 'recalculate', 'delete', 'total_HT', 'port', 'tva', 'total'));
       
 
   }
