@@ -15,7 +15,7 @@
 
             <section>
 
-                <div class="categories position-absolute">
+                <div class="categories">
 
                     <h4>Catégories</h4>
 

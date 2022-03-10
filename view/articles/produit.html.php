@@ -107,15 +107,21 @@
                         </form>
 
                         <div class="reviews_product p-3 mb-2 ">
-                            3 reviews
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            (4/5)
+                            <?php echo $count[0]["COUNT(*)"] ." reviews  " ?>
+                            <?php $nombre = round($moyenne[0]["AVG(note)"]); echo "($nombre/5)"; ?>
+                            <?php 
+                            $i= 0;
+                                while($i != $nombre){
+                                        echo "<span class='fa fa-star'></span>";
+                                        $i++;
+                                        // var_dump($i);
+                                    }
+                            ?>
                             <a class="pull-right" href="#reviews">View all reviews</a>
+                            
                         </div>
+                        <?php echo "<a class='pull-right' href='addcommentaire?id_article=".$article[0]['id']."'>Ajouter un commentaire</a>"; ?>
+
                     </div>
                 </div>
             </div>
@@ -123,6 +129,7 @@
 
         <div class="row">
             <!-- Description -->
+            <?php if(empty($article[0]['description'])){} else { ?>
             <div id="description" class="col-12">
                 <div class="card border-light mb-3">
                     <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify "></i> Description</div>
@@ -133,6 +140,7 @@
                     </div>
                 </div>
             </div>
+            <?php } ?>
 
             <!-- Material -->
             <div class="col-12">
@@ -140,7 +148,7 @@
                     <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify "></i> Matières & Couleurs & Dimensions</div>
                     <div class="card-body">
 
-                        <?php if(isset($article[0]['material'])) { echo ?>
+                        <?php if(empty($article[0]['material'])){} else {  ?>
 
                             <p class="card-text">
                                 Matières : <?php echo $article[0]['material']; ?>
@@ -148,7 +156,7 @@
 
                         <?php } ?>
 
-                        <?php if(isset($article[0]['colors'])) { echo ?>
+                        <?php if(empty($article[0]['colors'])){} else { ?>
 
                         <p class="card-text">
                             Couleurs : <?php echo $article[0]['colors']; ?>
@@ -166,10 +174,12 @@
                 </div>
             </div>
 
+            <!-- SPECIFICITES -->
 
+            <?php if(empty($article[0]['specificities'])) {} else {?>
             <div id="description" class="col-12">
                 <div class="card border-light mb-3">
-                    <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify "></i> Description</div>
+                    <div class="card-header bg-orange text-black text-uppercase"><i class="fa fa-align-justify "></i> Spécificités</div>
                     <div class="card-body">
                         <p class="card-text">
                             <?php echo $article[0]['specificities']; ?>
@@ -177,45 +187,38 @@
                     </div>
                 </div>
             </div>
-
-
-
+            <?php } ?>
 
             <!-- Reviews -->
             <div class="col-12" id="reviews">
                 <div class="card border-light mb-3">
                     <div class="card-header bg-black text-white text-uppercase"><i class="fa fa-comment"></i> Reviews</div>
                     <div class="card-body">
-                        <div class="review">
-                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                            <meta itemprop="datePublished" content="01-01-2016">January 01, 2018
-
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            by Paul Smith
-                            <p class="blockquote">
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            </p>
-                            <hr>
-                        </div>
-                        <div class="review">
-                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                            <meta itemprop="datePublished" content="01-01-2016">January 01, 2018
-
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                            <span class="fa fa-star" aria-hidden="true"></span>
-                            by Paul Smith
-                            <p class="blockquote">
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            </p>
-                            <hr>
-                        </div>
+                        <?php
+                            foreach ($comment as $commentaire){
+                                $i = 0;
+                                // var_dump($commentaire['note']);
+                                while($i != $commentaire['note']){
+                                    echo "<span class='fa fa-star'></span>";
+                                    $i++;
+                                    // var_dump($i);
+                                }
+                                echo "
+                                <div class='review'>
+                                <span class='glyphicon glyphicon-calendar' aria-hidden='true'></span>
+                                <meta itemprop='datePublished' content='01-01-2016'>".$commentaire['date']."
+                                    by ".$commentaire['firstname']."
+                                    <p class='blockquote'>
+                                    <p class='mb-0'>".$commentaire['text']."</p>
+                                    </p>
+                                    <hr>
+                                    </div>
+                                 
+                                    ";
+                                    
+                                }
+                                ?>
+           
                     </div>
                 </div>
             </div>
