@@ -16,9 +16,10 @@ $router->setBasePath('/boutique-en-ligne');
 $router->map('GET', '/home',function(){ $controller = new \Controllers\Index(); $controller->index();},'home');
 $router->map('GET/POST', '/connexion', function(){ $controller = new \Controllers\User\Connexion(); $controller->connexion();},'connexion');
 $router->map('GET/POST', '/inscription',function(){ $controller = new \Controllers\User\Inscription(); $controller->inscription();},'inscription');
-$router->map('GET/POST', '/updateinfos',function(){ $controller = new \Controllers\User\Profil(); $controller->profil();},'updateinfos');
 $router->map('GET/POST', '/deconnexion',function(){ $controller = new \Controllers\User\Deconnexion(); $controller->deconnexion();},'deconnexion');
 $router->map('GET/POST', '/compte',function(){ $controller = new \Controllers\User\Compte(); $controller->Compte();},'compte');
+$router->map('GET/POST', '/updateinfos',function(){ $controller = new \Controllers\User\UpdateInfos(); $controller->updateinfos();},'updateinfos');
+
 
 
 

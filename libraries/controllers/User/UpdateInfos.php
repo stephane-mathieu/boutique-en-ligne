@@ -6,10 +6,10 @@ use Models\Http;
 use Models\Renderer;
 use Controllers\Controllers;
 
-class Profil extends Controllers{
+class UpdateInfos extends Controllers{
 
     protected $modelName = \Models\User::class;
-    public function profil(){
+    public function updateinfos(){
         // update le login
         session_start();
         $check = true;
@@ -93,8 +93,8 @@ class Profil extends Controllers{
                 }
             }
             
-                $pageTitle = "profil";
-                Renderer::render('users/profil', compact('pageTitle','recuper'));
+                $pageTitle = "updateinfos";
+                Renderer::render('users/updateinfos', compact('pageTitle','recuper'));
         }
 }
 
