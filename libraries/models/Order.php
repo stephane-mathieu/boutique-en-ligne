@@ -135,7 +135,7 @@
             AND products_orders.id_order = :id_order";
 
             $display = $this->pdo->prepare($query);
-            $display->setFetchMode(\PDO::FETCH_OBJ);
+            $display->setFetchMode(\PDO::FETCH_ASSOC);
             $display->execute(['id_order'=>$id_order]);
 
             $order = $display->fetchAll();

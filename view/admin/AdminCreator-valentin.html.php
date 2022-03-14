@@ -26,7 +26,7 @@
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Commande</span></a>
                     </li>
                     </li>
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="admincommentaire" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Commentaire</span></a>
                     </li>
                     <li>

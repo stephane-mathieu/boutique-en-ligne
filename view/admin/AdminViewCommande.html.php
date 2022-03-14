@@ -20,7 +20,7 @@
                             </li>
                         </ul>
                     </li>
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="adminCommande" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Commande</span></a>
                     </li>
                     </li>
@@ -52,19 +52,19 @@
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Photo</th>
+                        <th>id</th>
                         <th>Titre</th>
                         <th>Prix</th>
                         <th>stock</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($Article as $st) {  ?>
+                <?php foreach ($Order as $st) {  ?>
                     <tr>
-                        <td> <img src="<?php echo $st['image1']; ?>" width="50px" height="50px"></td>
+                        <td> <?= $st['id']; ;?></td>
                         <td> <?= $st['title']; ?> </td>
-                        <td> <?= $st['price']; ?> </td>
+                        <td> <?= $st['price']."€"; ?> </td>
+                        <td> <?= $st['quantity']; ?> </td>
                     </tr>
                 <?php }; ?>
                 </tbody>

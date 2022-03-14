@@ -20,6 +20,10 @@
 
         }
 
+        public function deleteCommentaire($id){
+            $query = $this->pdo->prepare("DELETE FROM `comments` WHERE id = $id");
+            $query->execute();
+        }
 
     }
 

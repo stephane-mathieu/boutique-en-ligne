@@ -21,13 +21,12 @@
                             </li>
                         </ul>
                     </li>
-                    
                     <li>
                         <a href="adminCommande" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Commande</span></a>
                     </li>
                     </li>
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="admincommentaire" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Commentaire</span></a>
                     </li>
                     <li>
@@ -47,7 +46,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="admincreatorsteph">Stéphane</a></li>
               <li class="breadcrumb-item"><a href="admincreatorthomas">Thomas</a></li>
-              <li class="breadcrumb-item"><a href="admincreatorvalentin">Valentin</a></li>            </ol>
+              <li class="breadcrumb-item"><a href="admincreatorvalentin">Valentin</a></li></ol>
           </nav>
           <!-- /Breadcrumb -->
     

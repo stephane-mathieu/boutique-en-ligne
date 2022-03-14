@@ -20,11 +20,11 @@
                             </li>
                         </ul>
                     </li>
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="adminCommande" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Commande</span></a>
                     </li>
                     </li>
-                        <a href="#" class="nav-link px-0 align-middle">
+                        <a href="admincommentaire" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Commentaire</span></a>
                     </li>
                     <li>
@@ -43,9 +43,6 @@
                 <div class="row">
                     <div class="col-sm-5">
                         <h2> <b> Article Management</b></h2>
-                    </div>
-                    <div class="col-sm-7">
-                        <a href="adminInsertArticle" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Article</span></a>
                     </div>
                 </div>
             </div>
@@ -71,8 +68,7 @@
                         <td> <?= $st['firstname']; ?> </td>
                         <td> <?= $st['title']; ?> </td>
                         <td>
-                            <?php echo  '<a href="adminUpdateArticle?id='.$st['id'] . '" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>';?>
-                            <?php echo '<a href="adminDelete?id='.$st['id'] . '" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>';?>
+                            <?php echo '<a href="adminDeleteCommentaire?id='.$st['id'] . '" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>';?>
                         </td>
                     </tr>
                 <?php }; ?>

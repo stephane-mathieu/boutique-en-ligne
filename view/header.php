@@ -1,6 +1,10 @@
 <?php
 
 $user = $_SESSION['role'];
+$Model_Cart = new \Models\Cart();
+
+$count = $Model_Cart->CountProducts();
+
 ?>
 
 
@@ -39,7 +43,7 @@ $user = $_SESSION['role'];
                         <a class="btn btn-light action-button" role="button" href="admin">Admin</a></span>
                     <?php } ?>
                     <div><a href="panier"><img src="/boutique-en-ligne/view/assets/panier.PNG" alt="panier"></a>
-
+                    <?php  echo $count;?>
                 </div><br>
             </div>
         </nav>

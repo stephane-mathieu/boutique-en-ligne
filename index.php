@@ -76,6 +76,7 @@ $router->map('GET/POST', '/adminDelete',function(){ $controller = new \Controlle
 
 $router->map('GET/POST', '/adminDeleteCommande',function(){ $controller = new \Controllers\Admin\AdminDeleteCommande(); $controller->AdminDeleteCommande();},'AdminDeleteCommande');
 
+$router->map('GET/POST', '/adminDeleteCommentaire',function(){ $controller = new \Controllers\Admin\AdminDeleteCommentaire(); $controller->AdminDeleteCommentaire();},'AdminDeleteCommentaire');
 
 $router->map('GET/POST', '/admincreatorsteph',function(){ $controller = new \Controllers\Admin\AdminCreator(); $controller->AdminCreator1();},'AdminCreatorsteph');
 

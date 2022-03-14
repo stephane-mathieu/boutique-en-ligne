@@ -16,7 +16,7 @@ class AdminViewCommande extends Controllers{
         session_start();
         $id = $_GET["id"];
         if($_SESSION['role'] == "admin"){
-            $Order = $this->model->SelectOrder($id);
+            $Order = $this->model->DisplayOrder($id);
         
             $pageTitle = "adminArticle";
             Renderer::render2('admin/AdminViewCommande', compact('pageTitle','Order'));
