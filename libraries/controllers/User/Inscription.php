@@ -13,47 +13,56 @@ class Inscription extends Controllers{
     public function inscription(){
         // insert un user
         $check = true;
+
         if(isset($_POST['submit'])){
-            // Erreurs possibles
-            $errors = array();
-            // $login = $_POST['login'];
+
             $password = htmlspecialchars($_POST['password']);
-            $email = htmlspecialchars($_POST['email']);
-            $NumberPhone = htmlspecialchars($_POST['number']);
-            $firstname = htmlspecialchars($_POST['firstname']);
-            $lastname = htmlspecialchars($_POST['lastname']);
+            $email = htmlspecialchars(trim($_POST['email']));
+            $NumberPhone = htmlspecialchars(trim($_POST['number']));
+            $firstname = htmlspecialchars(ucwords(strtolower(trim($_POST['firstname']))));
+            $lastname = htmlspecialchars(ucwords(strtolower(trim($_POST['lastname']))));
             $adress = htmlspecialchars($_POST['adress']);
             $date = date('Y-m-d H:i');
             $droits = "utilisateur";
-            $point = strpos($email, ".");
-            $aroba = strpos($email, "@");
 
             //recupere les informations de lutilisateur choisis pour verifier si il ya pas deja le meme login
             $checkemail = $this->model->findAllInfoUser($email);
 
-            if(count($checkemail) != 0){
-                $check = false;
-                $errors['email'] = "email not available";
-                echo $errors['email'];
-            }
             if(empty($_POST['email'])){
                 $check = false;
-                $errors['email'] = "You must enter a valid email";
-                echo $errors['email'];
-                echo "email";
-            }else if ($point === false){
-                $check = false;
-                echo 'Votre email doit comporter un point.';
+                $error_email = "Renseignez une adresse email";
+                $email = "";
             }
-		    else if ($aroba === false){
+
+            elseif(filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+                $valid=false;
+                $err_email = "Votre email n'est pas au bon format example@gmail";
+                $email="";
+            }
+
+            if(count($checkemail) != 0){
                 $check = false;
-                echo 'Votre email doit comporter un arobase.';
+                $error_email = "Cet email est déjà utilisé";
+                $email = "";
             }
 
             if(empty($_POST['password'])){
                 $check = false;
-                $errors['password'] = "You must enter a valid password";
-                echo $errors['password'];
+                $error_password = "Renseignez votre mot de passe.";
+                $password = '';
+            }
+
+            elseif( strlen($password) < 10 ) {
+                $check = false;
+                $error_password = "Le mot de passe doit être au moins de 10 caractères";
+                $password = '';
+            }
+
+            elseif(!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]$/',$password)) {
+                $error_password = "Le mot de passe ne respecte pas les conditions.";
+                $check = false;
+                $password='';
+
             }
 
             if(empty($_POST['number'])){
