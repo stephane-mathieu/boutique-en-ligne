@@ -92,11 +92,12 @@ input[type=number] {
     text-align: center;
     flex-direction: row;
     justify-content: space-around;
+    align-items:flex-end;
 }
 
 .icone {
-    height: auto;
-    width: 30%;
+    height: 90%;
+    width: 25%;
 }
 
 .price {
