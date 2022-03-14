@@ -31,7 +31,7 @@ class AddToCart extends Controllers{
         $verif_stock = $ModelArticle->ProductStock($id_product);
         if ($verif_stock > 0){
             $cart = $this->model->AddProduct($product[0]->id);
-            die('Le produit a bien été ajouté à votre panier <a href="produits">retourner sur le catalogue</a>');
+            Http::redirect("produits");
         }else {
                 echo "Votre produit est en rupture de stock";
         }
