@@ -12,6 +12,10 @@
                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                   <div class="card-body p-4 p-lg-5 text-black">
 
+                  <?php if (isset($message)) { echo $message ;}?>
+
+                  <?php if ($display_form == 1 ) {  ?> 
+
                     <form action="inscription" method="POST">
 
                       <div class="d-flex align-items-center mb-3 pb-1">
@@ -19,42 +23,61 @@
                         <span class="h1 fw-bold mb-0">Inscription</span>
                       </div>
 
-                      <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Inscription</h5>
-                      <div class="form-outline mb-4">
-                        <input type="text" id="form2Example17"  name="firstname" class="form-control form-control-lg" />
-                        <label class="form-label" for="form2Example17">Prénom</label>
-                      </div>
-                      <div class="form-outline mb-4">
-                        <input type="text" id="form2Example17"  name="lastname" class="form-control form-control-lg" />
-                        <label class="form-label" for="form2Example17">Nom</label>
-                      </div>
-                      <div class="form-outline mb-4">
-                        <input type="email" id="form2Example17"  name="email" class="form-control form-control-lg" />
-                        <label class="form-label" for="form2Example17">Email</label>
-                      </div>
-                      <div class="form-outline mb-4">
-                        <input type="number" id="form2Example17"  name="number" class="form-control form-control-lg" />
-                        <label class="form-label" for="form2Example17">Mobile</label>
-                      </div>
-                      <div class="form-outline mb-4">
-                        <input type="text" id="form2Example17"  name="adress" class="form-control form-control-lg" />
-                        <label class="form-label" for="form2Example17">Adresse</label>
-                      </div>
+                      
 
-                      <div class="form-outline mb-4">
-                        <input type="password" id="form2Example27" name="password" class="form-control form-control-lg" />
-                        <label class="form-label" for="form2Example27">Mot de passe</label>
-                      </div>
+                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Renseignez le formulaire d'inscription.</h5>
+                        <h6 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Le mot de passe doit contenir au moins 10 caractères avec au moins une majuscule, une minuscule, 1 chiffre et un caractère spécial.</h5>
+                        
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example17">Prénom</label>
+                          <input type="text" id="form2Example17"  name="firstname" class="form-control form-control-lg" value ="<?php if (isset($firstname)) {echo $firstname;}?>"/>
+                          <div class="error"><?php if (isset($error_firstname)) { echo $error_firstname ; }?></div>
+                        </div>
 
-                      <div class="form-outline mb-4">
-                        <input type="password" id="form2Example27" name="password_confirm" class="form-control form-control-lg" />
-                        <label class="form-label" for="form2Example27"> Confirmer le mot de passe</label>
-                      </div>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example17">Nom</label>
+                          <input type="text" id="form2Example17"  name="lastname" class="form-control form-control-lg" value ="<?php if (isset($lastname)) {echo $lastname;}?>" />
+                          <div class="error"><?php if (isset($error_lastname)) { echo $error_lastname ; }?></div>
+                        </div>
 
-                      <div class="pt-1 mb-4">
-                        <button class="btn btn-dark btn-lg btn-block"  name="submit" type="submit">Login</button>
-                      </div>
-                    </form>
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example17">Email</label>
+                          <input type="email" id="form2Example17"  name="email" class="form-control form-control-lg" value ="<?php if (isset($email)) {echo $email;}?>" />
+                          <div class="error"><?php if (isset($error_email)) { echo $error_email ; }?></div>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example17">Mobile</label>
+                          <input type="text"  minlength="10" maxlength="10" id="form2Example17"  name="number" class="form-control form-control-lg" value ="<?php if (isset($number)) {echo $number;}?>" />
+                          <div class="error"><?php if (isset($error_number)) { echo $error_number ; }?></div>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example17">Adresse</label>
+                          <input type="text" id="form2Example17"  name="address" class="form-control form-control-lg" value ="<?php if (isset($address)) {echo $address;}?>" />
+                          <div class="error"><?php if (isset($error_address)) { echo $error_address ; }?></div>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example27">Mot de passe</label>
+                          <input type="password" id="form2Example27" name="password" class="form-control form-control-lg"  />
+                          <div class="error"><?php if (isset($error_password)) { echo $error_password ; }?></div>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                          <label class="form-label" for="form2Example27"> Confirmer le mot de passe</label>
+                          <input type="password" id="form2Example27" name="password_confirm" class="form-control form-control-lg" /></div>
+                          <div class="error"><?php if (isset($error_password_confirm)) { echo $error_password_confirm; }?>
+                        </div>
+
+                        <div class="pt-1 mb-4">
+                          <button class="btn btn-dark btn-lg btn-block"  name="submit" type="submit">S'inscire</button>
+                        </div>
+
+                        
+                      </form>
+                      
+                    <?php }  ?>
 
                   </div>
                 </div>

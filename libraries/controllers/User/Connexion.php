@@ -27,15 +27,9 @@ class Connexion extends Controllers{
                         session_start();
                         $_SESSION['email'] = $user['0']['email'];
                         $_SESSION['role'] = $user['0']['role'];
-                        $_SESSION['Pass'] = $user['0']['password'];
                         $_SESSION['userId'] = $user['0']['id'];
-                        $_SESSION['flash']['error'] = "You are logged now. ";
-                        
-                        if(isset($_GET['val'])) {
-                            Http::redirect("panier");
-                        } 
 
-                        else { Http::redirect("home");}
+                        Http::redirect("dashboard");
                         
                     }
 
@@ -43,15 +37,13 @@ class Connexion extends Controllers{
                         session_start();
                         $_SESSION['email'] = $user['0']['email'];
                         $_SESSION['role'] = $user['0']['role'];
-                        $_SESSION['Pass'] = $user['0']['password'];
                         $_SESSION['userId'] = $user['0']['id'];
-                        $_SESSION['flash']['error'] = "You are logged now. ";
 
                         if(isset($_GET['val'])) {
                             Http::redirect("panier");
                         } 
 
-                        else { Http::redirect("home");}
+                        else { Http::redirect("compte");}
                     }
 
                 }

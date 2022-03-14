@@ -24,18 +24,19 @@
                         </div>
 
                         <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connectez vous à votre compte.</h5>
+                        <div class="error"><?php if(isset($error)) { echo $error ;} ?></div>
+
 
                         <div><?php if(isset($_GET['val'])) { echo "Veuillez vous connecter pour valider votre panier et passer à la livraison.";}?></div>
-                        <div><?php if(isset($error)) { echo $error ;} ?></div>
-
+                        
                         <div class="form-outline mb-4">
-                          <input type="email" id="form2Example17"  name="email" class="form-control form-control-lg" />
                           <label class="form-label" for="form2Example17">Email</label>
+                          <input type="email" id="form2Example17"  name="email" class="form-control form-control-lg" />
                         </div>
 
                         <div class="form-outline mb-4">
-                          <input type="password" id="form2Example27" name="password" class="form-control form-control-lg" />
                           <label class="form-label" for="form2Example27">Mot de passe</label>
+                          <input type="password" id="form2Example27" name="password" class="form-control form-control-lg" />
                         </div>
 
                         <div class="pt-1 mb-4">

@@ -3,6 +3,7 @@
 $user = $_SESSION['role'];
 $Model_Cart = new \Models\Cart();
 
+
 $count = $Model_Cart->CountProducts();
 
 ?>

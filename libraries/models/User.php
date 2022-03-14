@@ -53,23 +53,24 @@ class User extends Model {
     }
 
     // insert le user dans la bdd
-    public function insertUser($firstname,$lastname,$email,$password,$NumberPhone,$adress,$date,$role = NULL):void{
-    $data = [
-        'firstname' =>$firstname,
-        'lastname' =>$lastname,
-        'email' =>$email,
-        'NumberPhone' =>$NumberPhone,
-        'password' =>$password,
-        'address' =>$adress,
-        'date' =>$date,
-        'role' =>$role,
-    ];
-        $query = "INSERT INTO `users`(`email`, `firstname`, `lastname`, `password`, `address`, `number`, `date`, `role`) VALUES (:email, :firstname, :lastname, :password, :address, :NumberPhone, :date ,:role)";
-        $password = $this->pdo->prepare($query);
-        $password->execute($data);
+    public function InsertUser($firstname,$lastname,$email,$password,$number,$address,$date,$role):void{
 
-        session_start();
-        $_SESSION['flash']['sucess'] = "Your account has been create, you can now log in. ";
+        $role = NULL;
+
+        $data = [
+            'firstname' =>$firstname,
+            'lastname' =>$lastname,
+            'email' =>$email,
+            'number' =>$number,
+            'password' =>$password,
+            'address' =>$address,
+            'date' =>$date,
+            'role' =>$role,
+        ];
+
+        $query = "INSERT INTO users(email, firstname, lastname, password, address, number, date,role) VALUES (:email, :firstname, :lastname, :password, :address, :number, :date ,:role)";
+        $insert_user = $this->pdo->prepare($query);
+        $insert_user->execute($data);
     }
 
     public function deleteUsers($id){
