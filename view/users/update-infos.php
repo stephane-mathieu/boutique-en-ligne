@@ -3,14 +3,6 @@
 session_start();
 // REQUIRE CONTROLLER USER //
 
-// $prenom = "Valentin";
-// $nom = "Mathieu";
-// $email = "valentin@mail.com";
-// $mobile = "0600000000";
-// $adresse = "8 Rue d'Hozier 13002 Marseille";
-// $numero = "8772";
-// $prix = "140";
-// $contenu = "3 zippo mon bebew";
 $bdd = new PDO('mysql:host=localhost;dbname=boutique', 'root', '');
 
 $query = "SELECT * FROM users WHERE users.id = '6'";
@@ -18,9 +10,9 @@ $get = $bdd->prepare($query);
 $get->setFetchMode(PDO::FETCH_ASSOC);
 $get->execute();
 
-$user = $get->fetchall();
+$userinfos = $get->fetchall();
 
-var_dump($user);
+// var_dump($userinfos);
 
 $formpassword = 0;
 
@@ -52,16 +44,16 @@ $formpassword = 0;
 
                 <h2>Modifier vos informations</h2>
                 <label for="name">PRÉNOM</label><br>
-                <input type="text" placeholder="Entrez votre prénom" value="<?php echo $user[0]['firstname']; ?>">
+                <input type="text" placeholder="Entrez votre prénom" value="<?php echo $userinfos[0]['firstname']; ?>">
                 <br>
                 <label for="surname" class="label">NOM</label><br>
-                <input type="text" placeholder="Entrez votre prénom" value="<?php echo $user[0]['lastname']; ?>">
+                <input type="text" placeholder="Entrez votre prénom" value="<?php echo $userinfos[0]['lastname']; ?>">
                 <br>
                 <label for="email" class="label">EMAIL</label><br>
-                <input type="email" placeholder="Entrez votre email" value="<?php echo $user[0]['email']; ?>">
+                <input type="email" placeholder="Entrez votre email" value="<?php echo $userinfos[0]['email']; ?>">
                 <br>
                 <label for="address" class="label">ADRESSE</label><br>
-                <input type="text" placeholder="Entrez votre adresse" value="<?php echo $user[0]['address']; ?>">
+                <input type="text" placeholder="Entrez votre adresse" value="<?php echo $userinfos[0]['address']; ?>">
                 <br>
                 <label for="password" class="label">CONFIRMEZ AVEC VOTRE MOT DE PASSE</label><br>
                 <input type="password" placeholder="Entrez votre mot de passe">

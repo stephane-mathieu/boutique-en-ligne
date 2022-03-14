@@ -9,8 +9,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css">
-    <link href="style/style.css" rel="stylesheet" type="text/css">
-    <link href="style/produit.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/boutique-en-ligne/style/newarticle.css">
 
 </head>
 <body>
@@ -19,7 +18,7 @@
     <div class="row">
         <div class="col-sm">
             <div class="card">
-                <div class="card-header bg-primary text-white text-uppercase">
+                <div class="card-header text-white text-uppercase">
                     <i class="fa fa-star"></i> Last products
                 </div>
                 <div class="card-body">
@@ -35,10 +34,10 @@
                                     <p class='card-text'>".$product['introduction']."</p>
                                     <div class='row'>
                                         <div class='col'>
-                                            <p class='btn btn-danger btn-block'>".$product['price']."€</p>
+                                            <p class='btn btn-block bg-light text-black'>".$product['price']."€</p>
                                         </div>
                                         <div class='col'>
-                                            <a href='addtocart?id=".$product['id']."' class='btn btn-success btn-block'>Add to cart</a>
+                                            <a href='addtocart?id=".$product['id']."' class='btn btn-block bg-secondary text-white'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>

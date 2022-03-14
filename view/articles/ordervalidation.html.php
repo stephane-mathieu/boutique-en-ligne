@@ -12,103 +12,104 @@
 
     <body>
 
-        <h1>Confirmez votre commande</h1>
+        <main>
 
-        <h5>Vérifiez votre commande et vos informations de livraison avant de passer au paiement.</h5>
+            <h1>Confirmez votre commande</h1>
 
-        <div class="flex-row">
+            <h5>Vérifiez votre commande et vos informations de livraison avant de passer au paiement.</h5>
 
-        <!-- RECAP COMMANDE -->
+            <div class="flex-row">
 
-        <section>
+            <!-- RECAP COMMANDE -->
 
-            <table>
+            <section class="votrecommande">
 
-                <h6>Votre commande</h6>
+                <table>
 
-                <thead>
-                    <tr>
-                        <td> Articles </td>
-                        <td> PU </td>
-                        <td> Qté </td>
-                        <td> Montant HT </td>
-                        <td> TVA </td>
-                        <td> Montant TTC </td>
-                    </tr>
-                </thead>
+                    <h6><b>Votre commande</b></h6>
 
-                <tbody>
-                    <?php foreach ($order as $product) {
-                        $quantity_price = $product->price * $product->quantity;
-
-                        $tva = $quantity_price * 0.2 ;
-        
-                        $ttc = $quantity_price + $tva ; 
-                        
-                        echo "
+                    <thead>
                         <tr>
-                            <td> $product->title </td>
-                            <td> $product->price </td>
-                            <td> $product->quantity </td>
-                            <td> $quantity_price </td>
-                            <td> $tva </td>
-                            <td> $ttc </td>
-                        </tr>";
-                    } ?> 
+                            <td> Articles </td>
+                            <td> PU </td>
+                            <td> Qté </td>
+                            <td> Montant HT </td>
+                            <td> TVA </td>
+                            <td> Montant TTC </td>
+                        </tr>
+                    </thead>
 
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <tbody>
+                        <?php foreach ($order as $product) {
+                            $quantity_price = $product->price * $product->quantity;
 
-                    <tr>
-                        <td>TOTAL</td>
-                        <td></td>
-                        <td></td>
-                        <td><?php echo $order[0]->excl_taxe_price ;?></td>
-                        <td><?php echo $order[0]->vat ;?></td>
-                        <td><?php echo $order[0]->incl_taxe_price;?></td>
-                    </tr>
+                            $tva = $quantity_price * 0.2 ;
+            
+                            $ttc = $quantity_price + $tva ; 
+                            
+                            echo "
+                            <tr>
+                                <td> $product->title </td>
+                                <td> $product->price </td>
+                                <td> $product->quantity </td>
+                                <td> $quantity_price </td>
+                                <td> $tva </td>
+                                <td> $ttc </td>
+                            </tr>";
+                        } ?> 
 
-                    
-                </tbody>
-            </table>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
 
+                        <tr>
+                            <td>TOTAL</td>
+                            <td></td>
+                            <td></td>
+                            <td><?php echo $order[0]->excl_taxe_price ." €";?></td>
+                            <td><?php echo $order[0]->vat ." €";?></td>
+                            <td><?php echo $order[0]->incl_taxe_price ." €";?></td>
+                        </tr>
+
+                        
+                    </tbody>
+                </table>
+
+                <form method='post'>
+                    <button type='submit' name='update_order'>Modifier la commande</button>
+                </form>
+
+            </section>
+
+            
+
+            <!-- RECAP INFOS LIVRAISONS -->
+
+            <section class="infoslivraison">
+                <h6>Vos informations de livraison</h6>
+
+                <div><u>Destinataire</u></div>
+                <div>Nom : <?php echo $shipping->lastname?></div>
+                <div>Prénom : <?php echo $shipping->firstname?></div>
+                <div></div><br>
+                <div><u>Livré au</u></div>
+                <div><?php echo $shipping->address?></div>
+                <div><?php echo $shipping->zipcode ; echo '&nbsp;'; echo $shipping->city?></div>
+                <div><?php echo $shipping->country?></div>
+
+                <div><a href="livraison?order=<?php echo $id_order?>"><button>Modifier la livraison </button></a></div>
+
+            </section>
+            </div>            
+            
             <form method='post'>
-                <button type='submit' name='update_order'>Modifier la commande</button>
+                <button type='submit' name='confirm_order'>Valider et passer au paiement</button>
             </form>
-
-        </section>
-
-        
-
-        <!-- RECAP INFOS LIVRAISONS -->
-
-        <section>
-            <h6>Vos informations de livraison</h6>
-
-            <div>Destinataire</div>
-            <div>Nom : <?php echo $shipping->lastname?></div>
-            <div>Prénom: <?php echo $shipping->firstname?></div>
-            <div></div>
-            <div>Livré au</div>
-            <div><?php echo $shipping->address?></div>
-            <div><?php echo $shipping->zipcode ; echo '&nbsp;'; echo $shipping->city?></div>
-            <div><?php echo $shipping->country?></div>
-
-            <div><a href="livraison?order=<?php echo $id_order?>"><button>Modifier la livraison </button></a></div>
-
-        </section>
-
-        <form method='post'>
-            <button type='submit' name='confirm_order'>Valider et passer au paiement</button>
-        </form>
-
-
-
+        </main>             
     </body>
 </html>

@@ -38,16 +38,15 @@ $user = $_SESSION['role'];
                     <?php if ($user == 'admin') { ?>
                         <a class="btn btn-light action-button" role="button" href="admin">Admin</a></span>
                     <?php } ?>
-                    <div><a href="panier"><img src="/boutique-en-ligne/view/assets/logo.PNG" alt="panier"></a>
+                    <div><a href="panier"><img src="/boutique-en-ligne/view/assets/panier.PNG" alt="panier"></a>
 
                 </div><br>
             </div>
         </nav>
         <div class="secondnav">
             <nav class="secondnavitems">
-                <a id="secondnavli" href="newarticle">Nouveautés</a>
-                <a id="secondnavli" href="produits.php">Les mieux notés</a>
                 <a id="secondnavli" href="produits">Nos produits</a>
+                <a id="secondnavli" href="newarticle">Nouveautés</a>
             </nav>
         </div>
     </div>

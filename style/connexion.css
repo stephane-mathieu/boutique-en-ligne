@@ -38,8 +38,8 @@ main form {
     border: 1px solid rgb(241, 241, 241);
     background-color:rgb(250, 250, 250);
     border-radius: 10px;
-    padding-left: 15vw;
-    padding-right: 15vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
     margin-bottom: 3vh;
 }
 
@@ -68,6 +68,9 @@ main button {
     margin-bottom: 5vh;
 }
 
+main button:hover {
+    transform: scale(1.03);
+}
 main h6 {
     color: red;
     font-family: 'Ubuntu';
