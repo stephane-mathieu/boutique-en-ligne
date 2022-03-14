@@ -207,6 +207,23 @@
             $confirm_payment->execute($data);
         }
 
+        //retourne un tableau des commandes d'un utilisateur par ordre décroissant
+        //utilisée pour afficher les commandes de l'utilisateur
+        public function UserOrders($id_user) {
+
+            $query = "SELECT orders.id, orders.incl_taxe_price, orders.date FROM orders
+            INNER JOIN users ON orders.id_user = users.id
+            WHERE orders.id_user = :id_user
+            ORDER BY orders.id DESC";
+            $orders = $this->pdo->prepare($query);
+            $orders->setFetchMode(\PDO::FETCH_ASSOC);
+            $orders->execute(['id_user'=>$id_user]);
+
+            $user_orders = $orders->fetchAll();
+
+            return $user_orders;
+        }
+
 
 
 

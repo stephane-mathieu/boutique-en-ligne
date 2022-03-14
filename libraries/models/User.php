@@ -68,7 +68,7 @@ class User extends Model {
             'role' =>$role,
         ];
 
-        $query = "INSERT INTO users(email, firstname, lastname, password, address, number, date,role) VALUES (:email, :firstname, :lastname, :password, :address, :number, :date ,:role)";
+        $query = "INSERT INTO users (email, firstname, lastname, password, address, number, date,role) VALUES (:email, :firstname, :lastname, :password, :address, :number, :date ,:role)";
         $insert_user = $this->pdo->prepare($query);
         $insert_user->execute($data);
     }

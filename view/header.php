@@ -37,7 +37,7 @@ $count = $Model_Cart->CountProducts();
                         <a class="btn btn-light action-button" role="button" href="inscription">Inscription</a>
                     <?php } ?>
                     <?php if (isset($user)) { ?>
-                        <a class="btn btn-light action-button" role="button" href="profil">Profil</a></span>
+                        <a class="btn btn-light action-button" role="button" href="compte">Compte</a></span>
                         <a class="btn btn-light action-button" role="button" href="deconnexion">Deconnexion</a>
                     <?php } ?>
                     <?php if ($user == 'admin') { ?>
