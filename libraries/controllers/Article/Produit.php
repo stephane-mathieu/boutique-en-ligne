@@ -24,7 +24,7 @@ class Produit extends Controllers{
     
             $pageTitle = "Produit";
             Renderer::render('articles/produit', compact('pageTitle','article','comment','count','moyenne'));
-    
+            
         }else
         Http::redirect("produits");
       

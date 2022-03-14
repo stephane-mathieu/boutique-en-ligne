@@ -79,30 +79,19 @@
                         <p class="price"><?php echo $article[0]['price'] ?> €</p>
                         <!-- <p class="price_discounted">149.90 $</p> -->
                         <form method="post">
-                            <div class="form-group">
-                                <label>Quantité :</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <button type="button" class="quantity-left-minus btn btn-orange btn-number" data-type="minus" data-field="">
-                                            <i class="fa fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" class="form-control" id="quantity" name="quantity" min="1" max="<?php echo $article[0]['stock'] ?>" value="1">
-                                    <div class="input-group-append">
-                                        <button type="button" class="quantity-right-plus btn btn-orange btn-number" data-type="plus" data-field="">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <?php echo "<a href='addtocart?id=".$article[0]['id']."' name='addtocart' class='btn btn-black btn-lg btn-block text-uppercase white-text'>"; ?>
-                                <i class="fa fa-shopping-cart white-text orange-hover"></i> AJOUTER AU PANIER
+                             <?php if ($article[0]['stock'] > 0){
+                                 echo "<a href='addtocart?id=".$article[0]['id']."' name='addtocart' class='btn btn-black btn-lg btn-block text-uppercase white-text'>";
+                                  echo "<i class='fa fa-shopping-cart white-text orange-hover'></i> AJOUTER AU PANIER";
+                                 echo "<a href='produits' class='btn btn-black btn-lg btn-block text-uppercase white-text'>
+                                  CONTINUER VOS ACHATS
+                                  </a>";
+                            } else {
+                                echo "Produit Indisponible";
+                             }
+                             ?>
                             </a>
 
-                            <a href="produits" class="btn btn-black btn-lg btn-block text-uppercase white-text">
-                                CONTINUER VOS ACHATS
-                            </a>
+                            
 
                         </form>
 
