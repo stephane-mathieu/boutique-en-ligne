@@ -43,7 +43,10 @@ $count = $Model_Cart->CountProducts();
                         <a class="btn btn-light action-button" role="button" href="admin">Admin</a></span>
                     <?php } ?>
                     <div><a href="panier"><img src="/boutique-en-ligne/view/assets/panier.PNG" alt="panier"></a>
-                    <?php  echo $count;?>
+                    <?php   if ($count >0) {
+                        echo $count;
+                    }
+                    ?>
                 </div><br>
             </div>
         </nav>
