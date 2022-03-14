@@ -244,6 +244,33 @@ class Article extends Model {
         $array = $listing->fetchAll();
         return $array;
     }
+    public function ProductStock($id_product) {
+
+        $query = "SELECT stock FROM products WHERE id = :id_product";
+        $stock = $this->pdo->prepare($query);
+        $stock->setFetchMode(\PDO::FETCH_ASSOC);
+        $stock-> execute(['id_product'=>$id_product]);
+
+        $product_stock = $stock->fetchAll();
+
+        $product_stock = (int) $product_stock[0]['stock'];
+
+        return $product_stock;
+
+    }
+
+    public function UpdateStock($id_product,$new_stock) {
+
+        $data = [
+            'new_stock' =>$new_stock,
+            'id_product' =>$id_product,
+        ];
+
+        $query = "UPDATE products SET stock = :new_stock WHERE id = :id_product";
+        $update_stock = $this->pdo->prepare($query);
+        $update_stock->execute($data);
+
+    }
 
 }
 
