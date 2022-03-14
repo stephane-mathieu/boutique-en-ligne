@@ -23,9 +23,10 @@
                           <span class="h1 fw-bold mb-0">Connexion</span>
                         </div>
 
-                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connectez vous à votre compte</h5>
+                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Connectez vous à votre compte.</h5>
 
-                        <?php if(isset($_GET['val'])) { echo "Veuillez vous connecter pour valider votre panier et passer à la livraison.";}?>
+                        <div><?php if(isset($_GET['val'])) { echo "Veuillez vous connecter pour valider votre panier et passer à la livraison.";}?></div>
+                        <div><?php if(isset($error)) { echo $error ;} ?></div>
 
                         <div class="form-outline mb-4">
                           <input type="email" id="form2Example17"  name="email" class="form-control form-control-lg" />
@@ -41,7 +42,7 @@
                           <button class="btn btn-dark btn-lg btn-block"  name="submit" type="submit">Connexion</button>
                         </div>
 
-                        <p  style="color: #393f81;">Pas encore de compte ?<a href="inscription.php" style="color: #393f81;">Inscrivez-vous ici.</a></p>
+                        <p  style="color: #393f81;">Pas encore de compte ? <a href="inscription.php" style="color: #393f81;">Inscrivez-vous ici.</a></p>
                       </form>
 
                     </div>
