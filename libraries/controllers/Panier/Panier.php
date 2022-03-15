@@ -16,7 +16,6 @@ class Panier extends Controllers{
     
     session_start();
   
-
     $products = $this->model->ProductsInCart();
 
     $total_price = $this->model->TotalPrice();

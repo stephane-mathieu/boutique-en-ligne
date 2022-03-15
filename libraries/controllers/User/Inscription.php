@@ -145,6 +145,7 @@ class Inscription extends Controllers{
             if($check){
                 $password = password_hash($password, PASSWORD_BCRYPT);
                 // insert les donner dans la bdd
+                var_dump($number);
                 $add_user= $this->model->InsertUser($firstname,$lastname,$email,$password,$number,$address,$date,$droits);
                 $message = "<h5>Inscription réussie ! Connectez vous <a href='connexion'><strong>ici</strong></a></h5>";
                 // ferme le formulaire
