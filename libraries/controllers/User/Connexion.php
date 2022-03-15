@@ -29,7 +29,7 @@ class Connexion extends Controllers{
                         $_SESSION['role'] = $user['0']['role'];
                         $_SESSION['userId'] = $user['0']['id'];
 
-                        Http::redirect("dashboard");
+                        Http::redirect("admin");
                         
                     }
                     else {
