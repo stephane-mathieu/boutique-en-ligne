@@ -17,7 +17,7 @@
                         <div class="col-md-12"><label class="labels">Confirmez avec votre mot de passe</label><input type="password" class="form-control"  name="password"></div>
                     </div>
 
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" name="submit">Save Profile</button></div>
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" name="submit">Sauvegarder</button></div>
                 </form>
                     </div>
                 </div>
