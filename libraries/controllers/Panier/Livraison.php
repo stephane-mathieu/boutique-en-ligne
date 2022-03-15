@@ -28,7 +28,7 @@
             $err_country='';
             $id_order = $_GET['order'];
 
-            $id_order = intval($id_order); 
+            $id_order = intval($id_order);
 
             if (isset($_POST['submit'])) {
 

@@ -36,7 +36,6 @@ class Commentaire extends Controllers{
                     $note = (int) 5;
                 }
                 $add = $this->model-> AddCommentaire($id_user,$id_article,$date,$titre,$texte,$note);
-                
                 Http::redirect("produit?id=$id_article");
             }
             Renderer::render('articles/AddCommentaire', compact('pageTitle'));

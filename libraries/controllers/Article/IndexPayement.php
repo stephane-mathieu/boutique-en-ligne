@@ -6,7 +6,7 @@ use Models\Http;
 use Models\Renderer;
 use Controllers\Controllers;
 
-class Indexpayement extends Controllers{
+class IndexPayement extends Controllers{
 
     protected $modelName = \Models\Article::class;
 

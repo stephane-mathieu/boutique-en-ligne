@@ -55,8 +55,6 @@ class User extends Model {
     // insert le user dans la bdd
     public function InsertUser($firstname,$lastname,$email,$password,$number,$address,$date,$role):void{
 
-        $role = NULL;
-
         $data = [
             'firstname' =>$firstname,
             'lastname' =>$lastname,

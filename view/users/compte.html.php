@@ -36,7 +36,7 @@
       <div class="formcolumn2">
         <h5><u>Mes commandes</u></h5>
         <p>Dernière commande <br>
-           <?php echo "Commande numéro ".$user_orders[0]['id']."<br> du ".$user_orders['0']['date']."<br>".$user_orders[0]['incl_taxe_price']." euros"; ?> 
+           <?php  if(!empty($user_orders))echo "Commande numéro ".$user_orders[0]['id']."<br> du ".$user_orders['0']['date']."<br>".$user_orders[0]['incl_taxe_price']." euros"; ?> 
         </p>
         <br>
         <a href="mescommandes.php">Afficher toutes mes commandes</a>

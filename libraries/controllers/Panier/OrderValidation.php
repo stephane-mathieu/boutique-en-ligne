@@ -7,7 +7,7 @@
     use Models\Renderer;
     use Controllers\Controllers;
 
-    class Ordervalidation extends Controllers{
+    class OrderValidation extends Controllers{
 
         protected $modelName = \Models\Order::class ;
 

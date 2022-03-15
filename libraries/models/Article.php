@@ -8,9 +8,8 @@ use PDO;
 class Article extends Model {
 
 
+    //permet de selectionner tous les product et les renvoyer dans un tableau
     public function findAllArticle(): array{
-
-        //select tous les article
         $query = $this->pdo->prepare("SELECT * FROM `products`");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
@@ -18,10 +17,8 @@ class Article extends Model {
         return $user;
     }
 
-    //select les infos de l'article choisis
+        //permet de selectionner le product par id  et le renvoyer dans un tableau
     public function findinfoArticle($id): array{
-
-        
         $query = $this->pdo->prepare("SELECT * FROM `products` WHERE `id` = '$id'");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
@@ -30,8 +27,8 @@ class Article extends Model {
         return $article;
     }
 
+        //permet de selectionner tous les categories et les renvoyer dans un tableau
     public function findCategory(): array{
-
         $query = $this->pdo->prepare("SELECT * FROM `categories`");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
@@ -40,7 +37,7 @@ class Article extends Model {
         return $article;
     }
 
-    //select les infos de l'article choisis
+    //permet de selectionner tous les sous categories et les renvoyer dans un tableau
     public function findSubCategory(){
 
         
@@ -124,6 +121,7 @@ class Article extends Model {
     }
 
 
+    //permet d'afficher tous les produits trie par categories
     public function DisplayAllProductsByCat($nom_categorie) {
 
         $query = ("SELECT products.id, image1, products.title, brand, products.id_category, products.id_sub_category, introduction, price, discount, discount_available, stock, category, id_sub_category FROM products
@@ -138,8 +136,8 @@ class Article extends Model {
         return $all_products ;
         
     }
+        //permet d'afficher tous les produits trie par sous categories
     public function DisplayAllProductsBySubCat($nom_sub_categorie) {
-
         $query = ("SELECT products.id, products.image1, products.title, products.brand, products.id_category, products.id_sub_category, products.introduction, products.price, products.discount, products.discount_available, products.stock, products.id_category, products.id_sub_category FROM products 
         INNER JOIN sub_categories ON sub_categories.id = products.id_sub_category
         WHERE sub_categories.sub_category = '$nom_sub_categorie'");
@@ -153,19 +151,7 @@ class Article extends Model {
         
     }
 
-    
-    //select les infos de l'article choisis
-    public function DisplayProductInfos(): array{
-
-        $query = "SELECT * FROM `products` WHERE `id` = '".@$_GET['id']."'";
-        $array_product = $this->pdo->prepare($query);
-        $array_product->setFetchMode(\PDO::FETCH_ASSOC);
-        $array_product->execute();
-        $product = $array_product->fetchAll();
-
-        
-        return $product;
-    }
+        //permet d'afficher tous les produits trie par sous categories ou categorie
 
     public function DisplayAllProductsBySeach($nom){
         $query = ("SELECT products.id, image1, products.title, brand, products.id_category, products.id_sub_category, introduction, price, discount, discount_available, stock, category, id_sub_category FROM products
@@ -182,10 +168,8 @@ class Article extends Model {
         return ($product);
 
     }
-
+        //select 3 article
     public function findAllArticleBy3(): array{
-
-        //select tous les article
         $query = $this->pdo->prepare("SELECT * FROM `products` LIMIT 3");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
@@ -193,9 +177,8 @@ class Article extends Model {
         return $article;
     }
 
+    //select 3 article en partant de la fin de la bdd
     public function findAllArticleBy3rev(): array{
-
-        //select tous les article
         $query = $this->pdo->prepare("SELECT * FROM products ORDER BY id DESC LIMIT 3");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
@@ -203,8 +186,8 @@ class Article extends Model {
         return $article;
     }
 
+    // permet d'afficher les commentaires
     public function DisplayComment ($id_product){
-
         $query = "SELECT users.firstname, comments.title, comments.text, comments.date,comments.note,comments.id  FROM `users` INNER JOIN comments ON id_user = users.id 
         INNER JOIN products ON id_product = products.id  WHERE products.id  = '$id_product';";
         $listing = $this->pdo->prepare($query);
@@ -215,7 +198,7 @@ class Article extends Model {
         return $array;
     }
 
-
+    // compte le nombre de commentaire dans un product
     public function Count($id) {
         $query = "SELECT COUNT(*) FROM comments where id_product = '$id'";
         $listing = $this->pdo->prepare($query);
@@ -224,7 +207,7 @@ class Article extends Model {
        
         return $number;
     }
-
+    // calcule la moyenne des note dans un product
     public function MoyenneReview($id) {
         $query = "SELECT AVG(note) FROM comments where id_product = '$id'";
         $listing = $this->pdo->prepare($query);
@@ -234,8 +217,8 @@ class Article extends Model {
         return $number;
     }
 
+    // permet de montrer le commentaire poster par le user avec son login  dans un product
     public function findComment (){
-
         $query = "SELECT users.firstname, comments.text, comments.date,comments.note,comments.id,products.title FROM `users` INNER JOIN comments ON id_user = users.id INNER JOIN products ON id_product = products.id";
         $listing = $this->pdo->prepare($query);
         $listing->setFetchMode(\PDO::FETCH_ASSOC);
@@ -244,8 +227,8 @@ class Article extends Model {
         $array = $listing->fetchAll();
         return $array;
     }
+    // permet de verif le stock d'un produit dans la bdd
     public function ProductStock($id_product) {
-
         $query = "SELECT stock FROM products WHERE id = :id_product";
         $stock = $this->pdo->prepare($query);
         $stock->setFetchMode(\PDO::FETCH_ASSOC);
@@ -259,6 +242,7 @@ class Article extends Model {
 
     }
 
+    // permet de update la quantite du product dans la bdd
     public function UpdateStock($id_product,$new_stock) {
 
         $data = [

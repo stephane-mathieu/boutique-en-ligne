@@ -6,7 +6,7 @@ use Models\Http;
 use Models\Renderer;
 use Controllers\Controllers;
 
-class Cartvalidation extends Controllers{
+class CartValidation extends Controllers{
 
     protected $modelName = \Models\Order::class;
 

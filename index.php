@@ -34,10 +34,10 @@ $router->map('GET/POST', '/newarticle',function(){ $controller = new \Controller
 $router->map('GET/POST', '/addcommentaire',function(){ $controller = new \Controllers\Article\Commentaire(); $controller->Commentaire();},'Commentaire');
 
 
-$router->map('GET/POST', '/addtocart',function(){ $controller = new \Controllers\Panier\Addtocart(); $controller->AddToCart();},'Addtocart');
+$router->map('GET/POST', '/addtocart',function(){ $controller = new \Controllers\Panier\AddToCart(); $controller->AddToCart();},'Addtocart');
 $router->map('GET/POST', '/panier',function(){ $controller = new \Controllers\Panier\Panier(); $controller->Panier();},'Panier');
 $router->map('GET/POST', '/livraison',function(){ $controller = new \Controllers\Panier\Livraison(); $controller->Livraison();},'Livraison');
-$router->map('GET/POST', '/cartvalidation',function(){ $controller = new \Controllers\Panier\Cartvalidation(); $controller->CartValidation();},'Cartvalidation');
+$router->map('GET/POST', '/cartvalidation',function(){ $controller = new \Controllers\Panier\CartValidation(); $controller->CartValidation();},'Cartvalidation');
 
 
 $router->map('GET/POST', '/recherche',function(){ $controller = new \Controllers\Article\Recherche(); $controller->Produits();},'Recherche');
@@ -47,9 +47,9 @@ $router->map('GET/POST', '/payement',function(){ $controller = new \Controllers\
 $router->map('GET/POST', '/RecapPayement',function(){ $controller = new \Controllers\Article\RecapPayement(); $controller->RecapPayement();},'RecapPayement');
 
 
-$router->map('GET/POST', '/indexpayement',function(){ $controller = new \Controllers\Article\Indexpayement(); $controller->IndexPayement();},'IndexPayement');
+$router->map('GET/POST', '/indexpayement',function(){ $controller = new \Controllers\Article\IndexPayement(); $controller->IndexPayement();},'IndexPayement');
 
-$router->map('GET/POST', '/ordervalidation',function(){ $controller = new \Controllers\Panier\Ordervalidation(); $controller->OrderValidation();},'Ordervalidation');
+$router->map('GET/POST', '/ordervalidation',function(){ $controller = new \Controllers\Panier\OrderValidation(); $controller->OrderValidation();},'Ordervalidation');
 
 
 //rootAdmin//

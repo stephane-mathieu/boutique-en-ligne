@@ -16,6 +16,8 @@ class Inscription extends Controllers{
 
         $display_form = 1;
 
+        $droits = "utilisateur";
+        var_dump($droits);
         if(isset($_POST['submit'])){
 
             $password = htmlspecialchars($_POST['password']);
@@ -27,7 +29,6 @@ class Inscription extends Controllers{
             $password = $_POST['password'];
             $password_confirm = $_POST['password_confirm'];
             $date = date('Y-m-d H:i');
-            $droits = "utilisateur";
 
             //recupere les informations de lutilisateur choisis pour verifier si il ya pas deja le meme login
             $checkemail = $this->model->findAllInfoUser($email);

@@ -30,9 +30,6 @@ class AdminProfil extends Controllers{
                 if ($_POST["droits"] == 'utilisateur') {
                     $droits = "utilisateur";
                 }
-                else if ($_POST["droits"] == 'moderateur') {
-                    $droits = "moderateur";
-                }
                 else if ($_POST["droits"] == 'administrateur') {
                     $droits = "admin";
                 }

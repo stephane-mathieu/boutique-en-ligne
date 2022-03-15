@@ -24,7 +24,6 @@
                     <select class="form-select col-md-12 " aria-label="Default select example" name="droits" id="droits">
                         <option selected>Select the role</option>
                         <option value="utilisateur">utilisateur</option>
-                        <option value="moderateur">modérateur</option>
                         <option value="administrateur">admin</option>
                     </select>
                 </div>

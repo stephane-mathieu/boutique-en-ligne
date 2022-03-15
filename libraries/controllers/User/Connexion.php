@@ -32,7 +32,6 @@ class Connexion extends Controllers{
                         Http::redirect("dashboard");
                         
                     }
-
                     else {
                         session_start();
                         $_SESSION['email'] = $user['0']['email'];
