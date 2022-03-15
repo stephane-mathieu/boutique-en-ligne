@@ -86,9 +86,11 @@
         public function TotalPrice () {
 
             $total = 0;
-
-            $ids = array_keys($_SESSION['cart']);
-            $separator = ",";
+            if(isset($_SESSION['cart'])){
+                $ids = array_keys($_SESSION['cart']);
+                $separator = ",";
+            }
+           
 
             if (empty($ids)) {
                 $products = array();
