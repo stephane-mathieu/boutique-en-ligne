@@ -18,6 +18,7 @@ class Produits extends Controllers{
         $all_categories = $this->model->ListingCategories();
         $all_sub_categories = $this->model->ListingSubCategories();
 
+
         if(isset($_GET['type'])){
             $recherche = htmlspecialchars($_GET['type']);
             $all_products = $this->model->DisplayAllProductsBySeach("$recherche");
