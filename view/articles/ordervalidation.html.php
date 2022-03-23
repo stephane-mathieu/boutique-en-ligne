@@ -51,7 +51,7 @@
                             <tr>
                                 <td> ".$product['title']." </td>
                                 <td> ".$product['price']." </td>
-                                <td> ".$product['quantity']."</td>
+                                <td> ".$product['quantity']." </td>
                                 <td> $quantity_price </td>
                                 <td> $tva </td>
                                 <td> $ttc </td>
