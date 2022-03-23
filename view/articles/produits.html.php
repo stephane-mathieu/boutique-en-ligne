@@ -60,7 +60,7 @@
 
                                 <div class='price_cart'>
 
-                                    <div class='price'>".$product['price']."€</div>" ;
+                                    <div class='price'>".$product['price']."€</div>" ;  
 
                                     if($product['stock'] > 0) { echo "
                                     <div><a href='addtocart?id=".$product['id']."'><img class='icone' src='/boutique-en-ligne/view/assets/add-to-basket.PNG' alt='add_to_cart_icon'></a></div> " ;
