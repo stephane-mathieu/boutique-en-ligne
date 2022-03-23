@@ -24,72 +24,113 @@ class UpdateInfos extends Controllers{
 
             if (isset($_SESSION['email'])) {
                 // recup email et password
-                $recuper = $this->model->findInfoUser($id);
+                $infos = $this->model->findInfoUser($id);
+                var_dump($infos);
 
                 if(isset($_POST['submit'])){
-                    $password = htmlspecialchars($_POST['password']);
-                    $email = htmlspecialchars($_POST['email']);
-                    $NumberPhone = htmlspecialchars($_POST['number']);
-                    $firstname = htmlspecialchars($_POST['firstname']);
-                    $lastname = htmlspecialchars($_POST['lastname']);
-                    $adress = htmlspecialchars($_POST['adress']);
+
+                    $firstname = htmlspecialchars(ucwords(strtolower(trim($_POST['firstname']))));
+                    $lastname = htmlspecialchars(ucwords(strtolower(trim($_POST['lastname']))));
+                    $number = htmlspecialchars(trim($_POST['number']));
+                    $adress = htmlspecialchars(trim($_POST['adress']));
+                    $email = htmlspecialchars(trim($_POST['email']));
+                    $password = htmlspecialchars(trim($_POST['password']));
                     $password = password_hash($password, PASSWORD_BCRYPT);
-                    $point = strpos($email, ".");
-                    $aroba = strpos($email, "@");
-        
+
+                    //recupere les informations de lutilisateur choisis pour verifier si il ya pas deja le meme login
+                    $checkemail = $this->model->findAllInfoUser($email);
+
                     if(empty($_POST['email'])){
                         $check = false;
-                        $errors['email'] = "You must enter a valid email";
-                        echo $errors['email'];
-                        echo "email";
-                    }else if ($point === false){
-                        $check = false;
-                        echo 'Votre email doit comporter un point.';
+                        $error_email = "Renseignez une adresse email.";
+                        $email = "";
+                        echo "error mail vide";
                     }
-                    else if ($aroba === false){
-                        $check = false;
-                        echo 'Votre email doit comporter un arobase.';
+
+                    elseif(filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
+                        $valid=false;
+                        $error_email = "Votre email n'est pas au bon format : example@gmail.";
+                        $email="";
+                        echo "error mail format";
                     }
-        
-                    if(empty($_POST['password'])){
+
+                    if(count($checkemail) != 0){
                         $check = false;
-                        $errors['password'] = "You must enter a new password or you  actualy password";
-                        echo $errors['password'];
+                        $error_email = "Cet email est déjà utilisé.";
+                        $email = "";
+                        echo "erreur mail utilisé";
                     }
-                    if(!empty($_POST['password'])){
+
+                    if(empty($password)){
                         $check = false;
+                        $error_password = "Renseignez votre mot de passe.";
+                        $password = '';
+                        echo "error password vide";
                     }
+
                     if(empty($_POST['number'])){
                         $check = false;
-                        $errors['number'] = "You must enter a valid number";
-                        echo $errors['number'];
+                        $error_number = "Renseignez votre numéro de téléphone mobile.";
+                        $number ='';
+                        echo "number vide";
                     }
-                    if(!is_numeric($_POST['number'])){
+
+                    elseif(!is_numeric($number)){
                         $check = false;
-                        echo "pas bon format nombre";
+                        $error_number = "Votre numéro de téléphone n'est pas au bon format.";
+                        $number = '';
+                        echo "error number non numérique";
                     }
+
+                    elseif(strlen($number) != 10 ) {
+                        $check = false;
+                        $error_number = "Votre numéro de téléphone doit contenir 10 chiffres.";
+                        $number = '';
+                        echo "error number moins 10";
+
+                    }
+
                     if(empty($_POST['firstname'])){
                         $check = false;
-                        $errors['firstname'] = "You must enter a valid firstname";
-                        echo $errors['password'];
+                        $error_firstname = "Renseignez votre prénom.";
+                        echo "error firstname vide";
                     }
+
+                    elseif (!preg_match("#^[a-zA-Z]+$#", $firstname)) {
+                        $check = false;
+                        $error_firstname ="Votre prénom n'est pas au bon format.";
+                        $firstname = '';
+                        echo "error firstname chiffres";
+                    }
+
                     if(empty($_POST['lastname'])){
                         $check = false;
-                        $errors['lastname'] = "You must enter a valid lastname";
-                        echo $errors['lastname'];
+                        $error_lastname = "Veuillez renseigner votre nom.";
+                        echo "error lastname vide";
                     }
-                    if(empty($_POST['adress'])){
+                    
+                    elseif (!preg_match("#^[a-zA-Z]+$#", $lastname)) {
                         $check = false;
-                        $errors['password'] = "You must enter a valid adress";
-                        echo $errors['adress'];
+                        $err_lastname ="Votre nom n'est pas au bon format;";
+                        $lastname = '';
+                        echo "error lastname chiffres";
                     }
-        
-                    if($check){
-                    // insert les donner dans la bdd
-                    $addUser= $this->model->UpdateProfil($email,$firstname,$lastname,$password,$adress,$NumberPhone,$id);
-                    Http::redirect("profil");
+
+                    
+                    if(empty($_POST['address'])){
+                        $check = false;
+                        $error_adress = "Renseignez votre adresse.";
+                        echo "error adresse vide";
+                        
                     }
-               
+
+                    if($infos[0][$password] == $password ) {
+                        $update = UpdateProfil($email, $firstname, $lastname,$address, $number, $id );
+
+                    }
+
+
+    
                 }
             }
             

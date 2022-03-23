@@ -26,7 +26,6 @@ class Inscription extends Controllers{
             $firstname = htmlspecialchars(ucwords(strtolower(trim($_POST['firstname']))));
             $lastname = htmlspecialchars(ucwords(strtolower(trim($_POST['lastname']))));
             $address = htmlspecialchars($_POST['address']);
-            $password = $_POST['password'];
             $password_confirm = $_POST['password_confirm'];
             $date = date('Y-m-d H:i');
 

@@ -41,7 +41,7 @@
 
                     <tbody>
                         <?php foreach ($order as $product) {
-                            $quantity_price = $product->price * $product->quantity;
+                            $quantity_price = $product['price'] * $product['quantity'];
 
                             $tva = $quantity_price * 0.2 ;
             
@@ -49,9 +49,9 @@
                             
                             echo "
                             <tr>
-                                <td> $product->title </td>
-                                <td> $product->price </td>
-                                <td> $product->quantity </td>
+                                <td> ".$product['title']." </td>
+                                <td> ".$product['price']." </td>
+                                <td> ".$product['quantity']."</td>
                                 <td> $quantity_price </td>
                                 <td> $tva </td>
                                 <td> $ttc </td>
@@ -71,9 +71,9 @@
                             <td>TOTAL</td>
                             <td></td>
                             <td></td>
-                            <td><?php echo $order[0]->excl_taxe_price ." €";?></td>
-                            <td><?php echo $order[0]->vat ." €";?></td>
-                            <td><?php echo $order[0]->incl_taxe_price ." €";?></td>
+                            <td><?php echo $order[0]['excl_taxe_price'] ." €";?></td>
+                            <td><?php echo $order[0]['vat'] ." €";?></td>
+                            <td><?php echo $order[0]['incl_taxe_price'] ." €";?></td>
                         </tr>
 
                         

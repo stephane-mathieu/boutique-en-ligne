@@ -81,9 +81,19 @@ class User extends Model {
         $update->execute();
     }
 
-    public function UpdateProfil($email,$firstname,$lastname,$password,$address,$NumberPhone,$id){
-        $update = $this->pdo->prepare("UPDATE `users` SET `email`= '$email', `firstname`= '$firstname', `lastname`= '$lastname', `password`= '$password' , `address`= '$address', `number`= '$NumberPhone'WHERE `id` = '$id'");
-        $update->execute();
+    public function UpdateProfil($email,$firstname,$lastname,$address,$number,$id){
+
+        $data = [
+            'email'=>$email,
+            'firstname'=>$firstname,
+            'lastname'=>$lastname,
+            'address'=>$address,
+            'number'=>$number,
+            'id'=>$id,
+
+        ];
+        $query = " UPDATE users SET email = :email, firstname = :firstname, lastname =:lastname, address = :address, number = :number WHERE id = :id";
+        $update->execute($data);
     }
 }
 
