@@ -12,7 +12,7 @@ class UpdateInfos extends Controllers{
     public function updateinfos(){
         // update le login
         session_start();
-        $check = true;
+        $valid = true;
       
         if(isset($_SESSION['email'])){
 
@@ -25,23 +25,21 @@ class UpdateInfos extends Controllers{
             if (isset($_SESSION['email'])) {
                 // recup email et password
                 $infos = $this->model->findInfoUser($id);
-                var_dump($infos);
 
                 if(isset($_POST['submit'])){
 
                     $firstname = htmlspecialchars(ucwords(strtolower(trim($_POST['firstname']))));
                     $lastname = htmlspecialchars(ucwords(strtolower(trim($_POST['lastname']))));
                     $number = htmlspecialchars(trim($_POST['number']));
-                    $adress = htmlspecialchars(trim($_POST['adress']));
+                    $address = htmlspecialchars(trim($_POST['address']));
                     $email = htmlspecialchars(trim($_POST['email']));
                     $password = htmlspecialchars(trim($_POST['password']));
-                    $password = password_hash($password, PASSWORD_BCRYPT);
 
                     //recupere les informations de lutilisateur choisis pour verifier si il ya pas deja le meme login
                     $checkemail = $this->model->findAllInfoUser($email);
 
                     if(empty($_POST['email'])){
-                        $check = false;
+                        $valid = false;
                         $error_email = "Renseignez une adresse email.";
                         $email = "";
                         echo "error mail vide";
@@ -54,88 +52,98 @@ class UpdateInfos extends Controllers{
                         echo "error mail format";
                     }
 
-                    if(count($checkemail) != 0){
-                        $check = false;
-                        $error_email = "Cet email est déjà utilisé.";
-                        $email = "";
-                        echo "erreur mail utilisé";
+                    if( $infos[0]['email'] != $email ) {
+                        if(count($checkemail) != 0){
+                            $valid = false;
+                            $error_email = "Cet email est déjà utilisé.";
+                            $email = "";
+                            echo "erreur mail utilisé";
+                        }
                     }
 
-                    if(empty($password)){
-                        $check = false;
-                        $error_password = "Renseignez votre mot de passe.";
-                        $password = '';
-                        echo "error password vide";
-                    }
-
-                    if(empty($_POST['number'])){
-                        $check = false;
+                    if(empty($number)){
+                        $valid = false;
                         $error_number = "Renseignez votre numéro de téléphone mobile.";
                         $number ='';
                         echo "number vide";
                     }
 
                     elseif(!is_numeric($number)){
-                        $check = false;
+                        $valid = false;
                         $error_number = "Votre numéro de téléphone n'est pas au bon format.";
                         $number = '';
                         echo "error number non numérique";
                     }
 
                     elseif(strlen($number) != 10 ) {
-                        $check = false;
+                        $valid = false;
                         $error_number = "Votre numéro de téléphone doit contenir 10 chiffres.";
                         $number = '';
                         echo "error number moins 10";
 
                     }
 
-                    if(empty($_POST['firstname'])){
-                        $check = false;
+                    if(empty($firstname)){
+                        $valid = false;
                         $error_firstname = "Renseignez votre prénom.";
                         echo "error firstname vide";
                     }
 
                     elseif (!preg_match("#^[a-zA-Z]+$#", $firstname)) {
-                        $check = false;
+                        $valid = false;
                         $error_firstname ="Votre prénom n'est pas au bon format.";
                         $firstname = '';
                         echo "error firstname chiffres";
                     }
 
-                    if(empty($_POST['lastname'])){
-                        $check = false;
+                    if(empty($lastname)){
+                        $valid = false;
                         $error_lastname = "Veuillez renseigner votre nom.";
                         echo "error lastname vide";
                     }
                     
                     elseif (!preg_match("#^[a-zA-Z]+$#", $lastname)) {
-                        $check = false;
+                        $valid = false;
                         $err_lastname ="Votre nom n'est pas au bon format;";
                         $lastname = '';
                         echo "error lastname chiffres";
                     }
 
                     
-                    if(empty($_POST['address'])){
-                        $check = false;
+                    if(empty($address)){
+                        $valid = false;
                         $error_adress = "Renseignez votre adresse.";
                         echo "error adresse vide";
                         
                     }
 
-                    if($infos[0][$password] == $password ) {
-                        $update = UpdateProfil($email, $firstname, $lastname,$address, $number, $id );
-
+                    
+                    if(empty($password)){
+                        $valid = false;
+                        $error_password = "Renseignez votre mot de passe.";
+                        $password = '';
+                        echo "error password vide";
                     }
 
+                    if($valid) {
+
+                        if(password_verify($password,$infos[0]['password'] ) ) {
+                            $update = $this->model->UpdateProfil($email, $firstname, $lastname,$address, $number, $id );
+                            $_SESSION['email'] = $email ;
+                            $_SESSION['userId'] = $id ;
+                            header('Location: compte') ;
+                        } else { 
+                            echo "Mot de passe incorrect.";
+                        }
+
+                    }
 
     
                 }
             }
             
-                $pageTitle = "updateinfos";
-                Renderer::render('users/updateinfos', compact('pageTitle','recuper'));
+            $pageTitle = "updateinfos";
+            Renderer::render('users/updateinfos', compact('pageTitle','infos', 'email', 'firstname', 'lastname', 'address', 'password', 'number'));
         }
 }
 

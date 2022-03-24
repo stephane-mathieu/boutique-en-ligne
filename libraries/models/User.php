@@ -92,7 +92,9 @@ class User extends Model {
             'id'=>$id,
 
         ];
+
         $query = " UPDATE users SET email = :email, firstname = :firstname, lastname =:lastname, address = :address, number = :number WHERE id = :id";
+        $update = $this->pdo->prepare($query) ;
         $update->execute($data);
     }
 }

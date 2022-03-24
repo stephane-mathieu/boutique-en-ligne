@@ -15,8 +15,10 @@ class Compte extends Controllers{
         session_start();
 
         $email = $_SESSION['email'];
+        var_dump($email);
         $id_user = $_SESSION['userId'];
         $user_infos = $this->model->findAllInfoUser($email);
+        var_dump($user_infos);
         $model_order = new \Models\Order();
         $user_orders = $model_order->UserOrders($id_user);
         $pageTitle = "compte";
