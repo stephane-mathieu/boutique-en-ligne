@@ -26,7 +26,7 @@ $count = $Model_Cart->CountProducts();
 <header>
     <div class="header-blue">
         <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
-            <div class="container"><a class="navbar-brand" href="home"><img src="/boutique-en-ligne/view/assets/logo.PNG" alt="logo"></a>
+            <div class="container"><a class="navbar-brand" href="home"><img src="/boutique-en-ligne/view/assets/logo.png" alt="logo"></a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class=" searchbar collapse navbar-collapse ms-5" id="navcol-1">
                     <form action="recherche" method="GET" class="form-inline mr-auto" target="_self">

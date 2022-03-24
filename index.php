@@ -20,6 +20,9 @@ $router->map('GET/POST', '/deconnexion',function(){ $controller = new \Controlle
 $router->map('GET/POST', '/compte',function(){ $controller = new \Controllers\User\Compte(); $controller->Compte();},'compte');
 $router->map('GET/POST', '/updateinfos',function(){ $controller = new \Controllers\User\UpdateInfos(); $controller->updateinfos();},'updateinfos');
 
+$router->map('GET/POST', '/mescommande',function(){ $controller = new \Controllers\User\MesCommande(); $controller->MesCommande();},'MesCommande');
+
+$router->map('GET/POST', '/macommande',function(){ $controller = new \Controllers\User\MaCommande(); $controller->MaCommande();},'MaCommande');
 
 
 

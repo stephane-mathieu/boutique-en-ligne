@@ -1,6 +1,8 @@
 <?php
 
-    namespace Models;
+
+
+namespace Models;
 
     class Order extends Model {
         
@@ -225,7 +227,16 @@
         }
 
 
+        public function DisplayAllOrderbyme($id){
+            $query = "SELECT orders.id, orders.incl_taxe_price, orders.date, orders.state, products_orders.quantity, products.image1 FROM orders INNER JOIN products_orders ON orders.id = products_orders.id_order INNER JOIN products ON products_orders.id_product = products.id WHERE id_user = '$id'";
 
+            $recup = $this->pdo->prepare($query);
+            $recup->setFetchMode(\PDO::FETCH_ASSOC);
+            $recup->execute();
+
+            $commandes = $recup->fetchall();
+            return $commandes;
+        }
 
 
 

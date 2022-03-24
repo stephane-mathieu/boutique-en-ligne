@@ -20,7 +20,7 @@
       <img src="../assets/products/zippo/briquet_zippo/zippo-brush-chrome-grand-modele-2.jpg" width="260px" height="320px">
 
       <div class="formcolumn1">
-        <h5><u>Mon profil</u></h5>  
+        <h5><u>Mon profil</u></h5>
         <ul>    
             <li><?php echo $user_infos[0]['firstname']; ?></li>
             <li><?php echo $user_infos[0]['lastname']; ?></li>
@@ -39,7 +39,8 @@
            <?php  if(!empty($user_orders))echo "Commande numéro ".$user_orders[0]['id']."<br> du ".$user_orders['0']['date']."<br>".$user_orders[0]['incl_taxe_price']." euros"; ?> 
         </p>
         <br>
-        <a href="mescommandes.php">Afficher toutes mes commandes</a>
+        <?php echo  '<a href="mescommande?id='.$user_infos['0']['id'] . '">Afficher toutes mes commandes</a>';?>
+
         <br>
         <a href="#">Déposer un avis produit</a>
       </div>

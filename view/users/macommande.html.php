@@ -37,7 +37,7 @@ $get3->execute();
 
 $commande3 = $get3->fetchall();
 
-// var_dump($commande3);
+
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +53,6 @@ $commande3 = $get3->fetchall();
 
   <body>
 
-    <?php require('../header.php'); ?>
 
     <main>  
 
@@ -109,8 +108,7 @@ $commande3 = $get3->fetchall();
         <button type="submit" value="same_order">COMMANDER A NOUVEAU</button>
     </main>
 
-    <?php require('../footer.php'); ?>
-  </body>              
+  </body>
 </html>
 
 
