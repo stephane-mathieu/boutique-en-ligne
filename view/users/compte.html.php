@@ -1,3 +1,8 @@
+<?php
+
+
+?>
+
 <html lang=fr>
   <head>
     <meta charset="UTF-8">
@@ -13,7 +18,9 @@
 
     <main>
       
-      <h2>Mon Compte</h2>  
+      <h2>Mon Compte</h2> 
+      
+
       <p>Bonjour <?php  echo $user_infos[0]['firstname']; ?>, bienvenue sur votre espace personnel</p>
       
       <div class="bigcontainer">
