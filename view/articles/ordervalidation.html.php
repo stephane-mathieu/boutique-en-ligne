@@ -105,7 +105,7 @@
                 <div><a href="livraison?order=<?php echo $id_order?>"><button>Modifier la livraison </button></a></div>
 
             </section>
-            </div>            
+            </div>
             
             <form method='post'>
                 <button type='submit' name='confirm_order'>Valider et passer au paiement</button>

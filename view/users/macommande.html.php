@@ -1,119 +1,118 @@
-<?php 
-
-session_start();
-
-$bdd = new PDO('mysql:host=localhost;dbname=boutique', 'root', '');
-
-$query1 = "SELECT orders.id, orders.date, orders.incl_taxe_price, orders.state, shippings.address, shippings.zipcode, shippings.city, shippings.country, users.firstname, users.lastname FROM orders INNER JOIN shippings ON orders.id = shippings.id_order INNER JOIN users ON orders.id_user = users.id";
-
-$get1 = $bdd->prepare($query1);
-$get1->setFetchMode(PDO::FETCH_ASSOC);
-$get1->execute();
-
-$commande1 = $get1->fetchall();
-
-// var_dump($commande1);
-
-$query2 = "SELECT products_orders.quantity, products.title, products.price FROM products_orders INNER JOIN products ON products_orders.id_product= products.id WHERE products_orders.id_order = '13'";
-
-$get2 = $bdd->prepare($query2);
-$get2->setFetchMode(PDO::FETCH_ASSOC);
-$get2->execute();
-
-$commande2 = $get2->fetchall();
-
-// var_dump($commande2);
-
-function pricebyqty($price, $quantite){
-
-  return $price * $quantite;
-
-}
-
-$query3 = "SELECT orders.id, orders.date, orders.incl_taxe_price FROM orders WHERE orders.id_user = '6'";
-$get3 = $bdd->prepare($query3);
-$get3->setFetchMode(PDO::FETCH_ASSOC);
-$get3->execute();
-
-$commande3 = $get3->fetchall();
-
-
+<?php
 ?>
 
-<!DOCTYPE html>
-<html lang=fr>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../style/header.css">
-    <link rel="stylesheet" href="../../style/footer.css">
-    <link rel="stylesheet" href="../../style/macommande.css">
-    <title>Ma commande</title>
-  </head>
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Titre de la page</title>
+        <link rel="stylesheet" href="style/ordervalidation.css">
+        <script src="script.js"></script>
+    </head>
 
-  <body>
+    <body>
+
+        <main>
 
 
-    <main>  
+            <div class="flex-row">
 
-        <h1><b>Votre commande</h1>
-        
-        <h4>N° <?php echo $commande1[0]['id']; ?> du <?php echo $commande1[0]['date']; ?></b></h4>
+                 <!-- RECAP INFOS LIVRAISONS -->
 
-        <div class="bigcontainer">
-            <div class="lilcontainer">
-                <h6><u><b>Informations de livraison</u></h6><br>
-                <p><?php echo $commande1[0]['lastname']; ?></p>
-                <p><?php echo $commande1[0]['firstname']; ?></p><br>
-                <p>Livré au</p><br>
-                <p><?php echo $commande1[0]['address']; ?></p>
-                <p><?php echo $commande1[0]['zipcode']; echo " ".$commande1[0]['city']; ?></p>
-                <p><?php echo $commande1[0]['country']; ?></b></p>
+                <section class="infoslivraison">
+                  <h6>Vos informations de livraison</h6>
+
+                  <div><u>Destinataire</u></div>
+                  <div>Nom : <?php echo $shipping->lastname?></div>
+                  <div>Prénom : <?php echo $shipping->firstname?></div>
+                  <div></div><br>
+                  <div><u>Livré au</u></div>
+                  <div><?php echo $shipping->address?></div>
+                  <div><?php echo $shipping->zipcode ; echo '&nbsp;'; echo $shipping->city?></div>
+                  <div><?php echo $shipping->country?></div>
+
+                </section>
+
+            <!-- RECAP COMMANDE -->
+
+            <section class="votrecommande">
+
+                <table>
+
+                    <h1><b>Votre commande</b></h6>
+
+                    <thead>
+                        <tr>
+                            <td> Articles </td>
+                            <td> PU </td>
+                            <td> Qté </td>
+                            <td> Montant HT </td>
+                            <td> TVA </td>
+                            <td> Montant TTC </td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php foreach ($order as $product) {
+                            $quantity_price = $product['price'] * $product['quantity'];
+
+                            $tva = $quantity_price * 0.2 ;
+            
+                            $ttc = $quantity_price + $tva ; 
+                            
+                            echo "
+                            <tr>
+                                <td> ".$product['title']." </td>
+                                <td> ".$product['price']." </td>
+                                <td> ".$product['quantity']." </td>
+                                <td> $quantity_price </td>
+                                <td> $tva </td>
+                                <td> $ttc </td>
+                            </tr>";
+                        } ?> 
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>TOTAL</td>
+                            <td></td>
+                            <td></td>
+                            <td><?php echo $order[0]['excl_taxe_price'] ." €";?></td>
+                            <td><?php echo $order[0]['vat'] ." €";?></td>
+                            <td><?php echo $order[0]['incl_taxe_price'] ." €";?></td>
+                        </tr>
+
+                        
+                    </tbody>
+                </table>
+
+            </section>
+
+            
+                 <!-- RECAP INFOS LIVRAISONS -->
+
+                 <section class="infoslivraison">
+                  <h6>Vos autres commandes</h6>
+                  <?php foreach ($allcommandes as $commande) { ?>
+                    <?php echo  '<a href="macommande?id='.$commande['id'] . '&idu='.$idu .'">';?><h6>Numeros de commandes : <?php echo $commande['id']?></h6></a>
+                  <!-- <div><u>Numeros de commandes : </u><?php echo $commande['id']?></div> -->
+                  <div><?php echo "prix : ".$commande['incl_taxe_price']."€"?></div>
+                  <?php } ?>
+                </section>
+
+       
             </div>
-            <div class="maincontainer">
-                <div class="mcpart1">
-                <ul><h6><b><u>Article</u></b></h6><br>
-                  <?php foreach ($commande2 as $product) { ?>
-                  <li><?php echo $product['title']; }?> </li>
-                </ul>  
-                <ul><h6><b><u>Prix unitaire</u></b></h6><br>
-                  <?php foreach ($commande2 as $product) { ?>
-                  <li><?php echo $product['price'] ."€";}?> </li>
-                </ul>
-                <ul><h6><b><u>Quantité</u></b></h6><br>
-                  <?php foreach ($commande2 as $product) { ?>
-                  <li><?php echo $product['quantity']; }?></li>
-                </ul>
-                <ul><h6><b><u>Montant TTC</u></b></h6><br>
-                  <?php foreach ($commande2 as $product) { ?>
-                  <li><?php $price = $product['price']; $quantite = $product['quantity']; $pricebyqty = pricebyqty($price,$quantite); echo $pricebyqty ."€"; }?> </li>
-                </ul><br>
-                </div>
-                <div class="mcpart2">
-                  <h6><b>TOTAL</h6>
-                  <p><?php echo $commande1[0]['incl_taxe_price']; ?>€</b></p>
-                </div>
-                <div class="mcpart3">
-                  <p>Statut de la commande : <b><?php echo $commande1[0]['state']; ?></b></p>
-                </div>     
-            </div>
-            <div class="lilcontainer">
-              <h6><u><b>Vos autres commandes</b></u></h6><br>
-              <?php foreach ($commande3 as $value){ ?>
-                <p>N° <?php echo $value['id']; ?> du <?php echo $value['date']; ?></p>
-                <p>Prix de <?php echo $value['incl_taxe_price']; ?> €</p>
-              <?php } ?>  
-            </div>
-        </div>
-        <button type="submit" value="same_order">COMMANDER A NOUVEAU</button>
-    </main>
-
-  </body>
+            
+            <form method='post'>
+                <button type='submit' name='confirm_order'>COMMANDER A NOUVEAU </button>
+            </form>
+        </main>             
+    </body>
 </html>
-
-
-
-
-
-
-

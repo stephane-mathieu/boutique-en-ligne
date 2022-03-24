@@ -13,10 +13,10 @@ class MesCommande extends Controllers{
     public function MesCommande(){
 
         session_start();
-        $id = $_GET['id'];
-        $commandes = $this->model->DisplayAllOrderbyme($id);
+        $idu = $_GET['id'];
+        $commandes = $this->model->DisplayAllOrderbyme($idu);
         $pageTitle = "MesCommande";
-        Renderer::render('users/mescommandes',compact('pageTitle','commandes'));
+        Renderer::render('users/mescommandes',compact('pageTitle','commandes','idu'));
     }
 
 }

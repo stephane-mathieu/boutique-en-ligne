@@ -238,6 +238,16 @@ namespace Models;
             return $commandes;
         }
 
+        public function SelectOrderByUser($id){
+            $query = "SELECT * FROM `orders` WHERE id_user = '$id'";
+            $order_cart = $this->pdo->prepare($query);
+            $order_cart->setFetchMode(\PDO::FETCH_ASSOC);
+            $order_cart->execute();
+
+            $order = $order_cart->fetchAll();
+
+            return $order;
+        }
 
 
 

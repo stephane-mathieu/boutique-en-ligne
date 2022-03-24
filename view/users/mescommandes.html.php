@@ -26,7 +26,7 @@
                 <div class="commande_ligne">
                     <img src="<?php echo $commande['image1']?>" width="250px" height="150px">
                     <div class="commande_recap">
-                        <a href="macommande"><h6>Votre commande n° <?php echo $commande['id']?> du <?php echo $commande['date']?></h6></a>
+                    <?php echo  '<a href="macommande?id='.$commande['id'] . '&idu='.$idu .'">';?><h6>Votre commande n° <?php echo $commande['id']?> du <?php echo $commande['date']?></h6></a>
                         <p><?php echo $commande['quantity']?> articles</p>
                         <p>pour un montant de <?php echo $commande['incl_taxe_price']?> euros</p>
                         <p>Commande <?php if($commande['state']=="Confirmée"){echo 'envoyée';} else{echo "annulée";}?></p>
