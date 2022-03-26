@@ -37,7 +37,7 @@
         </ul>
         <a href="updateinfos">Modifier mes informations</a>
         <br>
-        <a href="modif-password.php">Modifier mon mot de passe</a>
+        <a href="updatepassword">Modifier mon mot de passe</a>
       </div>  
 
       <div class="formcolumn2">

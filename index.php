@@ -19,6 +19,7 @@ $router->map('GET/POST', '/inscription',function(){ $controller = new \Controlle
 $router->map('GET/POST', '/deconnexion',function(){ $controller = new \Controllers\User\Deconnexion(); $controller->deconnexion();},'deconnexion');
 $router->map('GET/POST', '/compte',function(){ $controller = new \Controllers\User\Compte(); $controller->Compte();},'compte');
 $router->map('GET/POST', '/updateinfos',function(){ $controller = new \Controllers\User\UpdateInfos(); $controller->updateinfos();},'updateinfos');
+$router->map('GET/POST', '/updatepassword',function(){ $controller = new \Controllers\User\UpdatePassword(); $controller->updatepassword();},'updatepassword');
 
 $router->map('GET/POST', '/mescommande',function(){ $controller = new \Controllers\User\MesCommande(); $controller->MesCommande();},'MesCommande');
 

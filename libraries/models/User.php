@@ -39,17 +39,18 @@ class User extends Model {
     
     }
 
-    // update le login de l'utilisateur
-    public function updateLogin($newlog,$id){
-        $update = $this->pdo->prepare("UPDATE `utilisateurs` SET `login`= '$newlog' WHERE `id` = '$id'");
-        $result = $update->execute();
-        return $result;
-    }
 
     // update le password de l'utilisateur
-    public function updatePassword($newpassWrd,$id):void{
-        $update = $this->pdo->prepare("UPDATE `utilisateurs` SET `password`= '$newpassWrd' WHERE `id` = '$id'");
-        $update->execute();
+    public function updatePassword($new_password,$id):void{
+
+        $data = [
+            "new_password"=>$new_password, 
+            "id"=>$id,
+        ] ;
+
+        $query = "UPDATE users SET password= :new_password WHERE id = :id";
+        $update = $this->pdo->prepare($query);
+        $update->execute($data);
     }
 
     // insert le user dans la bdd
