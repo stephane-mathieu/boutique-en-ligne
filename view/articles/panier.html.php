@@ -66,7 +66,7 @@
                              
                                     <tr>
                                         <td></td>
-                                        <td colspan='4' class='text-right'>Actualisez votre panier pour enregistrer les modifications de quantités !</td>
+                                        <td colspan='4' class='text-right'><strong>Actualisez votre panier pour enregistrer les modifications de quantités !</strong></td>
                                         <td class='text-right'><input type='submit' class='bi-bi-calculator' value='Actualiser le panier'></td>
                                     </tr>
                                 </form>

@@ -48,8 +48,6 @@
         <br>
         <?php echo  '<a href="mescommande?id='.$user_infos['0']['id'] . '">Afficher toutes mes commandes</a>';?>
 
-        <br>
-        <a href="#">Déposer un avis produit</a>
       </div>
       
       <img src="../assets/products/zippo/briquet_zippo/zippo-brush-chrome-grand-modele-2-reverse.jpg" width="260px" height="320px">

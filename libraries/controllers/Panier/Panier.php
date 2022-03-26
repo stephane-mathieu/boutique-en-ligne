@@ -37,6 +37,7 @@ class Panier extends Controllers{
 
     if (isset($_POST['cart']['quantity'])) {
       $recalculate = $this->model->Recalculate();
+      header('Location: panier');
     }
 
     $products_number = $this->model->CountProducts();

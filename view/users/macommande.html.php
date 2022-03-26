@@ -96,15 +96,14 @@
             </section>
 
             
-                 <!-- RECAP INFOS LIVRAISONS -->
+                 <!-- AUTRES COMMANDES -->
 
-                 <section class="infoslivraison">
+                 <section class="">
                   <h6>Vos autres commandes</h6>
-                  <?php foreach ($allcommandes as $commande) { ?>
-                    <?php echo  '<a href="macommande?id='.$commande['id'] . '&idu='.$idu .'">';?><h6>Numeros de commandes : <?php echo $commande['id']?></h6></a>
-                  <!-- <div><u>Numeros de commandes : </u><?php echo $commande['id']?></div> -->
-                  <div><?php echo "prix : ".$commande['incl_taxe_price']."€"?></div>
-                  <?php } ?>
+                  <?php foreach ($allcommandes as $commande) { 
+                    echo  '<div><a href="macommande?id='.$commande['id'] . '&idu='.$idu .'">Commande numéro '.$commande['id'].'</a></div>
+                  <div>'.$commande['incl_taxe_price'].'€</div>';
+                  } ?>
                 </section>
 
        
