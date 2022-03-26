@@ -112,7 +112,7 @@ class UpdateInfos extends Controllers{
                     
                     if(empty($address)){
                         $valid = false;
-                        $error_adress = "Renseignez votre adresse.";
+                        $error_address = "Renseignez votre adresse.";
                         echo "error adresse vide";
                         
                     }
@@ -133,7 +133,7 @@ class UpdateInfos extends Controllers{
                             $_SESSION['userId'] = $id ;
                             header('Location: compte') ;
                         } else { 
-                            echo "Mot de passe incorrect.";
+                            $error_password ="Le mot de passe est incorrect.";
                         }
 
                     }
@@ -143,7 +143,7 @@ class UpdateInfos extends Controllers{
             }
             
             $pageTitle = "updateinfos";
-            Renderer::render('users/updateinfos', compact('pageTitle','infos', 'email', 'firstname', 'lastname', 'address', 'password', 'number'));
+            Renderer::render('users/updateinfos', compact('pageTitle','infos', 'email', 'firstname', 'lastname', 'address', 'password', 'number', 'error_email', 'error_firstname', 'error_lastname', 'error_address', 'error_password' ));
         }
 }
 

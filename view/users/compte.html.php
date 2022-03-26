@@ -43,7 +43,7 @@
       <div class="formcolumn2">
         <h5><u>Mes commandes</u></h5>
         <p>Dernière commande <br>
-           <?php  if(!empty($user_orders))echo "Commande numéro ".$user_orders[0]['id']."<br> du ".$user_orders['0']['date']."<br>".$user_orders[0]['incl_taxe_price']." euros"; ?> 
+           <?php  if(!empty($user_orders)) { echo "<a href='macommande?id=".$user_orders[0]['id']."'>Commande numéro ".$user_orders[0]['id']."<br> du ".$user_orders['0']['date']."<br>".$user_orders[0]['incl_taxe_price']." euros</a>"; } ?> 
         </p>
         <br>
         <?php echo  '<a href="mescommande?id='.$user_infos['0']['id'] . '">Afficher toutes mes commandes</a>';?>
