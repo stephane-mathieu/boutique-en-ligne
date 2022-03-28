@@ -9,7 +9,7 @@ class Article extends Model {
 
 
     //permet de selectionner tous les product et les renvoyer dans un tableau
-    public function findAllArticle(): array{
+    public function FindAllArticle(): array{
         $query = $this->pdo->prepare("SELECT * FROM `products`");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
@@ -17,28 +17,33 @@ class Article extends Model {
         return $user;
     }
 
-        //permet de selectionner le product par id  et le renvoyer dans un tableau
-    public function findinfoArticle($id): array{
-        $query = $this->pdo->prepare("SELECT * FROM `products` WHERE `id` = '$id'");
-        $query->setFetchMode(\PDO::FETCH_ASSOC);
-        $query->execute();
-        $article=$query->fetchall();
+    //permet de selectionner le product par id  et le renvoyer dans un tableau
+    public function FindinfoArticle($id): array{
+
+        $query = "SELECT * FROM products WHERE id = :id";
+        $find = $this->pdo->prepare($query);
+        $find->setFetchMode(\PDO::FETCH_ASSOC);
+        $find->execute(['id'=>$id]);
+
+        $article = $find->fetchall();
 
         return $article;
     }
 
-        //permet de selectionner tous les categories et les renvoyer dans un tableau
-    public function findCategory(): array{
-        $query = $this->pdo->prepare("SELECT * FROM `categories`");
-        $query->setFetchMode(\PDO::FETCH_ASSOC);
-        $query->execute();
+    //permet de selectionner tous les categories et les renvoyer dans un tableau
+    public function FindCategory(): array{
+
+        $query = "SELECT * FROM categories";
+        $find = $this->pdo->prepare($query)
+        $find->setFetchMode(\PDO::FETCH_ASSOC);
+        $find->execute();
         $article=$query->fetchall();
 
         return $article;
     }
 
     //permet de selectionner tous les sous categories et les renvoyer dans un tableau
-    public function findSubCategory(){
+    public function FindSubCategory(){
 
         
         $query = $this->pdo->prepare("SELECT * FROM `sub_categories`");
@@ -169,7 +174,7 @@ class Article extends Model {
 
     }
         //select 3 article
-    public function findAllArticleBy3(): array{
+    public function FindAllArticleBy3(): array{
         $query = $this->pdo->prepare("SELECT * FROM `products` LIMIT 3");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
@@ -178,7 +183,7 @@ class Article extends Model {
     }
 
     //select 3 article en partant de la fin de la bdd
-    public function findAllArticleBy3rev(): array{
+    public function FindAllArticleBy3rev(): array{
         $query = $this->pdo->prepare("SELECT * FROM products ORDER BY id DESC LIMIT 3");
         $query->setFetchMode(\PDO::FETCH_ASSOC);
         $query->execute();
@@ -218,7 +223,7 @@ class Article extends Model {
     }
 
     // permet de montrer le commentaire poster par le user avec son login  dans un product
-    public function findComment (){
+    public function FindComment (){
         $query = "SELECT users.firstname, comments.text, comments.date,comments.note,comments.id,products.title FROM `users` INNER JOIN comments ON id_user = users.id INNER JOIN products ON id_product = products.id";
         $listing = $this->pdo->prepare($query);
         $listing->setFetchMode(\PDO::FETCH_ASSOC);

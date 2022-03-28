@@ -5,6 +5,7 @@
     class Cart extends Model {
 
 
+        //Récupère l'id le nom et le prix d'un produit pour le panier
         public function GetProductId() {
 
             if (isset($_GET['id'])) {
@@ -27,6 +28,8 @@
         }
 
 
+
+        //Ajoute un produit au panier dans la session panier
         public function AddProduct($product_id) {
 
             if (isset($_SESSION['cart'][$product_id])) {
@@ -38,7 +41,7 @@
             }
         }
 
-
+        //Retourne un tableau pour fficher les produits dans le panier
         public function ProductsInCart() {
 
             if(isset($_SESSION['cart']) && !isset($_GET['del'])) { // vérifie l'absence de suppression pour éviter l'affichage d'erreur PHP qui ne retrouve plus l'index de l'article supprimé
@@ -68,7 +71,7 @@
             
         }
 
-
+        //Supprime un article du panier
         public function DeleteProduct ($product_id) {
 
 
@@ -77,12 +80,14 @@
            
         }
 
+        //Supprimer le panier
         public function DeleteCart () {
 
             unset($_SESSION['cart']);
         }
 
 
+        //Retourne le prix total du panier
         public function TotalPrice () {
 
             $total = 0;
@@ -115,6 +120,7 @@
 
         }
 
+        //Met à jour les quantités/prix des articles dans le panier
         public function Recalculate() {
 
             foreach($_SESSION['cart'] as $product_id => $quantity ) {
@@ -125,6 +131,7 @@
 
         }
 
+        //Retourne le nombre de produit dans le panier pour l'affichage dans le header
         public function CountProducts() {
 
             if(isset($_SESSION['cart'])) {

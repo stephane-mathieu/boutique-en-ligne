@@ -4,6 +4,7 @@
     class Commentaire extends Model {
 
     
+        //Ajoute un avis produit
         public function AddCommentaire($id_user,$id_article,$date,$titre,$texte,$note){
             $data = [
                 'title' => $titre,
@@ -20,7 +21,9 @@
 
         }
 
-        public function deleteCommentaire($id){
+
+        //Supprime un avis produit
+        public function DeleteCommentaire($id){
             $query = $this->pdo->prepare("DELETE FROM `comments` WHERE id = $id");
             $query->execute();
         }
