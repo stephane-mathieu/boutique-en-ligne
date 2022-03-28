@@ -52,12 +52,12 @@
                     $err_firstname ="Le prénom du destinataire ne doit pas contenir de chiffres ou de caractères spéciaux";
                     $firstname ="";
                 }
-        
+
                 if (empty($lastname)) {
                     $valid = false;
                     $err_lastname = "Renseignez le nom du destinataire";
                 }
-        
+
                 elseif (!preg_match("#^[a-zA-Z]+$#", $lastname)) {
                     $valid = false;
                     $err_lastname = "Le nom du destinataire ne doit pas contenir de chiffres ou de caractères spéciaux";
