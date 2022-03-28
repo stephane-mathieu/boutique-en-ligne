@@ -13,9 +13,9 @@ class Panier extends Controllers{
   public function Panier(){
 
     $model = new \Models\Cart();
-    
+
     session_start();
-  
+
     $products = $this->model->ProductsInCart();
 
     $total_price = $this->model->TotalPrice();
@@ -26,7 +26,6 @@ class Panier extends Controllers{
 
     if (isset($_GET['del'])) {
       $delete = $this->model->DeleteProduct($_GET['del']);
-     
     }
 
     if (isset($_GET['DelCart'])) {
@@ -48,13 +47,10 @@ class Panier extends Controllers{
 
     $tva = $total_HT * 0.2 ;
 
-    $total = $total_HT + $tva;
-
-    
+      $total = $total_HT + $tva;
 
     $pageTitle = "Panier";
     Renderer::render('articles/panier', compact('pageTitle','model','products', 'panier', 'total_price', 'products_number', 'delete_cart', 'recalculate', 'delete', 'total_HT', 'port', 'tva', 'total'));
-      
 
   }
 
