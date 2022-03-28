@@ -3,6 +3,7 @@
     namespace Models;
     class Categories extends Model {
 
+        //Retourne un tableau avec l'ensemble des catégories et sous catégories
         public function DisplayCategoriesSubCategories (){
 
             $query = "SELECT category, sub_category FROM categories INNER JOIN sub_categories ON sub_categories.id = categories.id_sub_category";
@@ -14,7 +15,10 @@
             var_dump($array);
         }
 
-        public function findCategory(): array{
+
+
+        //Retourne un tableau avec  les catéogires
+        public function FindCategory(): array{
 
             $query = $this->pdo->prepare("SELECT * FROM `categories`");
             $query->setFetchMode(\PDO::FETCH_ASSOC);

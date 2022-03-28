@@ -33,20 +33,18 @@ class RecapPayement extends Controllers
 
         $order = $this->model->DisplayOrder($id_order);
 
-        var_dump($order);
-
         // update du stock des articles
 
         $ModelArticle = new \Models\Article();
 
         foreach ($order as $product) {
-            $product_id = $product->id_product;
+            $product_id = $product['id_product'];
             $stock = $ModelArticle->ProductStock($product_id);
            
 
             var_dump($stock);
 
-            $new_stock = $stock - $product->quantity;
+            $new_stock = $stock - $product['quantity'];
 
             var_dump($new_stock);
 
@@ -71,6 +69,8 @@ class RecapPayement extends Controllers
         $model = new \Models\Shipping();
 
         $shipping_dates = $model->ShippingDates($id_order, $min_date, $max_date);
+
+        Http::redirect('macommande?id='.$id_order.'');
 
 
 

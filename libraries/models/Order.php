@@ -126,7 +126,8 @@ namespace Models;
 
         }
 
-        //retourne un tableau avec toutes les infos d'une commande à afficher
+
+        //Retourne un tableau avec toutes les infos d'une commande à afficher
         public function DisplayOrder($id_order) {
             $query = "SELECT orders.id, excl_taxe_price, vat, incl_taxe_price, date, state, payment_state, id_user,  products_orders.id_product, products_orders.quantity, shippings.firstname, shippings.lastname, shippings.address, shippings.zipcode, shippings.city, shippings.country, products.title, products.price
             FROM orders
@@ -145,7 +146,7 @@ namespace Models;
             return $order;
         }
 
-        //supprime une commande
+        //Supprime une commande
         public function DeleteOrder($id_order) {
 
             $query = "DELETE FROM products_orders WHERE id_order = :id_order";
@@ -158,7 +159,7 @@ namespace Models;
 
         }
 
-        //marque une commande comme étant confirmée dans la bdd
+        //Marque une commande comme étant confirmée dans la bdd
         public function OrderValidation($id_order, $state) {
 
             $data = [
@@ -175,6 +176,7 @@ namespace Models;
         }
 
 
+        //Retourne un tableau avec toutes les infos d'une commande
         public function SelectOrder($id){
             $query = "SELECT * FROM `orders` WHERE ID = '$id'";
             $order_cart = $this->pdo->prepare($query);
@@ -186,7 +188,7 @@ namespace Models;
             return $order;
         }
 
-
+        //Retourne un tableau avec toutes les commandes
         public function DisplayAllOrder(){
             $query = "SELECT * FROM `orders`";
             $order_cart = $this->pdo->prepare($query);
@@ -198,6 +200,7 @@ namespace Models;
             return $order;
         }
 
+        //Met à jour le statut de paiement de la commande de 'en attente' à "payée"
         public function ConfirmPayment ($id_order, $payment_state){
 
             $data = [
@@ -208,6 +211,7 @@ namespace Models;
             $confirm_payment = $this->pdo->prepare($query);
             $confirm_payment->execute($data);
         }
+
 
         //retourne un tableau des commandes d'un utilisateur par ordre décroissant
         //utilisée pour afficher les commandes de l'utilisateur
@@ -227,7 +231,9 @@ namespace Models;
         }
 
 
-        public function DisplayAllOrderbyme($id){
+
+        //Retourne un tableau avec toutes les commandes d'un utilisateur avec les infos complètes en inner join
+        public function DisplayAllOrderByMe($id){
             $query = "SELECT orders.id, orders.incl_taxe_price, orders.date, orders.state, products_orders.quantity, products.image1 FROM orders INNER JOIN products_orders ON orders.id = products_orders.id_order INNER JOIN products ON products_orders.id_product = products.id WHERE id_user = '$id'";
 
             $recup = $this->pdo->prepare($query);
@@ -238,6 +244,7 @@ namespace Models;
             return $commandes;
         }
 
+        //Retourne toutes les infos d'une commande d'un user
         public function SelectOrderByUser($id){
             $query = "SELECT * FROM `orders` WHERE id_user = '$id'";
             $order_cart = $this->pdo->prepare($query);
