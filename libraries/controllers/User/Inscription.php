@@ -149,12 +149,11 @@ class Inscription extends Controllers{
                 $message = "<h5>Inscription réussie ! Connectez vous <a href='connexion'><strong>ici</strong></a></h5>";
                 // ferme le formulaire
                 $display_form = 0;
-                Http::redirect("connexion");
             }
         }
 
         $pageTitle = "inscription";
-        Renderer::render('users/inscription',compact('pageTitle'));
+        Renderer::render('users/inscription',compact('pageTitle', 'display_form', 'error_firstname', 'error_lastname', 'error_email', 'error_address', 'error_password', 'error_password_confirm', 'firstname', 'lastname', 'email', 'address', 'message'));
     }
 
 }
