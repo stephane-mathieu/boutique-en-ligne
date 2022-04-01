@@ -34,10 +34,10 @@ class Article extends Model {
     public function FindCategory(): array{
 
         $query = "SELECT * FROM categories";
-        $find = $this->pdo->prepare($query)
+        $find = $this->pdo->prepare($query);
         $find->setFetchMode(\PDO::FETCH_ASSOC);
         $find->execute();
-        $article=$query->fetchall();
+        $article=$find->fetchall();
 
         return $article;
     }

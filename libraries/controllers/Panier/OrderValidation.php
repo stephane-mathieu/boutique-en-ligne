@@ -11,7 +11,7 @@
 
         protected $modelName = \Models\Order::class ;
 
-        public function OrderValidation() { 
+        public function OrderValidation() {
 
             session_start();
 
@@ -27,25 +27,22 @@
 
                 $model = new \Models\Shipping();
 
-                $delete_shipping = $model->DeleteShipping($id_order);
+                // $delete_shipping = $model->DeleteShipping($id_order);
 
-                $delete_order = $this->model->DeleteOrder($id_order);
+                // $delete_order = $this->model->DeleteOrder($id_order);
 
                 header('Location: panier');
                 
             }
 
-           
             if(isset($_POST['confirm_order'])) {
                 var_dump($_SESSION['cart']);
                 $state = "Confirmée";
                 $confirm = $this->model->OrderValidation($id_order, $state);
-                
                 $model = new \Models\Cart();
                 $delete = $model->DeleteCart();
                 Http::redirect("payement?id=$id_order");
 
-                
             }
 
 
