@@ -13,6 +13,9 @@ class IndexPayement extends Controllers{
     public function IndexPayement(){
 
         session_start();
+
+        $model = new \Models\Cart();
+        $delete = $model->DeleteCart();
       
         
         

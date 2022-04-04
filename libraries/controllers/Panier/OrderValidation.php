@@ -15,13 +15,21 @@
 
             session_start();
 
+
+
+
             $id_order = (int) $_GET['order'];
 
             $order = $this->model->DisplayOrder($id_order);
 
+            if(empty($order)) {
+                header('Location: panier');
+            }
+
             $model = new \Models\Shipping();
 
             $shipping = $model->DisplayShipping($id_order);
+
 
             if(isset($_POST['update_order'])) {
 
@@ -39,8 +47,7 @@
                 var_dump($_SESSION['cart']);
                 $state = "Confirmée";
                 $confirm = $this->model->OrderValidation($id_order, $state);
-                $model = new \Models\Cart();
-                $delete = $model->DeleteCart();
+
                 Http::redirect("payement?id=$id_order");
 
             }
