@@ -32,7 +32,7 @@
                 // $delete_order = $this->model->DeleteOrder($id_order);
 
                 header('Location: panier');
-                
+
             }
 
             if(isset($_POST['confirm_order'])) {

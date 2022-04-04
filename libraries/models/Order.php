@@ -1,9 +1,6 @@
 <?php
 
-
-
 namespace Models;
-
     class Order extends Model {
         
         // retourne un tableau avec tous les éléments du panier à intégrer dans la commande

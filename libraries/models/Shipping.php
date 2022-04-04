@@ -1,12 +1,7 @@
 <?php
 
-
-
     namespace Models;
-
     use PDO;
-
-
     class Shipping extends Model {
 
         public function Shipping ($firstname, $lastname, $address, $zipcode, $city, $country, $id_order) {

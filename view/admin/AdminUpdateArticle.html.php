@@ -37,7 +37,7 @@
                         <option selected>category</option>
                         <?php foreach ($category as $categorie) {
                             $id_categorie = (int) $categorie['id']  ?>
-                        <option value="<?php echo $id_categorie ?> "><?php echo $categorie['title']; ?> </option>
+                        <option value="<?php echo $id_categorie ?> "><?php echo $categorie['category']; ?> </option>
                     <?php } ?>
                     </select>
                 </div>
@@ -45,7 +45,7 @@
                     <select class="form-select col-md-12 " aria-label="Default select example" name="sub_category">
                         <option selected>sub_category</option>
                         <?php foreach ($sub_categories as $sous_categorie) { ?>
-                        <option value="<?php echo $sous_categorie['id']; ?> "><?php echo $sous_categorie['title']; ?> </option>
+                        <option value="<?php echo $sous_categorie['id']; ?> "><?php echo $sous_categorie['sub_category']; ?> </option>
                     <?php } ?>
                     </select>
                 </div>

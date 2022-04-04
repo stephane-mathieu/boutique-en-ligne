@@ -55,12 +55,12 @@
 
                             <div class='box_texte'>
                                 <div><h6>".$product['title']." / ".$product['brand']."</h6></div>
-                                <div class='p_category'>".$product['category']." / ".$product['sub_category']."</div>
+                                <div class='p_category'>".$product['id_category']." / ".$product['id_sub_category']."</div>
                                 <div class='p_intro'>".$product['introduction']."</div>
 
                                 <div class='price_cart'>
 
-                                    <div class='price'>".$product['price']."€</div>" ;  
+                                    <div class='price'>".$product['price']."€</div>" ;
 
 
                                     if($product['stock'] > 0) { echo "

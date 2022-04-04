@@ -36,15 +36,15 @@
                     <select class="form-select col-md-12 " aria-label="Default select example" name="category">
                         <option selected>category</option>
                         <?php foreach ($category as $categorie) { ?>
-                        <option value="<?php echo $categorie['id']; ?> "><?php echo $categorie['title']; ?> </option>
+                        <option value="<?php echo $categorie['id']; ?> "><?php echo $categorie['category']; ?> </option>
                     <?php } ?>
                     </select>
                 </div>
                 <div class="row mt-4">
                     <select class="form-select col-md-12 " aria-label="Default select example" name="sub_category">
                         <option selected>sub_category</option>
-                        <?php foreach ($sub_categories as $sous_categorie) { ?>
-                        <option value="<?php echo $sous_categorie['id']; ?> "><?php echo $sous_categorie['title']; ?> </option>
+                        <?php foreach ($sub_category as $sous_categorie) { ?>
+                        <option value="<?php echo $sous_categorie['id']; ?> "><?php echo $sous_categorie['sub_category']; ?> </option>
                     <?php } ?>
                     </select>
                 </div>

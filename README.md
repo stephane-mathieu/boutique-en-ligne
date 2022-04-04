@@ -1,3 +1,3 @@
-# reservation-salles
+# Boutique en ligne 
 
-projet reservation-salles
+projet boutique en ligne
