@@ -6,13 +6,26 @@
         //Retourne un tableau avec l'ensemble des catégories et sous catégories
         public function DisplayCategoriesSubCategories (){
 
-            $query = "SELECT category, sub_category FROM categories INNER JOIN sub_categories ON sub_categories.id = categories.id_sub_category";
+            $query = "SELECT category, sub_category FROM categories INNER JOIN sub_categories ON categories.id = sub_categories.id_category";
             $listing = $this->pdo->prepare($query);
             $listing->setFetchMode(\PDO::FETCH_ASSOC);
             $listing->execute();
 
             $array = $listing->fetchAll();
             var_dump($array);
+        }
+
+        //Retourne un tableau avec les catégories seules
+        public function DisplayCategories (){
+
+            $query = "SELECT * FROM categories ";
+            $listing = $this->pdo->prepare($query);
+            $listing->setFetchMode(\PDO::FETCH_ASSOC);
+            $listing->execute();
+
+            $categories = $listing->fetchAll();
+
+            return $categories;
         }
 
 
@@ -32,6 +45,19 @@
 
             $query = $this->pdo->prepare("INSERT INTO `categories` ( `category`, `description`) VALUES ('$category','$description')");
             $query->execute();
+        }
+
+        public function InsertSubCategory($title,$category){
+            
+            $data = [
+                'title'=>$title,
+                'category'=>$category,
+            ] ;
+
+            $query = "INSERT INTO sub_categories (sub_category, id_category) VALUES (:title, :category)";
+            $insert = $this->pdo->prepare($query);
+            $insert->execute($data);
+            
         }
 
 
