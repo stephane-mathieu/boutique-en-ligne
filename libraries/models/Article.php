@@ -103,7 +103,7 @@ class Article extends Model {
                 'introduction1' =>$introduction,
                 'id_sub_category1' =>$sub_category,
             ];
-            $query = "INSERT INTO products  ( `title`, `brand`, `reference`, `introduction`, `description`, `material`, `colors`, `tips`, `packaging`, `specificities`, `dimensions`, `stock`, `price`, `score`, `discount`, `discount_available`, `id_category`, `id_sub_category`) VALUES (':title1',':brand1',':reference1',':introduction1',':description1',':material1',':colors1',':tips1',':packaging1',':specificities1',':dimensions1',':stock1',':price1',':score1',':discount1',':discount_available1',':id_category1',':id_sub_category1')";
+            $query = "INSERT INTO products  ( `title`, `brand`, `reference`, `introduction`, `description`, `material`, `colors`, `tips`, `packaging`, `specificities`, `dimensions`, `price`, `score`, `discount`, `discount_available`, `id_category`, `id_sub_category`) VALUES (':title1',':brand1',':reference1',':introduction1',':description1',':material1',':colors1',':tips1',':packaging1',':specificities1',':dimensions1',':stock1',':price1',':score1',':discount1',':discount_available1',':id_category1',':id_sub_category1')";
             $article = $this->pdo->prepare($query);
             $article->execute($data);
         }
