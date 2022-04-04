@@ -28,6 +28,12 @@
             return $article;
         }
 
+        public function InsertCategory($category,$description){
+
+            $query = $this->pdo->prepare("INSERT INTO `categories` ( `category`, `description`) VALUES ('$category','$description')");
+            $query->execute();
+        }
+
 
     }
 
