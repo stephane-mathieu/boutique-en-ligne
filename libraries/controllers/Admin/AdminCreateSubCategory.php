@@ -16,15 +16,16 @@ class AdminCreateSubCategory extends Controllers{
         $categories = $this->model->DisplayCategoriesSubCategories();
 
         var_dump($categories);
+        
         if($_SESSION['role'] == "admin"){
             if(isset($_POST['submit'])){
                 $title = htmlspecialchars($_POST['title']);
                 $description = htmlspecialchars($_POST['description']);
-                $category = htmlspecialchars($_POST['category']);
-                $insert = $this->model->InsertSubCategory($title, $description, $category);
+                $insert = $this->model->InsertCategory($title, $description);
                 Http::redirect("adminArticle");
             }
-            $pageTitle = "AdminCreateCategory";
+           
+            $pageTitle = "AdminCreateSubCategory";
             Renderer::render2('admin/AdminCreeSubCategory', compact('pageTitle'));
         }else{
             Http::redirect("home");
@@ -32,4 +33,5 @@ class AdminCreateSubCategory extends Controllers{
     }
 
 }
+
 ?>
