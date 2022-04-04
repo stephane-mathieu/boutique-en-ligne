@@ -78,6 +78,7 @@ $router->map('GET/POST', '/adminCreateCategory',function(){ $controller = new \C
 $router->map('GET/POST', '/adminCreateSubCategory',function(){ $controller = new \Controllers\Admin\AdminCreateSubCategory(); $controller->AdminCreateSubCategory();},'adminCreateSubCategory');
 
 
+
 $router->map('GET/POST', '/adminInsertArticle',function(){ $controller = new \Controllers\Admin\AdminInsertArticle(); $controller->AdminInsertArticle();},'AdminInsertArticle');
 // $router->map('GET/POST', '/adminCommande',function(){ $controller = new \Controllers\AdminCommande(); $controller->AdminCommande();},'AdminCommande');
 
