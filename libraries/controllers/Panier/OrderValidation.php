@@ -27,9 +27,9 @@
 
                 $model = new \Models\Shipping();
 
-                // $delete_shipping = $model->DeleteShipping($id_order);
+                $delete_shipping = $model->DeleteShipping($id_order);
 
-                // $delete_order = $this->model->DeleteOrder($id_order);
+                $delete_order = $this->model->DeleteOrder($id_order);
 
                 header('Location: panier');
 
