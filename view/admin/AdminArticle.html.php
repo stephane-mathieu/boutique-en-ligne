@@ -46,7 +46,7 @@
                     </div>
                     <div class="col-sm-7">
                         <a href="adminInsertArticle" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Article</span></a>
-                        <a href="adminCreateCategoryAndSubCategory" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Category and Sub category</span></a>
+                        <a href="adminCreateCategory" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Category and Sub category</span></a>
                     </div>
                 </div>
             </div>

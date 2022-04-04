@@ -73,7 +73,7 @@ $router->map('GET/POST', '/adminArticle',function(){ $controller = new \Controll
 
 $router->map('GET/POST', '/adminUpdateArticle',function(){ $controller = new \Controllers\Admin\AdminUpdateArticle(); $controller->AdminUpdateArticle();},'AdminArticleUpdate');
 
-$router->map('GET/POST', '/adminCreateCategoryAndSubCategory',function(){ $controller = new \Controllers\Admin\AdminCreateCategoryAndSubCategory(); $controller->AdminCreateCategoryAndSubCategory();},'adminCreateCategoryAndSubCategory');
+$router->map('GET/POST', '/adminCreateCategory',function(){ $controller = new \Controllers\Admin\AdminCreateCategoryAndSubCategory(); $controller->AdminCreateCategory();},'adminCreateCategory');
 
 
 $router->map('GET/POST', '/adminInsertArticle',function(){ $controller = new \Controllers\Admin\AdminInsertArticle(); $controller->AdminInsertArticle();},'AdminInsertArticle');

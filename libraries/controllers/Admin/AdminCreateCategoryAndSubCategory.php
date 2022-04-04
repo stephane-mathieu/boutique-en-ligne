@@ -10,7 +10,7 @@ class AdminCreateCategoryAndSubCategory extends Controllers{
 
     protected $modelName = \Models\Categories::class;
 
-    public function AdminCreateCategoryAndSubCategory(){
+    public function AdminCreateCategory(){
         session_start();
         if($_SESSION['role'] == "admin"){
             if(isset($_POST['submit'])){
@@ -20,8 +20,8 @@ class AdminCreateCategoryAndSubCategory extends Controllers{
                 Http::redirect("adminArticle");
             }
            
-            $pageTitle = "AdminCreateCategoryAndSubCategory";
-            Renderer::render2('admin/AdminCreeCategoryAndSubCategory', compact('pageTitle'));
+            $pageTitle = "AdminCreateCategory";
+            Renderer::render2('admin/AdminCreeCategory', compact('pageTitle'));
         }else{
             Http::redirect("home");
         }
