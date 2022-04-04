@@ -12,6 +12,11 @@ class AdminCreateSubCategory extends Controllers{
 
     public function AdminCreateSubCategory(){
         session_start();
+
+        $categories = $this->model->DisplayCategoriesSubCategories();
+
+        var_dump($categories);
+        
         if($_SESSION['role'] == "admin"){
             if(isset($_POST['submit'])){
                 $title = htmlspecialchars($_POST['title']);
