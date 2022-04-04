@@ -103,7 +103,7 @@ class Article extends Model {
                 'introduction1' =>$introduction,
                 'id_sub_category1' =>$sub_category,
             ];
-            $query = "INSERT INTO products  ( `title`, `brand`, `reference`, `introduction`, `description`, `material`, `colors`, `tips`, `packaging`, `specificities`, `dimensions`, `price`, `score`, `discount`, `discount_available`, `id_category`, `id_sub_category`) VALUES (':title1',':brand1',':reference1',':introduction1',':description1',':material1',':colors1',':tips1',':packaging1',':specificities1',':dimensions1',':stock1',':price1',':score1',':discount1',':discount_available1',':id_category1',':id_sub_category1')";
+            $query = "INSERT INTO products  ( title, brand, reference, introduction, description, material, colors, tips, packaging, specificities, dimensions, stock, price, discount, discount_available, id_category, id_sub_category) VALUES (:title1,:brand1,:reference1,:introduction1,:description1,:material1,:colors1,:tips1,:packaging1,:specificities1,:dimensions1,:stock1,:price1,:discount1,:discount_available1,:id_category1,:id_sub_category1)";
             $article = $this->pdo->prepare($query);
             $article->execute($data);
         }
@@ -171,10 +171,10 @@ class Article extends Model {
     public function DisplayAllProductsBySubCat($nom_sub_categorie) {
         $query = ("SELECT products.id, products.image1, products.title, products.brand, products.id_category, products.id_sub_category, products.introduction, products.price, products.discount, products.discount_available, products.stock, products.id_category, products.id_sub_category FROM products 
         INNER JOIN sub_categories ON sub_categories.id = products.id_sub_category
-        WHERE sub_categories.sub_category = '$nom_sub_categorie'");
+        WHERE sub_categories.sub_category = :nom_sub_categorie");
         $array_products = $this->pdo->prepare($query);
         $array_products->setFetchMode(\PDO::FETCH_ASSOC);
-        $array_products->execute();
+        $array_products->execute(['nom_sub_categorie'=>$nom_sub_categorie]);
 
         $all_products = $array_products->fetchAll();
 
@@ -191,10 +191,10 @@ class Article extends Model {
         UNION
         SELECT products.id, products.image1, products.title, products.brand, products.id_category, products.id_sub_category, products.introduction, products.price, products.discount, products.discount_available, products.stock, products.id_category, products.id_sub_category FROM products 
         INNER JOIN sub_categories ON sub_categories.id = products.id_sub_category
-        WHERE sub_categories.sub_category = '$nom'");
+        WHERE sub_categories.sub_category = :nom ");
         $array_products = $this->pdo->prepare($query);
         $array_products->setFetchMode(\PDO::FETCH_ASSOC);
-        $array_products->execute();
+        $array_products->execute(['nom'=>$nom]);
         $product = $array_products->fetchAll();
         return ($product);
 
@@ -220,10 +220,10 @@ class Article extends Model {
     // permet d'afficher les commentaires
     public function DisplayComment ($id_product){
         $query = "SELECT users.firstname, comments.title, comments.text, comments.date,comments.note,comments.id  FROM `users` INNER JOIN comments ON id_user = users.id 
-        INNER JOIN products ON id_product = products.id  WHERE products.id  = '$id_product';";
+        INNER JOIN products ON id_product = products.id  WHERE products.id  = :id_product";
         $listing = $this->pdo->prepare($query);
         $listing->setFetchMode(\PDO::FETCH_ASSOC);
-        $listing->execute();
+        $listing->execute(['id_product'=>$id_product]);
 
         $array = $listing->fetchAll();
         return $array;
