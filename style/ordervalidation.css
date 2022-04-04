@@ -70,3 +70,12 @@ main button:hover {
     background: #FBFBFB;
     border-radius: 20px;
 }
+
+@media only screen and (max-width: 600px){
+    .flex-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

@@ -5,16 +5,18 @@ body {
     padding: 0;
 }
 
+main {
+    justify-content: center;
+}
+
 main h2 {
     font-family: 'Ubuntu';
     padding-bottom: 3vh;
-    text-align: center;
 }
 
 main h6 {
     font-family: 'Ubuntu';
     padding-bottom: 5vh;
-    text-align: center;
 }
 
 main a {
@@ -71,4 +73,14 @@ main button {
 main button:hover {
     transform: scale(1.03);
     cursor: pointer;
+}
+
+.a {
+    color:black;   
+    text-decoration: none;
+}
+
+.a:hover {
+    color: orange;
+    text-decoration: none;
 }

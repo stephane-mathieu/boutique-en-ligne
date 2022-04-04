@@ -47,19 +47,19 @@
         </div>
         <div class="col-12 col-md-3">
             <div class="card">
-                <div class="card-header bg-success text-white text-uppercase">
+                <div class="card-header bg-dark text-white text-uppercase">
                     <i class="fa fa-heart"></i> Top product
                 </div>
-                    <?php echo "<a href='produit?id=".$all_products[0]['id'] ."'>"; ?>
+                    <?php echo "<a class='a' href='produit?id=".$all_products[0]['id'] ."'>"; ?>
                     <img class="img-fluid border-0" src=' <?php echo $all_products[0]['image1']; ?>' alt="Card image cap">
                 <div class="card-body">
                     <h4 class="card-text text-center"><?php echo $all_products[0]['title']; ?></h4>
                     <div class="row">
                         <div class="col">
-                            <p class="btn btn-danger btn-block"><?php echo $all_products[0]['price']; ?> €</p>
+                            <p class="btn btn-block bg-light text-black"><?php echo $all_products[0]['price']; ?> €</p>
                         </div>
                         <div class='col'>
-                            <?php echo "<a href='addtocart?id=".$all_products[0]['id']."' class='btn btn-success btn-block'>Add to cart</a>"; ?>
+                            <?php echo "<a href='addtocart?id=".$all_products[0]['id']."' class='btn btn-block bg-secondary text-white'>Add to cart</a>"; ?>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
     <div class="row">
         <div class="col-sm">
             <div class="card">
-                <div class="card-header bg-primary text-white text-uppercase">
+                <div class="card-header text-white text-uppercase">
                     <i class="fa fa-star"></i> Last products
                 </div>
                 <div class="card-body">
@@ -88,10 +88,10 @@
                                     <p class='card-text'>".$product['introduction']."</p>
                                     <div class='row'>
                                         <div class='col'>
-                                            <p class='btn btn-danger btn-block'>".$product['price']."€</p>
+                                            <p class='btn btn-block bg-light text-black'>".$product['price']."€</p>
                                         </div>
                                         <div class='col'>
-                                            <a href='addtocart?id=".$product['id']."' class='btn btn-success btn-block'>Add to cart</a>
+                                            <a href='addtocart?id=".$product['id']."' class='btn btn-block bg-secondary text-white'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
     <div class="row">
         <div class="col-sm">
             <div class="card">
-                <div class="card-header bg-primary text-white text-uppercase">
+                <div class="card-header bg-dark text-white text-uppercase">
                     <i class="fa fa-trophy"></i> Best products
                 </div>
                 <div class="card-body">
@@ -128,10 +128,10 @@
                                     <p class='card-text'>".$product['introduction']."</p>
                                     <div class='row'>
                                         <div class='col'>
-                                            <p class='btn btn-danger btn-block'>".$product['price']."€</p>
+                                            <p class='btn btn-block bg-light text-black'>".$product['price']."€</p>
                                         </div>
                                         <div class='col'>
-                                            <a href='addtocart?id=".$product['id']."' class='btn btn-success btn-block'>Add to cart</a>
+                                            <a href='addtocart?id=".$product['id']."' class='btn btn-block bg-secondary text-white'>Add to cart</a>
                                         </div>
                                     </div>
                                 </div>

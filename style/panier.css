@@ -88,3 +88,7 @@
     height: auto;
     width: 100px;
 }
+
+.a:hover {
+    text-decoration: none;
+}

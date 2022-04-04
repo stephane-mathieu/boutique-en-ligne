@@ -38,7 +38,7 @@ $count = $Model_Cart->CountProducts();
                     <?php } ?>
                     <?php if (isset($user)) { ?>
                         <a class="btn btn-light action-button" role="button" href="compte">Compte</a></span>
-                        <a class="btn btn-light action-button" role="button" href="deconnexion">Deconnexion</a>
+                        <a class="btn btn-light action-button mr-2" role="button" href="deconnexion">Deconnexion</a>
                     <?php } ?>
                     <?php if ($user == 'admin') { ?>
                         <a class="btn btn-light action-button" role="button" href="admin">Admin</a></span>
@@ -46,8 +46,7 @@ $count = $Model_Cart->CountProducts();
                     <div><a href="panier"><img src="/boutique-en-ligne/view/assets/panier.PNG" alt="panier"></a>
                     <?php   if ($count >0) {
                         echo $count;
-                    }
-                    ?>
+                    }?>
                 </div><br>
             </div>
         </nav>

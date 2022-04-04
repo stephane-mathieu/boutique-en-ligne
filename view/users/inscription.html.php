@@ -1,4 +1,7 @@
 <body>
+  <head>
+    <link rel="stylesheet" href="/boutique-en-ligne/style/error.css">
+  </head>
   <main class="main_form">
 
     <section class="inscription">
@@ -71,7 +74,7 @@
                         </div>
 
                         <div class="pt-1 mb-4">
-                          <button class="btn btn-dark btn-lg btn-block"  name="submit" type="submit">S'inscire</button>
+                          <button class="btn btn-dark btn-lg btn-block"  name="submit" type="submit">S'inscrire</button>
                         </div>
 
                         
