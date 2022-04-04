@@ -83,7 +83,7 @@ class Article extends Model {
     }
 
         //modifie les infos d'un article
-        public function CreateArticle($title,$brand,$reference,$description,$material,$color,$packaging,$tips,$specificities,$dimensions,$stock,$price,$discount,$discount_available,$category,$sub_category){
+        public function CreateArticle($title,$brand,$reference,$description,$material,$color,$packaging,$tips,$specificities,$dimensions,$stock,$price,$discount,$discount_available,$category,$sub_category,$introduction){
             $data = [
                 'title1' =>$title,
                 'brand1' =>$brand,
@@ -100,9 +100,10 @@ class Article extends Model {
                 'discount1' =>$discount,
                 'discount_available1' =>$discount_available,
                 'id_category1' =>$category,
+                'introduction1' =>$introduction,
                 'id_sub_category1' =>$sub_category,
             ];
-            $query = "INSERT INTO products SET title=:title1, brand=:brand1, reference=:reference1, description=:description1, material=:material1, colors=:colors1, tips=:tips1,packaging=:packaging1,specificities=:specificities1,dimensions=:dimensions1,stock=:stock1,price=:price1,discount=:discount1,discount_available=:discount_available1,id_category=:id_category1,id_sub_category=:id_sub_category1";
+            $query = "INSERT INTO products  ( `title`, `brand`, `reference`, `introduction`, `description`, `material`, `colors`, `tips`, `packaging`, `specificities`, `dimensions`, `stock`, `price`, `score`, `discount`, `discount_available`, `id_category`, `id_sub_category`) VALUES (':title1',':brand1',':reference1',':introduction1',':description1',':material1',':colors1',':tips1',':packaging1',':specificities1',':dimensions1',':stock1',':price1',':score1',':discount1',':discount_available1',':id_category1',':id_sub_category1')";
             $article = $this->pdo->prepare($query);
             $article->execute($data);
         }

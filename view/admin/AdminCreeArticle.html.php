@@ -13,6 +13,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">reference</label><input type="number" class="form-control" name="reference"></div>
+                    <div class="col-md-12"><label class="labels">Introduction</label><input type="text" class="form-control" name="introduction"></div>
                     <div class="col-md-12"><label class="labels">description</label><textarea class="form-control"  rows="3" name="description"></textarea></div>
                     <div class="col-md-12"><label class="labels">material</label><input type="text" class="form-control" name="material"></div>
                     <div class="col-md-12"><label class="labels"></label><input type="hidden" class="form-control" name="id_article"></div>
