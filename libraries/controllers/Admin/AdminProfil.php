@@ -33,7 +33,6 @@ class AdminProfil extends Controllers{
                 else if ($_POST["droits"] == 'administrateur') {
                     $droits = "admin";
                 }
-                var_dump($id);
                     $password = password_hash($password, PASSWORD_BCRYPT);
                     // insert les donner dans la bdd
                     $addUser= $this->model->UpdateAll($email,$firstname,$lastname,$password,$adress,$NumberPhone,$droits,$user[0]['id']);

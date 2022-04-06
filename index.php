@@ -59,6 +59,10 @@ $router->map('GET/POST', '/ordervalidation',function(){ $controller = new \Contr
 //rootAdmin//
 $router->map('GET/POST', '/adminuser',function(){$controller = new \Controllers\Admin\AdminUser();$controller->AdminUser();},'AdminUSer');
 
+$router->map('GET/POST', '/adminCategory',function(){$controller = new \Controllers\Admin\AdminCategory();$controller->AdminCategory();},'AdminCategory');
+
+$router->map('GET/POST', '/adminSubCategory',function(){$controller = new \Controllers\Admin\AdminSubCategory();$controller->AdminSubCategory();},'AdminSubCategory');
+
 $router->map('GET/POST', '/adminprofil',function(){ $controller = new \Controllers\Admin\AdminProfil(); $controller->AdminProfil();},'AdminProfil');
 
 $router->map('GET/POST', '/admincommentaire',function(){ $controller = new \Controllers\Admin\AdminCommentaire(); $controller->Commentaire();},'AdminCommentaire');
@@ -74,6 +78,13 @@ $router->map('GET/POST', '/adminArticle',function(){ $controller = new \Controll
 $router->map('GET/POST', '/adminUpdateArticle',function(){ $controller = new \Controllers\Admin\AdminUpdateArticle(); $controller->AdminUpdateArticle();},'AdminArticleUpdate');
 
 $router->map('GET/POST', '/adminCreateCategory',function(){ $controller = new \Controllers\Admin\AdminCreateCategory(); $controller->AdminCreateCategory();},'adminCreateCategory');
+
+$router->map('GET/POST', '/adminUpdateCategories',function(){ $controller = new \Controllers\Admin\AdminUpdateCategories(); $controller->AdminUpdateCategory();},'AdminUpdateCategory');
+
+$router->map('GET/POST', '/adminDeleteCategories',function(){ $controller = new \Controllers\Admin\AdminDeleteCategory(); $controller->AdminDeleteCategory();},'AdminDeleteCategory');
+
+$router->map('GET/POST', '/adminDeleteArticle',function(){ $controller = new \Controllers\Admin\AdminDeleteArticle(); $controller->AdminDeleteArticle();},'AdminDeleteArticle');
+
 
 $router->map('GET/POST', '/adminCreateSubCategory',function(){ $controller = new \Controllers\Admin\AdminCreateSubCategory(); $controller->AdminCreateSubCategory();},'adminCreateSubCategory');
 
@@ -109,3 +120,5 @@ else{
     Http::redirect("home");
 
 }
+
+?>

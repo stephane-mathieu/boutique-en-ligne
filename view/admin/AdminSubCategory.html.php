@@ -52,34 +52,34 @@
                     <div class="col-sm-5">
                         <h2> <b> Article Management</b></h2>
                     </div>
+                    <div class="col-sm-7">
+                        <a href="adminCreateCategory" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Category</span></a>
+                    </div>
                 </div>
             </div>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Text</th>
-                        <th>Note</th>
-                        <th>Date</th>
-                        <th>first Name</th>
-                        <th>Product</th>
+                        <th>Id</th>
+                        <th>sous categories</th>
+                        <th>Categories</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($Commentaire as $st) {  ?>
+                <?php foreach ($category as $st) {  ?>
                     <tr>
                         <td> <?= $st['id']; ;?> </td>
-                        <td> <?php echo $st['text']; ?></td>
-                        <td> <?= $st['note']; ?> </td>
-                        <td> <?= $st['date']; ?> </td>
-                        <td> <?= $st['firstname']; ?> </td>
-                        <td> <?= $st['title']; ?> </td>
+                        <td> <?= $st['sub_category']; ?> </td>
+                        <td> <?= $st['category']; ?> </td>
                         <td>
-                            <?php echo '<a href="adminDeleteCommentaire?id='.$st['id'] . '" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>';?>
+                            <?php echo  '<a href="adminUpdateCategories?id='.$st['id'] . '" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>';?>
+                            <?php echo '<a href="adminDeleteCategories?id='.$st['id'] . '" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>';?>
                         </td>
                     </tr>
                 <?php }; ?>
+                </tbody>
+            </table>
                 </tbody>
             </table>
         </div>

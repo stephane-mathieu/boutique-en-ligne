@@ -29,6 +29,15 @@
                         <a href="admincommentaire" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Commentaire</span></a>
                     </li>
+                    </li>
+                        <a href="adminCategory" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Categories</span></a>
+                    </li>
+                    </li>
+                        <a href="adminSubCategory" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline"> Sous Categories</span></a>
+                    </li>
+
                     <li>
                         <a href="admincreatorsteph" class="nav-link px-0 align-middle">
                         <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Creator</span></a>
@@ -48,7 +57,6 @@
                                 <p class="m-b-0">Nom : <span class="f-right"><?php echo $user[0]['lastname']?></span></p>
                                 <p class="m-b-0">Email : <span class="f-right"><?php echo $user[0]['email']?></span></p>
                                 <p class="m-b-0">Date de Creation : <span class="f-right"><?php echo $user[0]['date']?></span></p>
-                                <h6 class="m-b-20"><a href="" class="nav-link px-0 text-white"> Modifier le compte administrateur</a></h6>
                             </div>
                         </div>
                     </div>
@@ -57,8 +65,7 @@
                         <div class="card bg-c-green order-card">
                             <div class="card-block">
                                 <h4 class="m-b-20">Articles</h4>
-                                <p class="m-b-0">Nombre d’articles : <span class="f-right">351</span></p>
-                                <h6 class="m-b-20"><a href="adminArticle" class="nav-link px-0 text-white"> Liste des articles </a></h6>
+                                <p class="m-b-0">Nombre d’articles : <span class="f-right"><?php echo $count[0]["COUNT(*)"]?></span></p>
                                 <p class="m-b-0">Rechercher un article : <span class="f-right">351</span></p>
                                 <p class="m-b-0">Modifier un article : <span class="f-right">351</span></p>
                             </div>

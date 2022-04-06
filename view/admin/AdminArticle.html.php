@@ -27,6 +27,14 @@
                         <a href="admincommentaire" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Commentaire</span></a>
                     </li>
+                    </li>
+                        <a href="adminCategory" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Categories</span></a>
+                    </li>
+                    </li>
+                        <a href="adminSubCategory" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline"> Sous Categories</span></a>
+                    </li>
                     <li>
                         <a href="admincreatorsteph" class="nav-link px-0 align-middle">
                         <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Creator</span></a>
@@ -74,7 +82,7 @@
                         <td> <?= $st['stock']; ?> </td>
                         <td>
                             <?php echo  '<a href="adminUpdateArticle?id='.$st['id'] . '" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>';?>
-                            <?php echo '<a href="adminDelete?id='.$st['id'] . '" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>';?>
+                            <?php echo '<a href="adminDeleteArticle?id='.$st['id'] . '" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>';?>
                         </td>
                     </tr>
                 <?php }; ?>

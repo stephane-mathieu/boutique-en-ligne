@@ -287,6 +287,24 @@ class Article extends Model {
 
     }
 
+    public function DeleteArticle($id_product) {
+        $query = "DELETE FROM `products` WHERE id = '$id_product'";
+        $update_stock = $this->pdo->prepare($query);
+        $update_stock->execute();
+
+    }
+
+    public function CountArticle(){
+        $query = "SELECT COUNT(*) FROM products";
+        $listing = $this->pdo->prepare($query);
+        $listing->setFetchMode(\PDO::FETCH_ASSOC);
+        $listing->execute();
+
+        $array = $listing->fetchAll();
+        return $array;
+        
+    }
+
 }
 
 
