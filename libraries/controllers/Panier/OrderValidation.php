@@ -44,7 +44,7 @@
             }
 
             if(isset($_POST['confirm_order'])) {
-                var_dump($_SESSION['cart']);
+               
                 $state = "Confirmée";
                 $confirm = $this->model->OrderValidation($id_order, $state);
 

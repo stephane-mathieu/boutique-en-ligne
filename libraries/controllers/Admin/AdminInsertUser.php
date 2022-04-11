@@ -37,7 +37,7 @@ class AdminInsertUser extends Controllers{
                 
                 if(empty($_POST['password'])){
                     $errors['password'] = "You must enter a valid password";
-                    echo $errors['password'];
+                    
                 }
     
                 if (empty($errors)){

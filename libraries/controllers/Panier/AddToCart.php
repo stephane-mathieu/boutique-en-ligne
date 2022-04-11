@@ -18,9 +18,6 @@ class AddToCart extends Controllers{
         $model = new \Models\Cart();
 
         $product = $this->model->GetProductId();
-        var_dump($product);
-        
-
 
         if (empty($product))  {
             die("Ce produit n'existe pas.");
@@ -33,10 +30,7 @@ class AddToCart extends Controllers{
             $cart = $this->model->AddProduct($product[0]->id);
             Http::redirect("produits");
         }else {
-                echo "Votre produit est en rupture de stock";
         }
-        var_dump($verif_stock);
-
 
 
         // Http::redirect("panier");

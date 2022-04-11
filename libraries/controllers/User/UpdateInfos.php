@@ -42,14 +42,12 @@ class UpdateInfos extends Controllers{
                         $valid = false;
                         $error_email = "Renseignez une adresse email.";
                         $email = "";
-                        echo "error mail vide";
                     }
 
                     elseif(filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
                         $valid=false;
                         $error_email = "Votre email n'est pas au bon format : example@gmail.";
                         $email="";
-                        echo "error mail format";
                     }
 
                     if( $infos[0]['email'] != $email ) {
@@ -57,7 +55,6 @@ class UpdateInfos extends Controllers{
                             $valid = false;
                             $error_email = "Cet email est déjà utilisé.";
                             $email = "";
-                            echo "erreur mail utilisé";
                         }
                     }
 
@@ -65,55 +62,47 @@ class UpdateInfos extends Controllers{
                         $valid = false;
                         $error_number = "Renseignez votre numéro de téléphone mobile.";
                         $number ='';
-                        echo "number vide";
                     }
 
                     elseif(!is_numeric($number)){
                         $valid = false;
                         $error_number = "Votre numéro de téléphone n'est pas au bon format.";
                         $number = '';
-                        echo "error number non numérique";
                     }
 
                     elseif(strlen($number) != 10 ) {
                         $valid = false;
                         $error_number = "Votre numéro de téléphone doit contenir 10 chiffres.";
                         $number = '';
-                        echo "error number moins 10";
 
                     }
 
                     if(empty($firstname)){
                         $valid = false;
                         $error_firstname = "Renseignez votre prénom.";
-                        echo "error firstname vide";
                     }
 
                     elseif (!preg_match("#^[a-zA-Z]+$#", $firstname)) {
                         $valid = false;
                         $error_firstname ="Votre prénom n'est pas au bon format.";
                         $firstname = '';
-                        echo "error firstname chiffres";
                     }
 
                     if(empty($lastname)){
                         $valid = false;
                         $error_lastname = "Veuillez renseigner votre nom.";
-                        echo "error lastname vide";
                     }
                     
                     elseif (!preg_match("#^[a-zA-Z]+$#", $lastname)) {
                         $valid = false;
                         $err_lastname ="Votre nom n'est pas au bon format;";
                         $lastname = '';
-                        echo "error lastname chiffres";
                     }
 
                     
                     if(empty($address)){
                         $valid = false;
                         $error_address = "Renseignez votre adresse.";
-                        echo "error adresse vide";
                         
                     }
 
@@ -122,7 +111,6 @@ class UpdateInfos extends Controllers{
                         $valid = false;
                         $error_password = "Renseignez votre mot de passe.";
                         $password = '';
-                        echo "error password vide";
                     }
 
                     if($valid) {

@@ -26,44 +26,37 @@ class UpdatePassword extends Controllers{
             if(empty($actual_password)) {
                 $valid = false;
                 $error_actual = "Renseignez votre mot de passe actuel.";
-                echo "Renseigner votre mot de passe actuel.";
             }
 
             else if(!password_verify($actual_password,$infos[0]['password'] )){
                 $valid = false;
                 $error_actual ="Le mot de passe actuel est incorrect.";
-                echo " Le mot de passe actuel est incorrect.";
             }
 
             if(empty($new_password)) {
                 $valid = false;
                 $error_new = "Renseignez votre nouveau mot de passe.";
-                echo "Renseigner votre nouveau mot de passe.";
             }
 
             elseif(strlen($new_password) < 10 ) {
                 $valid = false;
                 $error_new = "Le nouveau mot de passe doit être au moins de 10 caractères.";
-                echo "err password longueur";
             }
 
             elseif(!preg_match('/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]/',$new_password)) {
                 $error_new = "Le nouveau mot de passe ne respecte pas les conditions.";
                 $valid = false;
-                echo "err password conditions";
 
             }
 
             elseif(empty($confirm_new_password)) {
                 $valid = false;
                 $error_confirm = "Confirmez votre nouveau mot de passe.";
-                echo "Confirmez votre nouveau de passe.";
             }
 
             elseif($new_password != $confirm_new_password) {
                 $valid = false;
                 $error_confirm = "Les mots de passe ne correspondent pas.";
-                echo"Les mots de passe ne correspondent pas.";
             }
 
             if($valid) {
