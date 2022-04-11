@@ -1,8 +1,3 @@
-<?php
-
-
-?>
-
 <html lang=fr>
   <head>
     <meta charset="UTF-8">
@@ -14,15 +9,10 @@
   </head>
 
   <body>
-    
-
     <main>
-      
-      <h2>Mon Compte</h2> 
-      
+      <h2>Mon Compte</h2>
 
       <p>Bonjour <?php  echo $user_infos[0]['firstname']; ?>, bienvenue sur votre espace personnel</p>
-      
       <div class="bigcontainer">
       <img src="../assets/products/zippo/briquet_zippo/zippo-brush-chrome-grand-modele-2.jpg" width="260px" height="320px">
 
