@@ -59,15 +59,6 @@
                         } ?> 
 
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
                             <td>TOTAL</td>
                             <td></td>
                             <td></td>

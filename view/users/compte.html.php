@@ -14,7 +14,7 @@
 
       <p>Bonjour <?php  echo $user_infos[0]['firstname']; ?>, bienvenue sur votre espace personnel</p>
       <div class="bigcontainer">
-      <img src="../assets/products/zippo/briquet_zippo/zippo-brush-chrome-grand-modele-2.jpg" width="260px" height="320px">
+      <img src="/boutique-en-ligne/view/assets/products/zippo/briquet_zippo/zippo-brush-chrome-grand-modele-2.jpg" width="260px" height="320px">
 
       <div class="formcolumn1">
         <h5><u>Mon profil</u></h5>
@@ -36,11 +36,11 @@
            <?php  if(!empty($user_orders)) { echo "<a href='macommande?id=".$user_orders[0]['id']."'>Commande numéro ".$user_orders[0]['id']."<br> du ".$user_orders['0']['date']."<br>".$user_orders[0]['incl_taxe_price']." euros</a>"; } ?> 
         </p>
         <br>
-        <?php echo  '<a href="mescommande?id='.$user_infos['0']['id'] . '">Afficher toutes mes commandes</a>';?>
+        <?php echo  '<a class="lien_pad" href="mescommande?id='.$user_infos['0']['id'] . '">Afficher toutes mes commandes</a>';?>
 
       </div>
       
-      <img src="../assets/products/zippo/briquet_zippo/zippo-brush-chrome-grand-modele-2-reverse.jpg" width="260px" height="320px">
+      <img src="/boutique-en-ligne/view/assets/products/zippo/briquet_zippo/zippo-brush-chrome-grand-modele-2-reverse.jpg" width="260px" height="320px">
       </div>
     </main>
   </body>
