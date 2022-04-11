@@ -58,6 +58,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Photo</th>
                         <th>Text</th>
                         <th>Note</th>
                         <th>Date</th>
@@ -70,6 +71,7 @@
                 <?php foreach ($Commentaire as $st) {  ?>
                     <tr>
                         <td> <?= $st['id']; ;?> </td>
+                        <td> <img src="<?php echo $st['image1']; ?>" width="50px" height="50px"></td>
                         <td> <?php echo $st['text']; ?></td>
                         <td> <?= $st['note']; ?> </td>
                         <td> <?= $st['date']; ?> </td>

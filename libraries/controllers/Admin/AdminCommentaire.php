@@ -8,7 +8,7 @@ use Controllers\Controllers;
 
 class AdminCommentaire extends Controllers{
 
-    protected $modelName = \Models\Article::class;
+    protected $modelName = \Models\Commentaire::class;
 
 
     public function Commentaire(){
