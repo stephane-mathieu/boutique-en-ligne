@@ -17,7 +17,6 @@ class MaCommande extends Controllers{
 
 
         $order = $this->model->DisplayOrder($id_order);
-        var_dump($order);
 
         $model = new \Models\Shipping();
 

@@ -33,8 +33,6 @@
                   <div class="col-md-6">
                      <ul>
                         <li> <a href="home"> Accueil</a> </li>
-                        <li> <a href="#"> A propos</a> </li>
-                        <li> <a href="#"> Contact</a> </li>
                      </ul>
                   </div>
                   <div class="col-md-6 px-4">

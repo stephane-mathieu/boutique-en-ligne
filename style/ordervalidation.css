@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,700;1,700&display=swap');
 
+main  {
+    text-align: center;
+}
+
 h1 {
     text-align: center;
+    margin-bottom: 10vh;
+}
+
+h4 {
+    padding-bottom: 4vh;
 }
 
 h5 {
@@ -19,6 +28,7 @@ table {
     background: #FBFBFB;
     font-family: 'Ubuntu';
     font-style: normal;
+    margin-bottom: 3vh;
 }
     
 td {
@@ -29,7 +39,7 @@ td {
 .flex-row {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 main button {
@@ -58,6 +68,7 @@ main button:hover {
     padding: 5vh 3vw 1vh 3vw;
     background: #FBFBFB;
     border-radius: 20px;
+    width: fit-content;
 }
 
 .infoslivraison {
@@ -69,13 +80,16 @@ main button:hover {
     padding: 5vh 3vw 1vh 3vw;
     background: #FBFBFB;
     border-radius: 20px;
+    width: fit-content;
 }
 
 @media only screen and (max-width: 600px){
     .flex-row {
-        display: flex;
+        display: flexbox;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
+    }
+
+    table {
+        max-width: 30px;
     }
 }

@@ -37,18 +37,18 @@
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
+                    <span class="sr-only">Précédent</span>
                 </a>
                 <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
+                    <span class="sr-only">Suivant</span>
                 </a>
             </div>
         </div>
         <div class="col-12 col-md-3">
             <div class="card">
                 <div class="card-header bg-dark text-white text-uppercase">
-                    <i class="fa fa-heart"></i> Top product
+                    <i class="fa fa-heart"></i> Le plus populaire
                 </div>
                     <?php echo "<a class='a' href='produit?id=".$all_products[0]['id'] ."'>"; ?>
                     <img class="img-fluid border-0" src=' <?php echo $all_products[0]['image1']; ?>' alt="Card image cap">
@@ -59,7 +59,7 @@
                             <p class="btn btn-block bg-light text-black"><?php echo $all_products[0]['price']; ?> €</p>
                         </div>
                         <div class='col'>
-                            <?php echo "<a href='addtocart?id=".$all_products[0]['id']."' class='btn btn-block bg-secondary text-white'>Add to cart</a>"; ?>
+                            <?php echo "<a href='addtocart?id=".$all_products[0]['id']."' class='btn btn-block bg-secondary text-white'>Ajouter au panier</a>"; ?>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
         <div class="col-sm">
             <div class="card">
                 <div class="card-header text-white text-uppercase">
-                    <i class="fa fa-star"></i> Last products
+                    <i class="fa fa-star"></i> Nouveautés
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -91,7 +91,7 @@
                                             <p class='btn btn-block bg-light text-black'>".$product['price']."€</p>
                                         </div>
                                         <div class='col'>
-                                            <a href='addtocart?id=".$product['id']."' class='btn btn-block bg-secondary text-white'>Add to cart</a>
+                                            <a href='addtocart?id=".$product['id']."' class='btn btn-block bg-secondary text-white'>+ Panier +</a>
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@
         <div class="col-sm">
             <div class="card">
                 <div class="card-header bg-dark text-white text-uppercase">
-                    <i class="fa fa-trophy"></i> Best products
+                    <i class="fa fa-trophy"></i> Les meilleurs produits
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -131,7 +131,7 @@
                                             <p class='btn btn-block bg-light text-black'>".$product['price']."€</p>
                                         </div>
                                         <div class='col'>
-                                            <a href='addtocart?id=".$product['id']."' class='btn btn-block bg-secondary text-white'>Add to cart</a>
+                                            <a href='addtocart?id=".$product['id']."' class='btn btn-block bg-secondary text-white'>+ Panier +</a>
                                         </div>
                                     </div>
                                 </div>

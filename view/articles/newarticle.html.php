@@ -19,7 +19,7 @@
         <div class="col-sm">
             <div class="card">
                 <div class="card-header text-white text-uppercase">
-                    <i class="fa fa-star"></i> Last products
+                    <i class="fa fa-star"></i> Nouveautés
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -37,7 +37,7 @@
                                             <p class='btn btn-block bg-light text-black'>".$product['price']."€</p>
                                         </div>
                                         <div class='col'>
-                                            <a href='addtocart?id=".$product['id']."' class='btn btn-block bg-secondary text-white'>Add to cart</a>
+                                            <a href='addtocart?id=".$product['id']."' class='btn btn-block bg-secondary text-white'>+ Panier +</a>
                                         </div>
                                     </div>
                                 </div>
