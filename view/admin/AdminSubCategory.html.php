@@ -61,8 +61,8 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>sous categories</th>
-                        <th>Categories</th>
+                        <th>Sous categories</th>
+                        <th>Categories parentes</th>
                         <th>Action</th>
                     </tr>
                 </thead>
