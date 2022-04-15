@@ -26,15 +26,16 @@
                     <div class="col-md-12"><label class="labels">discount</label><input type="number" class="form-control" value="<?php echo $article[0]['discount'] ?>" name="discount"></div>
                 </div>
                 <div class="row mt-4">
+                    <label for="discount_available">Réduction disponible ?</label>
                     <select class="form-select col-md-12 " aria-label="Default select example" name="discount_available">
-                        <option selected>discount_available</option>
-                        <option value= "1" >yes</option>
-                        <option value= "2" >no</option>
+                        
+                        <option value= "1" >oui</option>
+                        <option value= "2" >non</option>
                     </select>
                 </div>
                 <div class="row mt-4">
+                <label for="category">Catégorie</label>
                     <select class="form-select col-md-12 " aria-label="Default select example" name="category">
-                        <option selected>category</option>
                         <?php foreach ($category as $categorie) {
                             $id_categorie = (int) $categorie['id']  ?>
                         <option value="<?php echo $id_categorie ?> "><?php echo $categorie['category']; ?> </option>
@@ -42,8 +43,8 @@
                     </select>
                 </div>
                 <div class="row mt-4">
+                <label for="sub_category">Sous catégorie</label>
                     <select class="form-select col-md-12 " aria-label="Default select example" name="sub_category">
-                        <option selected>sub_category</option>
                         <?php foreach ($sub_categories as $sous_categorie) { ?>
                         <option value="<?php echo $sous_categorie['id']; ?> "><?php echo $sous_categorie['sub_category']; ?> </option>
                     <?php } ?>
