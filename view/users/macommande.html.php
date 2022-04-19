@@ -63,9 +63,9 @@
                                 <td><?php echo $order[0]['vat'] ." €";?></td>
                                 <td><?php echo $order[0]['incl_taxe_price'] ." €";?></td>
                             </tr>
-
-                            
                         </tbody>
+
+
                     </table>
 
                 </section>

@@ -66,8 +66,6 @@
                             <div class="card-block">
                                 <h4 class="m-b-20">Articles</h4>
                                 <p class="m-b-0">Nombre d’articles : <span class="f-right"><?php echo $count[0]["COUNT(*)"]?></span></p>
-                                <p class="m-b-0">Rechercher un article : <span class="f-right">351</span></p>
-                                <p class="m-b-0">Modifier un article : <span class="f-right">351</span></p>
                             </div>
                         </div>
                     </div>
@@ -77,21 +75,10 @@
                             <div class="card-block">
                                 <h4 class="m-b-20">Commandes</h4>
                                 <p class="m-b-0">Nombre de commande total : <span class="f-right">351</span></p>
-                                <p class="m-b-0">Liste des commandes : <span class="f-right">351</span></p>
-                                <p class="m-b-0">Rechercher une commande : <span class="f-right">351</span></p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-md-4 col-xl-3">
-                        <div class="card bg-c-pink order-card">
-                            <div class="card-block">
-                                <h6 class="m-b-20">Commandes reçues</h6>
-                                <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
-                                <p class="m-b-0">Commandes complétées<span class="f-right">351</span></p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

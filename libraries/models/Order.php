@@ -66,7 +66,7 @@ namespace Models;
             $id_order = $id_order['id'];
 
 
-            //inseration dans la table intermédiaire du produit et de l'id de commande liée
+            //insertion dans la table intermédiaire du produit et de l'id de commande liée
             foreach ($productcart as $product){
                 $data2 = [
                     'product_id'=>$product->id,
