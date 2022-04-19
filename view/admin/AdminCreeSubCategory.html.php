@@ -19,7 +19,7 @@
                     <div class="col-md-6"><label class="labels">Titre</label><input type="text" class="form-control" placeholder="title" name="title" ></div>
                    
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" name="submit">Save</button></div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" name="submit">Sauvegarder</button></div>
             </form>
             </div>
         </div>

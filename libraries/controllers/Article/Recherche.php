@@ -21,7 +21,6 @@ class Recherche extends Controllers{
 
         if(isset($_GET['type'])){
             $recherche = htmlspecialchars($_GET['type']);
-            var_dump($recherche);
             $all_products = $this->model->DisplayAllProductsBySeach("$recherche");
         }
 

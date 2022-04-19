@@ -14,7 +14,6 @@ class AdminCategory extends Controllers{
         session_start();
         if($_SESSION['role'] == "admin"){
             $category = $this->model->FindCategory();
-            var_dump($category);
             $pageTitle = "AdminCategory";
             Renderer::render2('admin/AdminCategories', compact('pageTitle','category'));
         }else{

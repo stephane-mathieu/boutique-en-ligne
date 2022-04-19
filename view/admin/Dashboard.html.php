@@ -6,15 +6,15 @@
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li class="nav-item">
                         <a href="home" class="nav-link align-middle px-0">
-                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Accueil</span>
                         </a>
                     </li>
                     <li>
                         <a href="admin" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline"></span> Dashboard </a>
+                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline"></span> Tableau de bord </a>
                         <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                             <li class="w-100">
-                            <a href="adminuser" class="nav-link px-0"> <span class="d-none d-sm-inline"></span> User</a>
+                            <a href="adminuser" class="nav-link px-0"> <span class="d-none d-sm-inline"></span> Utilisateur</a>
                             </li>
                             <li>
                                 <a href="adminArticle" class="nav-link px-0"> <span class="d-none d-sm-inline"></span> Article </a>
@@ -40,7 +40,7 @@
 
                     <li>
                         <a href="admincreatorsteph" class="nav-link px-0 align-middle">
-                        <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Creator</span></a>
+                        <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Createurs</span></a>
                     </li>
                 </ul>
                 <hr>
@@ -86,9 +86,9 @@
                     <div class="col-md-4 col-xl-3">
                         <div class="card bg-c-pink order-card">
                             <div class="card-block">
-                                <h6 class="m-b-20">Orders Received</h6>
+                                <h6 class="m-b-20">Commandes reçues</h6>
                                 <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
-                                <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
+                                <p class="m-b-0">Commandes complétées<span class="f-right">351</span></p>
                             </div>
                         </div>
                     </div>

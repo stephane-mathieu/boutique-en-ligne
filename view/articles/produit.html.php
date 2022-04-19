@@ -96,7 +96,7 @@
                         </form>
 
                         <div class="reviews_product p-3 mb-2 ">
-                            <?php echo $count[0]["COUNT(*)"] ." reviews  " ?>
+                            <?php echo $count[0]["COUNT(*)"] ." note(s)  " ?>
                             <?php $nombre = round($moyenne[0]["AVG(note)"]); echo "($nombre/5)"; ?>
                             <?php 
                             $i= 0;
@@ -106,7 +106,7 @@
                                         // var_dump($i);
                                     }
                             ?>
-                            <a class="pull-right" href="#reviews">View all reviews</a>
+                            <a class="pull-right" href="#reviews">Voir tous les commentaires</a>
                             
                         </div>
                         <?php echo "<a class='pull-right' href='addcommentaire?id_article=".$article[0]['id']."'>Ajouter un commentaire</a>"; ?>
@@ -181,7 +181,7 @@
             <!-- Reviews -->
             <div class="col-12" id="reviews">
                 <div class="card border-light mb-3">
-                    <div class="card-header bg-black text-white text-uppercase"><i class="fa fa-comment"></i> Reviews</div>
+                    <div class="card-header bg-black text-white text-uppercase"><i class="fa fa-comment"></i> Commentaires</div>
                     <div class="card-body">
                         <?php
                             foreach ($comment as $commentaire){
