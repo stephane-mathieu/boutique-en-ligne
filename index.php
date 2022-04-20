@@ -83,6 +83,8 @@ $router->map('GET/POST', '/adminUpdateCategories',function(){ $controller = new 
 
 $router->map('GET/POST', '/adminDeleteCategories',function(){ $controller = new \Controllers\Admin\AdminDeleteCategory(); $controller->AdminDeleteCategory();},'AdminDeleteCategory');
 
+$router->map('GET/POST', '/adminDeleteSubCategories',function(){ $controller = new \Controllers\Admin\AdminDeleteSubCategorie(); $controller->AdminDeleteSubCategories();},'AdminDeleteSubCategories');
+
 $router->map('GET/POST', '/adminDeleteArticle',function(){ $controller = new \Controllers\Admin\AdminDeleteArticle(); $controller->AdminDeleteArticle();},'AdminDeleteArticle');
 
 

@@ -68,12 +68,30 @@
             $data = [
                 'title'=>$title,
                 'category'=>$category,
-            ] ;
+            ];
 
             $query = "INSERT INTO sub_categories (sub_category, id_category) VALUES (:title, :category)";
             $insert = $this->pdo->prepare($query);
             $insert->execute($data);
             
+        }
+
+        public function DeleteCategory($id_category){
+            $data = [
+                    'id' => $id_category,
+            ];
+            $query = "DELETE FROM categories WHERE id = :id";
+            $prepare = $this->pdo->prepare($query);
+            $prepare->execute($data);
+        }
+
+        public function DeleteSubCategory($id_category){
+            $data = [
+                    'id' => $id_category,
+            ];
+            $query = "DELETE FROM categories WHERE id = :id";
+            $prepare = $this->pdo->prepare($query);
+            $prepare->execute($data);
         }
 
 

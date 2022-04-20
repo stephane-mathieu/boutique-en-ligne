@@ -76,7 +76,7 @@
                         <td> <?= $st['category']; ?> </td>
                         <td>
                             <?php echo  '<a href="adminUpdateCategories?id='.$st['id'] . '" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>';?>
-                            <?php echo '<a href="adminDeleteCategories?id='.$st['id'] . '" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>';?>
+                            <?php echo '<a href="adminDeleteSubCategories?id='.$st['id'] . '" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>';?>
                         </td>
                     </tr>
                 <?php }; ?>

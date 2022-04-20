@@ -22,7 +22,7 @@ window.onload = () => {
 
     card.addEventListener('change', function(event) {
         // On récupère l'élément qui permet d'afficher les erreurs de saisie
-        let displayError = document.getElementById("card-errors");
+        let displayError = document.getElementById("card-errors")
 
         // Si il y a une erreur
         if (event.error) {
