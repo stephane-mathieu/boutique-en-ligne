@@ -89,7 +89,7 @@
             $data = [
                     'id' => $id_category,
             ];
-            $query = "DELETE FROM categories WHERE id = :id";
+            $query = "DELETE FROM sub_categories WHERE id = :id";
             $prepare = $this->pdo->prepare($query);
             $prepare->execute($data);
         }
