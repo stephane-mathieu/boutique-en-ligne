@@ -37,8 +37,10 @@ class Produits extends Controllers{
 
         
 
+        
+
         $pageTitle = "Produits";
-        Renderer::render('articles/produits', compact('pageTitle', 'all_products', 'all_categories', 'all_sub_categories'));
+        @Renderer::render('articles/produits', compact('pageTitle', 'all_products', 'all_categories', 'all_sub_categories'));
 
 
     }

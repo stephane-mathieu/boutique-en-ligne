@@ -76,6 +76,13 @@ main button:hover {
     cursor: pointer;
 }
 
+
+a {
+    color: white;
+}
+
+
+
 @media only screen and (max-width: 600px){
 
     main {

@@ -25,6 +25,7 @@
 
                         <div class="col-md-12"><label class="label label-default mt-3">Confirmez avec votre mot de passe</label><input type="password" class="form-control"  name="password"></div>
                         <div class="error"><?php if (isset($error_password_confirm)) { echo $error_password_confirm; }?></div>
+                        <div class="error"><?php if (isset($error_password)) { echo $error_password; }?></div>
                     </div>
 
                     <div class="mt-5 text-center"><button class="btn btn-dark profile-button" type="submit" name="submit">Sauvegarder</button></div>
