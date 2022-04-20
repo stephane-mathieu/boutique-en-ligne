@@ -20,7 +20,7 @@ class Inscription extends Controllers{
 
         if(isset($_POST['submit'])){
 
-            $password = htmlspecialchars(htmlentities(($_POST['password']));
+            $password = htmlspecialchars(htmlentities($_POST['password']));
             $email = htmlspecialchars(htmlentities(trim($_POST['email'])));
             $number = htmlspecialchars(htmlentities(trim($_POST['number'])));
             $firstname = htmlspecialchars(htmlentities(ucwords(strtolower(trim($_POST['firstname'])))));
@@ -136,7 +136,7 @@ class Inscription extends Controllers{
         }
 
         $pageTitle = "inscription";
-        Renderer::render('users/inscription',compact('pageTitle', 'display_form', 'error_firstname', 
+        @Renderer::render('users/inscription',compact('pageTitle', 'display_form', 'error_firstname', 
         'error_lastname', 'error_email', 'error_address', 'error_password', 'error_password_confirm', 
         'firstname', 'lastname', 'email', 'address', 'message'));
     }
