@@ -20,12 +20,12 @@ class Inscription extends Controllers{
 
         if(isset($_POST['submit'])){
 
-            $password = htmlspecialchars(htmlentities(($_POST['password']));
+            $password = htmlspecialchars(htmlentities(($_POST['password'])));
             $email = htmlspecialchars(htmlentities(trim($_POST['email'])));
             $number = htmlspecialchars(htmlentities(trim($_POST['number'])));
             $firstname = htmlspecialchars(htmlentities(ucwords(strtolower(trim($_POST['firstname'])))));
             $lastname = htmlspecialchars(htmlentities(ucwords(strtolower(trim($_POST['lastname'])))));
-            $address = htmlspecialchars(htmlentities(($_POST['address']));
+            $address = htmlspecialchars(htmlentities(($_POST['address'])));
             $password_confirm = htmlspecialchars(htmlentities($_POST['password_confirm']));
             $date = date('Y-m-d H:i');
 

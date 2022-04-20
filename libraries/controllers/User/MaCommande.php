@@ -21,6 +21,9 @@ class MaCommande extends Controllers{
         $model = new \Models\Shipping();
 
         $shipping = $model->DisplayShipping($id_order);
+        if(isset($_POST['confirm_order'])){
+            Http::redirect("produits");
+        }
 
 
         $pageTitle = "MaCommande";

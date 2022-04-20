@@ -19,6 +19,10 @@ class AdminInsertArticle extends Controllers{
             $sub_category = $models->ListingSubCategories();
             if(isset($_POST['submit'])){
                 $title = htmlspecialchars($_POST['title']);
+                $image1 = htmlspecialchars($_POST['image1']);
+                $image2 = htmlspecialchars($_POST['image2']);
+                $image3 = htmlspecialchars($_POST['image3']);
+                $image4 = htmlspecialchars($_POST['image4']);
                 $introduction = htmlspecialchars($_POST['introduction']);
                 $brand = htmlspecialchars($_POST['brand']);
                 $reference = htmlspecialchars($_POST['reference']);
@@ -36,7 +40,7 @@ class AdminInsertArticle extends Controllers{
                 $sub_category = htmlspecialchars($_POST['sub_category']);
                 $category1 = htmlspecialchars($_POST['category']);
                     // insert les donner dans la bdd
-                    $addArticle= $this->model->CreateArticle($title,$brand,$reference,$description,$material,$color,$packaging,$tips,$specificities,$dimensions,$stock,$price,$discount,$discount_available,$category1,$sub_category,$introduction);
+                    $addArticle= $this->model->CreateArticle($title,$brand,$reference,$description,$material,$color,$packaging,$tips,$specificities,$dimensions,$stock,$price,$discount,$discount_available,$category1,$sub_category,$introduction,$image1,$image2,$image3,$image4);
                     Http::redirect("adminArticle");
             }
             $pageTitle = "AdminArticle";

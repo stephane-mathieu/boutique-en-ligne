@@ -5,8 +5,8 @@
   <main class="main_form">
 
     <section class="inscription">
-      <div class="container py-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="container py-5">
+        <div class="row d-flex justify-content-center align-items-center ">
           <div class="col col-xl-10">
             <div class="card" style="border-radius: 1rem;">
               <div class="row g-0">

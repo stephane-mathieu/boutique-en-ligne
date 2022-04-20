@@ -101,6 +101,6 @@
             <form method='post'>
                 <button type='submit' name='confirm_order'>Valider et passer au paiement</button>
             </form>
-        </main>             
+        </main>
     </body>
 </html>

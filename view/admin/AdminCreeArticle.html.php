@@ -8,6 +8,10 @@
                 </div>
             <form   method="POST">
                 <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels"> image1</label><input type="text" class="form-control" placeholder="title" name="image1" ></div>
+                    <div class="col-md-6"><label class="labels"> image2</label><input type="text" class="form-control" placeholder="title" name="image2" ></div>
+                    <div class="col-md-6"><label class="labels"> image3</label><input type="text" class="form-control" placeholder="title" name="image3" ></div>
+                    <div class="col-md-6"><label class="labels"> image4</label><input type="text" class="form-control" placeholder="title" name="image4" ></div>
                     <div class="col-md-6"><label class="labels"> title</label><input type="text" class="form-control" placeholder="title" name="title" ></div>
                     <div class="col-md-6"><label class="labels">brand</label><input type="text" class="form-control" name="brand"></div>
                 </div>

@@ -9,7 +9,6 @@
             <form   method="POST">
                 <div class="row mt-2">
                     <div class="col-md-6"><label class="labels">Titre</label><input type="text" class="form-control" placeholder="title" name="title" ></div>
-                    <div class="col-md-6"><label class="labels">Description</label><input type="text" class="form-control" name="description"></div>
                 </div>
                 <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" name="submit">Sauvegarder</button></div>
             </form>

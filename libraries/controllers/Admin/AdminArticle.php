@@ -16,7 +16,7 @@ class AdminArticle extends Controllers{
         session_start();
         if($_SESSION['role'] == "admin"){
             $Article = $this->model->FindAllArticle();
-            
+
             $pageTitle = "adminArticle";
             Renderer::render2('admin/AdminArticle', compact('pageTitle','Article'));
         }else{

@@ -83,7 +83,7 @@ class Article extends Model {
     }
 
         //modifie les infos d'un article
-        public function CreateArticle($title,$brand,$reference,$description,$material,$color,$packaging,$tips,$specificities,$dimensions,$stock,$price,$discount,$discount_available,$category,$sub_category,$introduction){
+        public function CreateArticle($title,$brand,$reference,$description,$material,$color,$packaging,$tips,$specificities,$dimensions,$stock,$price,$discount,$discount_available,$category,$sub_category,$introduction,$image1,$image2,$image3,$image4){
             $data = [
                 'title1' =>$title,
                 'brand1' =>$brand,
@@ -102,8 +102,12 @@ class Article extends Model {
                 'id_category1' =>$category,
                 'introduction1' =>$introduction,
                 'id_sub_category1' =>$sub_category,
+                'image1' =>$image1,
+                'image2' =>$image2,
+                'image3' =>$image3,
+                'image4' =>$image4,
             ];
-            $query = "INSERT INTO products  ( title, brand, reference, introduction, description, material, colors, tips, packaging, specificities, dimensions, stock, price, discount, discount_available, id_category, id_sub_category) VALUES (:title1,:brand1,:reference1,:introduction1,:description1,:material1,:colors1,:tips1,:packaging1,:specificities1,:dimensions1,:stock1,:price1,:discount1,:discount_available1,:id_category1,:id_sub_category1)";
+            $query = "INSERT INTO products  ( title, brand, reference, introduction, description, material, colors, tips, packaging, specificities, dimensions, stock,image1,image2,image3,image4,price, discount, discount_available, id_category, id_sub_category) VALUES (:title1,:brand1,:reference1,:introduction1,:description1,:material1,:colors1,:tips1,:packaging1,:specificities1,:dimensions1,:stock1,:image1,:image2,:image3,:image4,:price1,:discount1,:discount_available1,:id_category1,:id_sub_category1)";
             $article = $this->pdo->prepare($query);
             $article->execute($data);
         }
