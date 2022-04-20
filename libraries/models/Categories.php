@@ -56,10 +56,11 @@
 
 
 
-        public function InsertCategory($category,$description){
+        public function InsertCategory($category){
 
-            $query = $this->pdo->prepare("INSERT INTO `categories` ( `category`, `description`) VALUES ('$category','$description')");
-            $query->execute();
+            $query = "INSERT INTO `categories` ( `category`) VALUES (:category)";
+            $insert = $this->pdo->prepare($query);
+            $insert->execute(['category'=>$category]);
         }
 
         public function InsertSubCategory($title,$category){

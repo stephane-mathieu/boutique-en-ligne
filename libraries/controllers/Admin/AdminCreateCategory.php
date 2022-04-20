@@ -15,8 +15,7 @@ class AdminCreateCategory extends Controllers{
         if($_SESSION['role'] == "admin"){
             if(isset($_POST['submit'])){
                 $title = htmlspecialchars($_POST['title']);
-                $description = htmlspecialchars($_POST['description']);
-                $insert = $this->model->InsertCategory($title, $description);
+                $insert = $this->model->InsertCategory($title);
                 Http::redirect("adminArticle");
             }
            
