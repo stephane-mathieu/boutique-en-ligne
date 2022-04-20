@@ -56,7 +56,7 @@ class Connexion extends Controllers{
         }
         $pageTitle = "connexion";
 
-        Renderer::render('users/connexion',compact('pageTitle', 'error'));
+        @Renderer::render('users/connexion',compact('pageTitle', 'error'));
 
     }
 
