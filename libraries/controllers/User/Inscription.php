@@ -136,7 +136,7 @@ class Inscription extends Controllers{
         }
 
         $pageTitle = "inscription";
-        Renderer::render('users/inscription',compact('pageTitle', 'display_form', 'error_firstname', 
+        @Renderer::render('users/inscription',compact('pageTitle', 'display_form', 'error_firstname', 
         'error_lastname', 'error_email', 'error_address', 'error_password', 'error_password_confirm', 
         'firstname', 'lastname', 'email', 'address', 'message'));
     }
