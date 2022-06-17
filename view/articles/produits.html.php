@@ -42,27 +42,19 @@
                 </div>
 
                 <div class="products_list">
-
                     <?php foreach ($all_products as $product) {
                         echo "
-
                         <div class='product'>
-
                             <div class='box_img'>
                                 <a href='produit?id=". $product['id'] ."'>
                                 <img class='p_image' src='".$product['image1']."'></a>
                             </div>
-
                             <div class='box_texte'>
                                 <div><h6>".$product['title']." / ".$product['brand']."</h6></div>
                                 <div class='p_category'>".$product['category']." / ".$product['sub_category']."</div>
                                 <div class='p_intro'>".$product['introduction']."</div>
-
                                 <div class='price_cart'>
-
                                     <div class='price'>".$product['price']."€</div>" ;
-
-
                                     if($product['stock'] > 0) { echo "
                                     <div><a href='addtocart?id=".$product['id']."'><img class='icone' src='/boutique-en-ligne/view/assets/add-to-basket.PNG' alt='add_to_cart_icon'></a></div> " ;
                                     } else  { echo "
@@ -70,13 +62,10 @@
                                     }
                                  echo "
                                 </div>
-
                             </div>
-
                         </div> ";
                     }
                     ?>
-
                 </div>
 
             </section>
