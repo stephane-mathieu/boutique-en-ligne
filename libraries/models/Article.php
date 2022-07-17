@@ -18,7 +18,7 @@ class Article extends Model {
     }
 
     //permet de selectionner le product par id  et le renvoyer dans un tableau
-    public function FindinfoArticle($id): array{
+    public function FindInfoArticle($id): array{
 
         $query = "SELECT * FROM products WHERE id = :id";
         $find = $this->pdo->prepare($query);
