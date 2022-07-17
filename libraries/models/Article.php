@@ -25,7 +25,7 @@ class Article extends Model {
         $find->setFetchMode(\PDO::FETCH_ASSOC);
         $find->execute(['id'=>$id]);
 
-        $article = $find->fetchall();
+        $article = $find->fetchAll();
 
         return $article;
     }
