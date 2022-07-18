@@ -28,8 +28,8 @@ class Produits extends Controllers{
         
         
         if(isset($_GET['category'])){
-            $nom_categorie = htmlspecialchars($_GET['category']);
-            $all_products = $this->model->DisplayAllProductsByCat($nom_categorie);
+            $category_name = htmlspecialchars($_GET['category']);
+            $all_products = $this->model->DisplayAllProductsByCat($category_name);
             
         }
         
