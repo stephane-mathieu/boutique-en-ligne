@@ -96,7 +96,6 @@
                 $separator = ",";
             }
            
-
             if (empty($ids)) {
                 $products = array();
             }
@@ -106,18 +105,14 @@
                 $products_cart = $this->pdo->prepare($query);
                 $products_cart->setFetchMode(\PDO::FETCH_OBJ);
                 $products_cart->execute();
-
                 $products = $products_cart->fetchAll();
             }
 
             foreach($products as $product) { 
-                $total += $product->price * $_SESSION['cart'][$product->id];
-
-               
+                $total += $product->price * $_SESSION['cart'][$product->id];           
             }
 
             return $total;
-
         }
 
         //Met à jour les quantités/prix des articles dans le panier
