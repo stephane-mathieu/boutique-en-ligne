@@ -35,8 +35,7 @@ namespace Models;
 
         // Transforme le panier en commande
         public function CreateOrder($sessioncart, $id_user, $date, $productcart, $excl_taxe_price, $vat, $incl_taxe_price, $payment_state, $state) {
-
-            
+      
             // Création de la commande
             $data = [
                 'id_user'=>$id_user,
@@ -47,8 +46,7 @@ namespace Models;
                 'payment_state'=>$payment_state,
                 'state'=>$state,
             ];
-
-            
+          
             $query = "INSERT INTO orders (id_user, date, excl_taxe_price, vat, incl_taxe_price, payment_state, state) VALUES (:id_user, :date, :excl_taxe_price, :vat, :incl_taxe_price, :payment_state, :state)";
             $products_cart = $this->pdo->prepare($query);
             $products_cart->execute($data);
@@ -59,10 +57,7 @@ namespace Models;
             $id->setFetchMode(\PDO::FETCH_ASSOC);
             $id->execute();
 
-          
-
             $id_order = $id->fetch();
-
             $id_order = $id_order['id'];
 
 
