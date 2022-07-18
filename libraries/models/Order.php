@@ -74,14 +74,9 @@ namespace Models;
             }
 
             //récupération des id des produits en variable de session en parcourant le tableau de session avec l'id produit en index et la quantité associée
-
             $ids_product = array_keys($sessioncart);
-
-   
             
-
-            //parcours le tableau des id en transformant l'id du produit en variable
-            
+            //parcours le tableau des id en transformant l'id du produit en variable            
             foreach ($ids_product as $id_product) {
 
                 $id_product = (int) $id_product;
@@ -103,19 +98,12 @@ namespace Models;
                         $query4 = "UPDATE products_orders SET quantity = :quantity WHERE id_order = :id_order AND id_product = :id_product ";
                         $insert2 = $this->pdo->prepare($query4);
                         $insert2->execute($data);
-        
-
-                    }
-
-                   
-                }
-
-                
+                    }                   
+                }            
             }
 
             return $id_order; // retourne l'id order pour le controller qui va rediriger vers la page de livraison concernant la commande enregistrée;
             
-
         }
 
 
