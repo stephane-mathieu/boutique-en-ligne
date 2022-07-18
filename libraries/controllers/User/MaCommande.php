@@ -13,9 +13,7 @@ class MaCommande extends Controllers{
     public function MaCommande(){
 
         session_start();
-        $id_order = $_GET['id'];
-
-
+        $id_order = htmlentities($_GET['id']);
         $order = $this->model->DisplayOrder($id_order);
 
         $model = new \Models\Shipping();
