@@ -10,7 +10,7 @@ class MaCommande extends Controllers{
 
     protected $modelName = \Models\Order::class;
 
-    public function MaCommande(){
+    public function MyCommand(){
 
         session_start();
         $id_order = htmlentities($_GET['id']);
